@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useSession } from "@/lib/auth-client";
 import { PlanCheckoutLink } from "@/components/plans/plan-checkout-link";
+import { ReviewsSection } from "@/components/reviews-section";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -618,6 +619,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* Customer reviews from AlternativeTo */}
+      <ReviewsSection />
 
       {/* Pricing */}
       <section className="py-20 bg-gray-50">

@@ -20,11 +20,15 @@ export default function ForgotPasswordPage() {
     setLoading(true);
 
     try {
-      await authClient.requestPasswordReset({
+      const result = await authClient.requestPasswordReset({
         email,
         redirectTo: '/reset-password',
       });
-      setSuccess(true);
+      if (result?.error) {
+        setError(result.error.message || 'Failed to send reset email. Please try again later.');
+      } else {
+        setSuccess(true);
+      }
     } catch (err: any) {
       setError(err.message || 'Failed to send reset email');
     } finally {

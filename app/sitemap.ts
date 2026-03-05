@@ -4,12 +4,16 @@ import { getPosts } from '@/lib/blog-posts'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.aibrandtrack.com'
   const posts = await getPosts()
-  const blogPostUrls = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
+  const blogPostUrls = posts.map((post) => {
+    const date = new Date(post.date)
+    const lastModified = Number.isNaN(date.getTime()) ? new Date() : date
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }
+  })
 
   return [
     {

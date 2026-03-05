@@ -214,9 +214,9 @@ export async function getBatchDataForSEOMetrics(
     const apiUrl = 'https://api.dataforseo.com/v3/keywords_data/google/search_volume/live';
     const auth = Buffer.from(`${login}:${password}`).toString('base64');
     
-    // Create tasks array for batch request
+    // Create tasks array for batch request (only fetch uncached keywords)
     const tasks = [{
-      keywords: keywords,
+      keywords: keywordsToFetch,
       location_code: 2840, // United States (adjust as needed)
       language_code: 'en',
     }];

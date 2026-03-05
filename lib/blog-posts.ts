@@ -21,7 +21,9 @@ export async function getPosts(): Promise<BlogPost[]> {
   }
 
   const files = await fs.readdir(POSTS_DIR);
-  const jsonFiles = files.filter((f) => f.endsWith('.json'));
+  const jsonFiles = files.filter(
+    (f) => f.endsWith('.json') && !f.startsWith('.')
+  );
 
   const posts: BlogPost[] = [];
   for (const file of jsonFiles) {
@@ -29,6 +31,9 @@ export async function getPosts(): Promise<BlogPost[]> {
       const filePath = path.join(POSTS_DIR, file);
       const raw = await fs.readFile(filePath, 'utf-8');
       const data = JSON.parse(raw) as BlogPost;
+      if (!data || typeof data.date !== 'string' || !data.slug) {
+        continue;
+      }
       const slug = data.slug ?? path.basename(file, '.json');
       posts.push({ ...data, slug });
     } catch (err) {

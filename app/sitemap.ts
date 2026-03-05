@@ -1,8 +1,16 @@
 import { MetadataRoute } from 'next'
+import { getPosts } from '@/lib/blog-posts'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.aibrandtrack.com'
-  
+  const posts = await getPosts()
+  const blogPostUrls = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   return [
     {
       url: baseUrl,
@@ -34,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    ...blogPostUrls,
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: new Date(),

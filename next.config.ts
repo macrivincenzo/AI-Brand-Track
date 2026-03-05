@@ -38,6 +38,12 @@ const nextConfig: NextConfig = {
         destination: 'https://www.aibrandtrack.com',
         permanent: true,
       },
+      // Redirect duplicate blog URL to canonical (fix duplicate content)
+      {
+        source: '/blog/2026-03-05-generative-engine-optimization',
+        destination: '/blog/generative-engine-optimization',
+        permanent: true,
+      },
     ];
   },
 };

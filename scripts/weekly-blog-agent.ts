@@ -16,6 +16,9 @@ const SEED_KEYWORDS = [
   'chatgpt brand tracking',
   'perplexity brand monitoring',
   'generative engine optimization',
+  'AI brand monitoring',
+  'brand visibility in AI search',
+  'optimize for AI search',
 ];
 
 const MIN_SEARCH_VOLUME = 500;

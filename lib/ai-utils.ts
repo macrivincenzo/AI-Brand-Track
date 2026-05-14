@@ -850,7 +850,8 @@ Examples of mentions to catch:
     let object;
     try {
       // Use a fast model for structured output if available
-      const structuredModel = normalizedProvider === 'anthropic' 
+      // Gemini (google) and Anthropic have issues with generateObject, so use OpenAI for analysis
+      const structuredModel = (normalizedProvider === 'anthropic' || normalizedProvider === 'google')
         ? getProviderModel('openai', 'gpt-4o-mini') || model
         : model;
       

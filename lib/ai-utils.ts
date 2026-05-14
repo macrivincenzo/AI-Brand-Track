@@ -86,12 +86,12 @@ const RankingSchema = z.object({
   rankings: z.array(z.object({
     position: z.number(),
     company: z.string(),
-    reason: z.string().optional(),
-    sentiment: z.enum(['positive', 'neutral', 'negative']).optional(),
+    reason: z.string().nullable().optional(),
+    sentiment: z.enum(['positive', 'neutral', 'negative']).nullable().optional(),
   })),
   analysis: z.object({
     brandMentioned: z.boolean(),
-    brandPosition: z.number().optional(),
+    brandPosition: z.number().nullable().optional(),
     competitors: z.array(z.string()),
     overallSentiment: z.enum(['positive', 'neutral', 'negative']),
     confidence: z.number().min(0).max(1),
@@ -857,9 +857,10 @@ Examples of mentions to catch:
       
       const result = await generateObject({
         model: structuredModel,
+        system: 'You are an expert at analyzing text and extracting structured information about companies and brand rankings.',
         schema: RankingSchema,
         prompt: analysisPrompt,
-        temperature: 0.3,
+        temperature: 0,
         maxRetries: 2,
       });
       object = result.object;

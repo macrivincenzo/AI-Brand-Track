@@ -332,6 +332,35 @@ export function normalizeProviderName(name: string): string {
 }
 
 /**
+ * Resolve any provider label to the canonical display name used in the UI and matrix (e.g. "google" → "Google").
+ */
+export function resolveProviderDisplayName(provider: string): string {
+  const trimmed = (provider || '').trim();
+  if (!trimmed) return trimmed;
+
+  const normalized = normalizeProviderName(trimmed);
+  const config = getProviderConfig(normalized);
+  if (config) return config.name;
+
+  for (const p of Object.values(PROVIDER_CONFIGS)) {
+    if (p.name.toLowerCase() === trimmed.toLowerCase()) return p.name;
+    if (p.id.toLowerCase() === trimmed.toLowerCase()) return p.name;
+  }
+
+  const aliases: Record<string, string> = {
+    gemini: 'Google',
+    'google gemini': 'Google',
+    chatgpt: 'OpenAI',
+    gpt: 'OpenAI',
+    claude: 'Anthropic',
+  };
+  const aliasMatch = aliases[trimmed.toLowerCase()];
+  if (aliasMatch) return aliasMatch;
+
+  return trimmed;
+}
+
+/**
  * Check if a provider is enabled (regardless of API key configuration)
  */
 export function isProviderEnabled(providerId: string): boolean {

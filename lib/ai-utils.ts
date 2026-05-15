@@ -1,8 +1,8 @@
 import { generateText, generateObject } from 'ai';
 import { z } from 'zod';
 import { Company, BrandPrompt, AIResponse, CompanyRanking, CompetitorRanking, ProviderSpecificRanking, ProviderComparisonData, ProgressCallback, CompetitorFoundData } from './types';
-import { getProviderModel, normalizeProviderName, isProviderConfigured, getConfiguredProviders, PROVIDER_CONFIGS } from './provider-config';
-import { detectBrandMention, detectMultipleBrands, BrandDetectionOptions, smartBrandMatch } from './brand-detection-utils';
+import { getProviderModel, normalizeProviderName, isProviderConfigured, getConfiguredProviders, PROVIDER_CONFIGS, resolveProviderDisplayName } from './provider-config';
+import { detectBrandMention, detectMultipleBrands, BrandDetectionOptions, smartBrandMatch, stripMarkdown } from './brand-detection-utils';
 import { getBrandDetectionOptions } from './brand-detection-config';
 import { detectServiceType } from './brand-monitor-utils';
 import { extractSourcesFromResponse } from './source-tracker-utils';
@@ -917,7 +917,7 @@ Return a simple analysis:
           }
 
           return {
-            provider,
+            provider: resolveProviderDisplayName(provider),
             prompt,
             response: text,
             brandMentioned: aiSaysBrandMentioned || brandDetection.mentioned,
@@ -957,7 +957,7 @@ Return a simple analysis:
       }
       
       return {
-        provider,
+        provider: resolveProviderDisplayName(provider),
         prompt,
         response: text,
         brandMentioned: brandDetection.mentioned,
@@ -974,8 +974,8 @@ Return a simple analysis:
     const rankings = object.rankings.map((r): CompanyRanking => ({
       position: r.position,
       company: r.company,
-      reason: r.reason,
-      sentiment: r.sentiment,
+      reason: r.reason ?? undefined,
+      sentiment: r.sentiment ?? undefined,
     }));
 
     // Enhanced fallback with proper brand detection using configured options
@@ -1053,15 +1053,10 @@ Return a simple analysis:
       );
     }
 
-    // Get the proper display name for the provider
-    const providerDisplayName = provider === 'openai' ? 'OpenAI' :
-                               provider === 'anthropic' ? 'Anthropic' :
-                               provider === 'google' ? 'Google' :
-                               provider === 'perplexity' ? 'Perplexity' :
-                               provider; // fallback to original
+    const providerDisplayName = resolveProviderDisplayName(provider);
     
     // Debug log for Google responses
-    if (provider === 'google' || provider === 'Google') {
+    if (normalizedProvider === 'google') {
       console.log('Google response generated:', {
         originalProvider: provider,
         displayName: providerDisplayName,
@@ -1087,7 +1082,7 @@ Return a simple analysis:
       rankings,
       competitors: relevantCompetitors,
       brandMentioned,
-      brandPosition: object.analysis.brandPosition,
+      brandPosition: object.analysis.brandPosition ?? undefined,
       sentiment: object.analysis.overallSentiment,
       confidence: object.analysis.confidence,
       timestamp: new Date(),
@@ -1588,10 +1583,17 @@ export async function analyzeCompetitorsByProvider(
 
   // Process responses by provider
   responses.forEach(response => {
-    // Try exact match first, then case-insensitive fallback
+    // Try exact match, case-insensitive fallback, then alias resolution (e.g. "gemini" → "Google")
     let providerKey = providerData.has(response.provider)
       ? response.provider
       : providerLookup.get((response.provider || '').toLowerCase());
+
+    if (!providerKey && response.provider) {
+      const resolved = resolveProviderDisplayName(response.provider);
+      providerKey = providerData.has(resolved)
+        ? resolved
+        : providerLookup.get(resolved.toLowerCase());
+    }
 
     if (!providerKey) {
       unmatchedProviders.push(response.provider);
@@ -1668,15 +1670,11 @@ export async function analyzeCompetitorsByProvider(
     // This catches cases where the structured analysis (generateObject) silently failed
     // or returned empty rankings/competitors but the raw text actually contains brand mentions.
     // Without this, providers like Gemini end up at 0% even though their responses mention brands.
-    const rawText = (response as any).response;
+    const rawText = stripMarkdown((response as any).response || '');
     if (typeof rawText === 'string' && rawText.length > 0) {
       trackedCompanies.forEach(companyName => {
         if (mentionedInResponse.has(companyName)) return;
-        const detection = detectBrandMention(rawText, companyName, {
-          caseSensitive: false,
-          wholeWordOnly: true,
-          includeVariations: true,
-        });
+        const detection = detectBrandMention(rawText, companyName, getBrandDetectionOptions(companyName));
         if (detection.mentioned) {
           const data = providerMap.get(companyName);
           if (data) {

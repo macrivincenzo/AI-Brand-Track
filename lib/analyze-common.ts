@@ -1,7 +1,7 @@
 import { AIResponse, AnalysisProgressData, Company, PartialResultData, ProgressData, PromptGeneratedData, ScoringProgressData, SSEEvent } from './types';
 import { generatePromptsForCompany, analyzePromptWithProvider, calculateBrandScores, analyzeCompetitors, identifyCompetitors, analyzeCompetitorsByProvider } from './ai-utils';
 import { analyzePromptWithProvider as analyzePromptWithProviderEnhanced } from './ai-utils-enhanced';
-import { getConfiguredProviders } from './provider-config';
+import { getConfiguredProviders, resolveProviderDisplayName } from './provider-config';
 import { extractSourcesFromResponse } from './source-tracker-utils';
 
 export interface AnalysisConfig {
@@ -288,7 +288,10 @@ export async function performAnalysis({
             await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 500));
           }
           
-          responses.push(response);
+          responses.push({
+            ...response,
+            provider: resolveProviderDisplayName(response.provider || provider.name),
+          });
 
           // Send partial result
           await sendEvent({
@@ -324,8 +327,12 @@ export async function performAnalysis({
           });
 
         } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : 'Unknown error';
           console.error(`Error with ${provider.name} for prompt "${prompt.prompt}":`, error);
-          errors.push(`${provider.name}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+          if (provider.name === 'Google' || provider.id === 'google') {
+            console.error('[Google] Analysis failed — Comparison Matrix will show 0% for this prompt:', errorMessage);
+          }
+          errors.push(`${provider.name}: ${errorMessage}`);
           
           // Send analysis failed event
           await sendEvent({

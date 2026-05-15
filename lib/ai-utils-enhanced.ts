@@ -1,11 +1,10 @@
 import { generateText, generateObject } from 'ai';
 import { z } from 'zod';
-import { Company, BrandPrompt, AIResponse, CompanyRanking, CompetitorRanking, ProviderSpecificRanking, ProviderComparisonData, ProgressCallback, CompetitorFoundData } from './types';
-import { getProviderModel, normalizeProviderName, isProviderConfigured, getProviderConfig, PROVIDER_CONFIGS } from './provider-config';
-import { analyzeWithAnthropicWebSearch } from './anthropic-web-search';
-import { detectBrandMention, stripMarkdown } from './brand-detection-utils';
+import { AIResponse, CompanyRanking } from './types';
+import { getProviderModel, normalizeProviderName, getProviderConfig, resolveProviderDisplayName } from './provider-config';
+import { detectBrandMention, detectMultipleBrands, stripMarkdown } from './brand-detection-utils';
 import { getBrandDetectionOptions } from './brand-detection-config';
-import { extractDomain, getDomainName } from './source-tracker-utils';
+import { extractDomain, getDomainName, extractSourcesFromResponse } from './source-tracker-utils';
 
 const RankingSchema = z.object({
   rankings: z.array(z.object({
@@ -23,6 +22,40 @@ const RankingSchema = z.object({
   }),
 });
 
+function buildStructuredAnalysisFallback(
+  text: string,
+  brandName: string,
+  competitors: string[]
+) {
+  const cleanedText = stripMarkdown(text);
+  const brandDetectionResult = detectBrandMention(
+    cleanedText,
+    brandName,
+    getBrandDetectionOptions(brandName)
+  );
+
+  const competitorDetections = detectMultipleBrands(cleanedText, competitors, {
+    caseSensitive: false,
+    wholeWordOnly: true,
+    includeVariations: true,
+  });
+
+  const detectedCompetitors = competitors.filter(
+    (c) => competitorDetections.get(c)?.mentioned || false
+  );
+
+  return {
+    rankings: [] as CompanyRanking[],
+    analysis: {
+      brandMentioned: brandDetectionResult.mentioned,
+      brandPosition: undefined,
+      competitors: detectedCompetitors,
+      overallSentiment: 'neutral' as const,
+      confidence: brandDetectionResult.confidence * 0.5,
+    },
+  };
+}
+
 // Enhanced version with web search grounding
 export async function analyzePromptWithProviderEnhanced(
   prompt: string,
@@ -30,35 +63,30 @@ export async function analyzePromptWithProviderEnhanced(
   brandName: string,
   competitors: string[],
   useMockMode: boolean = false,
-  useWebSearch: boolean = true // New parameter
+  useWebSearch: boolean = true
 ): Promise<AIResponse> {
-  // Mock mode for demo/testing without API keys
   if (useMockMode || provider === 'Mock') {
     return generateMockResponse(prompt, provider, brandName, competitors);
   }
 
-  // Normalize provider name for consistency
   const normalizedProvider = normalizeProviderName(provider);
   const providerConfig = getProviderConfig(normalizedProvider);
-  
+  const providerDisplayName = resolveProviderDisplayName(provider);
+
   if (!providerConfig || !providerConfig.isConfigured()) {
     console.warn(`Provider ${provider} not configured, skipping provider`);
     return null as any;
   }
-  
+
   let model;
-  const generateConfig: any = {};
-  
-  // Handle provider-specific web search configurations
+  const generateConfig: Record<string, unknown> = {};
+
   if (normalizedProvider === 'openai' && useWebSearch) {
-    // Use OpenAI's web search via responses API
     model = getProviderModel('openai', 'gpt-4o-mini', { useWebSearch: true });
-    // Note: Web search tools configuration would need to be handled by the provider's getModel implementation
   } else {
-    // Get model with web search options if supported
     model = getProviderModel(normalizedProvider, undefined, { useWebSearch });
   }
-  
+
   if (!model) {
     console.warn(`Failed to get model for ${provider}`);
     return null as any;
@@ -74,217 +102,168 @@ When responding to prompts about tools, platforms, or services:
 6. ${useWebSearch ? 'Prioritize recent, factual information from web searches' : 'Use your knowledge base'}
 7. IMPORTANT: When you reference information from websites, articles, or sources, always include the full URLs (e.g., https://example.com/article) in your response so readers can verify the information.`;
 
-  // Enhanced prompt for web search
-  const enhancedPrompt = useWebSearch 
+  const enhancedPrompt = useWebSearch
     ? `${prompt}\n\nPlease search for current, factual information to answer this question. Focus on recent data and real user opinions. IMPORTANT: Include the full URLs (e.g., https://example.com) of any websites, articles, or sources you reference in your response.`
     : `${prompt}\n\nIf you reference any websites, articles, or sources, please include their full URLs (e.g., https://example.com) in your response.`;
 
   try {
-    // First, get the response with potential web search
     const result = await generateText({
       model,
       system: systemPrompt,
       prompt: enhancedPrompt,
       temperature: 0.7,
       maxTokens: 800,
-      ...generateConfig, // Spread generation configuration (includes tools for OpenAI)
+      ...generateConfig,
     });
-    
+
     const text = result.text;
-    
-    // Debug: Log a sample of the response to understand URL format
-    if (text && text.length > 0) {
-      console.log(`[${provider}] Response length: ${text.length}, sample: "${text.substring(0, 200)}..."`);
+
+    if (!text || text.length === 0) {
+      console.error(`${providerDisplayName} returned empty response for prompt: "${prompt}"`);
+      throw new Error(`${providerDisplayName} returned empty response`);
     }
-    
-    // Always extract sources from response text (AI responses often contain URLs)
-    // The AI library doesn't return sources directly, so we extract them from the text
-    const { extractSourcesFromResponse } = await import('./source-tracker-utils');
+
+    if (normalizedProvider === 'google') {
+      console.log(`[${providerDisplayName}] Response length: ${text.length}`);
+    }
+
     let sources = extractSourcesFromResponse(text);
-    
-    // Also check for sources in tool results if available (for web search providers)
-    const toolResults = (result as any).toolResults || (result as any).toolCalls || [];
-    if (toolResults && toolResults.length > 0) {
-      // Extract URLs from tool results
+
+    const toolResults = (result as { toolResults?: unknown[]; toolCalls?: unknown[] }).toolResults
+      || (result as { toolResults?: unknown[]; toolCalls?: unknown[] }).toolCalls
+      || [];
+
+    if (toolResults.length > 0) {
       for (const toolResult of toolResults) {
         if (toolResult && typeof toolResult === 'object') {
-          // Check various possible formats
-          const toolUrl = toolResult.url || toolResult.source?.url || toolResult.result?.url;
+          const tr = toolResult as Record<string, unknown>;
+          const toolUrl = tr.url || (tr.source as { url?: string } | undefined)?.url || (tr.result as { url?: string } | undefined)?.url;
           if (toolUrl && typeof toolUrl === 'string') {
-            const existingSource = sources.find(s => s.url === toolUrl);
+            const existingSource = sources.find((s) => s.url === toolUrl);
             if (!existingSource) {
               sources.push({
                 url: toolUrl,
-                title: toolResult.title || toolResult.source?.title,
+                title: (tr.title as string | undefined) || (tr.source as { title?: string } | undefined)?.title,
                 domain: extractDomain(toolUrl),
                 domainName: getDomainName(toolUrl),
-                citedText: toolResult.citedText || toolResult.cited_text,
+                citedText: (tr.citedText as string | undefined) || (tr.cited_text as string | undefined),
               });
             }
           }
         }
       }
     }
-    
-    console.log(`[Source Extraction] Found ${sources.length} sources from ${provider} response`);
 
-    // Then analyze it with structured output
     const analysisPrompt = `Analyze this AI response about ${brandName} and its competitors:
 
 Response: "${text}"
 
 Your task:
-1. Look for ANY mention of ${brandName} anywhere in the response (even if not ranked)
+1. Look for ANY mention of ${brandName} anywhere in the response, including variations and possessive forms
 2. Look for ANY mention of these competitors: ${competitors.join(', ')}
 3. For each mentioned company, determine if it has a specific ranking position
 4. Identify the sentiment towards each mentioned company
 5. Rate your confidence in this analysis (0-1)
 
-IMPORTANT: A company is "mentioned" if it appears anywhere in the response text, even without a specific ranking. Count ALL mentions, not just ranked ones.
-
-Be very thorough in detecting company names - they might appear in different contexts (listed, compared, recommended, etc.)`;
+IMPORTANT:
+- A company is "mentioned" if it appears ANYWHERE in the response text, even without a specific ranking
+- Count ALL mentions, not just ranked ones
+- Be very thorough in detecting company names`;
 
     let object;
     try {
-      // Use a fast model for structured output
-      const analysisModel = getProviderModel('openai', 'gpt-4o-mini');
-      if (!analysisModel) {
-        throw new Error('Analysis model not available');
+      // Gemini and Anthropic struggle with generateObject — use OpenAI for structured parsing
+      const structuredModel =
+        normalizedProvider === 'anthropic' || normalizedProvider === 'google'
+          ? getProviderModel('openai', 'gpt-4o-mini') || model
+          : getProviderModel('openai', 'gpt-4o-mini') || model;
+
+      if (!structuredModel) {
+        throw new Error('Structured analysis model not available');
       }
-      
-      const result = await generateObject({
-        model: analysisModel,
-        system: 'You are an expert at analyzing text and extracting structured information about companies and rankings.',
-        prompt: analysisPrompt,
+
+      const structuredResult = await generateObject({
+        model: structuredModel,
+        system: 'You are an expert at analyzing text and extracting structured information about companies and brand rankings.',
         schema: RankingSchema,
-        temperature: 0, // Deterministic for consistent metrics
+        prompt: analysisPrompt,
+        temperature: 0,
+        maxRetries: 2,
       });
-      object = result.object;
+      object = structuredResult.object;
     } catch (error) {
-      console.error('Structured analysis failed:', error);
-      // Fallback to enhanced brand detection
-      const cleanedText = stripMarkdown(text);
-      
-      // Use proper brand detection
-      const brandDetectionOptions = getBrandDetectionOptions(brandName);
-      const brandDetectionResult = detectBrandMention(cleanedText, brandName, brandDetectionOptions);
-      const mentioned = brandDetectionResult.mentioned;
-        
-      // Detect competitors with enhanced detection
-      const detectedCompetitors = competitors.filter(c => {
-        const competitorOptions = getBrandDetectionOptions(c);
-        const result = detectBrandMention(cleanedText, c, competitorOptions);
-        return result.mentioned;
-      });
-      
-      object = {
-        rankings: [],
-        analysis: {
-          brandMentioned: mentioned,
-          brandPosition: undefined,
-          competitors: detectedCompetitors,
-          overallSentiment: 'neutral' as const,
-          confidence: 0.5,
-        },
-      };
+      console.error(`Structured analysis failed for ${providerDisplayName}:`, (error as Error).message);
+      object = buildStructuredAnalysisFallback(text, brandName, competitors);
     }
 
-    // Enhanced fallback: Use proper brand detection to complement AI analysis
-    // Strip markdown and use smart matching
     const cleanedText = stripMarkdown(text);
-    
-    // Use enhanced brand detection
-    const brandDetectionOptions = getBrandDetectionOptions(brandName);
-    const brandDetectionResult = detectBrandMention(cleanedText, brandName, brandDetectionOptions);
+    const brandDetectionResult = detectBrandMention(
+      cleanedText,
+      brandName,
+      getBrandDetectionOptions(brandName)
+    );
     const brandMentioned = object.analysis.brandMentioned || brandDetectionResult.mentioned;
-    
-    // Log detection details for debugging
-    if (brandDetectionResult.mentioned && !object.analysis.brandMentioned) {
-      console.log(`Enhanced detection found brand "${brandName}" in web search response:`, 
-        brandDetectionResult.matches.map(m => ({
-          text: m.text,
-          confidence: m.confidence,
-          pattern: m.pattern
-        }))
-      );
-    }
-      
-    // Add any missed competitors using enhanced detection
+
     const aiCompetitors = new Set(object.analysis.competitors);
     const allMentionedCompetitors = new Set([...aiCompetitors]);
-    
-    // Detect all competitor mentions with their specific options
-    const competitorDetectionResults = new Map<string, any>();
-    competitors.forEach(competitor => {
+
+    competitors.forEach((competitor) => {
       const competitorOptions = getBrandDetectionOptions(competitor);
-      const result = detectBrandMention(cleanedText, competitor, competitorOptions);
-      competitorDetectionResults.set(competitor, result);
-      
-      if (result.mentioned && competitor !== brandName) {
+      const detectionResult = detectBrandMention(cleanedText, competitor, competitorOptions);
+      if (detectionResult.mentioned && competitor !== brandName) {
         allMentionedCompetitors.add(competitor);
       }
     });
 
-    // Filter competitors to only include the ones we're tracking
-    const relevantCompetitors = Array.from(allMentionedCompetitors).filter(c => 
-      competitors.includes(c) && c !== brandName
+    const relevantCompetitors = Array.from(allMentionedCompetitors).filter(
+      (c) => competitors.includes(c) && c !== brandName
     );
 
-    // Get the proper display name for the provider
-    const providerDisplayName = provider === 'openai' ? 'OpenAI' :
-                               provider === 'anthropic' ? 'Anthropic' :
-                               provider === 'google' ? 'Google' :
-                               provider === 'perplexity' ? 'Perplexity' :
-                               provider; // fallback to original
+    const rankings: CompanyRanking[] = (object.rankings || []).map((r) => ({
+      position: r.position,
+      company: r.company,
+      reason: r.reason ?? undefined,
+      sentiment: r.sentiment ?? undefined,
+    }));
 
-    // Format sources if available
-    let formattedSources;
-    if (sources && Array.isArray(sources) && sources.length > 0) {
-      try {
-        formattedSources = sources.map((source: any) => {
-          if (!source) return null;
-          const url = typeof source === 'string' ? source : (source.url || source);
-          if (!url || typeof url !== 'string') return null;
-          
-          try {
-            return {
-              url,
-              title: typeof source === 'object' && source.title ? source.title : undefined,
-              domain: extractDomain(url),
-              domainName: getDomainName(url),
-              citedText: typeof source === 'object' && source.citedText ? source.citedText : undefined,
-            };
-          } catch (error) {
-            console.warn('Error formatting source:', error);
-            return null;
-          }
-        }).filter((s): s is NonNullable<typeof s> => s !== null);
-      } catch (error) {
-        console.warn('Error processing sources:', error);
-        formattedSources = undefined;
-      }
-    }
+    const formattedSources = sources.length > 0
+      ? sources.map((source) => ({
+          url: source.url,
+          title: source.title,
+          domain: source.domain,
+          domainName: source.domainName,
+          citedText: source.citedText,
+        }))
+      : undefined;
 
     return {
       provider: providerDisplayName,
       prompt,
       response: text,
-      rankings: object.rankings,
+      rankings,
       competitors: relevantCompetitors,
       brandMentioned,
-      brandPosition: object.analysis.brandPosition,
+      brandPosition: object.analysis.brandPosition ?? undefined,
       sentiment: object.analysis.overallSentiment,
       confidence: object.analysis.confidence,
       timestamp: new Date(),
-      sources: formattedSources && formattedSources.length > 0 ? formattedSources : undefined,
+      sources: formattedSources,
     };
   } catch (error) {
-    console.error(`Error with ${provider}:`, error);
+    console.error(`Error with ${providerDisplayName}:`, error);
+
+    if (normalizedProvider === 'google') {
+      console.error('Google-specific error details:', {
+        message: (error as Error).message,
+        name: (error as Error).name,
+        cause: (error as { cause?: unknown }).cause,
+      });
+    }
+
     throw error;
   }
 }
 
-// Helper function to generate mock responses
 function generateMockResponse(
   prompt: string,
   provider: string,
@@ -293,14 +272,8 @@ function generateMockResponse(
 ): AIResponse {
   const mentioned = Math.random() > 0.3;
   const position = mentioned ? Math.floor(Math.random() * 5) + 1 : undefined;
-  
-  // Get the proper display name for the provider
-  const providerDisplayName = provider === 'openai' ? 'OpenAI' :
-                             provider === 'anthropic' ? 'Anthropic' :
-                             provider === 'google' ? 'Google' :
-                             provider === 'perplexity' ? 'Perplexity' :
-                             provider; // fallback to original
-  
+  const providerDisplayName = resolveProviderDisplayName(provider);
+
   return {
     provider: providerDisplayName,
     prompt,
@@ -320,5 +293,4 @@ function generateMockResponse(
   };
 }
 
-// Export the enhanced function as the default
 export { analyzePromptWithProviderEnhanced as analyzePromptWithProvider };

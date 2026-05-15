@@ -1653,13 +1653,38 @@ export async function analyzeCompetitorsByProvider(
     if (response.competitors && response.competitors.length > 0) {
       response.competitors.forEach(competitorName => {
         const matchedCompetitor = findMatchingTrackedCompany(competitorName, trackedCompanies, aliasMap);
-        
+
         if (matchedCompetitor && !mentionedInResponse.has(matchedCompetitor)) {
           const competitorData = providerMap.get(matchedCompetitor)!;
           competitorData.mentions++;
           competitorData.positions.push(99); // Not ranked
           competitorData.sentiments.push('neutral');
           mentionedInResponse.add(matchedCompetitor);
+        }
+      });
+    }
+
+    // SAFETY NET: scan the raw response text directly for any tracked company names.
+    // This catches cases where the structured analysis (generateObject) silently failed
+    // or returned empty rankings/competitors but the raw text actually contains brand mentions.
+    // Without this, providers like Gemini end up at 0% even though their responses mention brands.
+    const rawText = (response as any).response;
+    if (typeof rawText === 'string' && rawText.length > 0) {
+      trackedCompanies.forEach(companyName => {
+        if (mentionedInResponse.has(companyName)) return;
+        const detection = detectBrandMention(rawText, companyName, {
+          caseSensitive: false,
+          wholeWordOnly: true,
+          includeVariations: true,
+        });
+        if (detection.mentioned) {
+          const data = providerMap.get(companyName);
+          if (data) {
+            data.mentions++;
+            data.positions.push(99);
+            data.sentiments.push('neutral');
+            mentionedInResponse.add(companyName);
+          }
         }
       });
     }

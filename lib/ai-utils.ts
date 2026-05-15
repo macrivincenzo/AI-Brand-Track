@@ -1576,9 +1576,31 @@ export async function analyzeCompetitorsByProvider(
     providerData.set(provider, competitorMap);
   });
 
+  // Build a case-insensitive lookup for provider name resolution.
+  // Defensive: ensures responses with mismatched casing (e.g., 'google' vs 'Google')
+  // still match the providerData map keys.
+  const providerLookup = new Map<string, string>();
+  providers.forEach(p => providerLookup.set(p.toLowerCase(), p));
+
+  // Diagnostic counters for production debugging
+  const providerResponseCounts: Record<string, number> = {};
+  const unmatchedProviders: string[] = [];
+
   // Process responses by provider
   responses.forEach(response => {
-    const providerMap = providerData.get(response.provider);
+    // Try exact match first, then case-insensitive fallback
+    let providerKey = providerData.has(response.provider)
+      ? response.provider
+      : providerLookup.get((response.provider || '').toLowerCase());
+
+    if (!providerKey) {
+      unmatchedProviders.push(response.provider);
+      return;
+    }
+
+    providerResponseCounts[providerKey] = (providerResponseCounts[providerKey] || 0) + 1;
+
+    const providerMap = providerData.get(providerKey);
     if (!providerMap) return;
 
     // Track which companies were mentioned in this response for this provider
@@ -1643,12 +1665,25 @@ export async function analyzeCompetitorsByProvider(
     }
   });
 
+  // Production diagnostics — visible in Vercel logs to debug provider mismatch issues
+  console.log('[analyzeCompetitorsByProvider] Provider response counts:', providerResponseCounts);
+  console.log('[analyzeCompetitorsByProvider] Configured providers:', providers);
+  console.log('[analyzeCompetitorsByProvider] Total responses:', responses.length);
+  console.log('[analyzeCompetitorsByProvider] Response provider field samples:',
+    responses.slice(0, 8).map(r => ({ provider: r.provider, hasRankings: (r.rankings?.length || 0) > 0, brandMentioned: r.brandMentioned, competitorCount: r.competitors?.length || 0 }))
+  );
+  if (unmatchedProviders.length > 0) {
+    console.error('[analyzeCompetitorsByProvider] UNMATCHED provider names in responses:', unmatchedProviders);
+  }
+
   // Calculate provider-specific rankings
   const providerRankings: ProviderSpecificRanking[] = [];
-  
+
   providers.forEach(provider => {
     const competitorMap = providerData.get(provider)!;
-    const providerResponses = responses.filter(r => r.provider === provider);
+    // Match responses case-insensitively to handle provider name casing mismatches
+    const providerLower = provider.toLowerCase();
+    const providerResponses = responses.filter(r => (r.provider || '').toLowerCase() === providerLower);
     const totalResponses = providerResponses.length;
     
     const competitors: CompetitorRanking[] = [];

@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // better-auth, better-call and autumn-js initialize at import time and must
+  // NOT be processed by the server bundler — bundling tree-shakes/mangles
+  // better-call's createEndpoint and breaks `next build` page-data collection
+  // for the auth routes. pg is a native-ish driver and is externalized too.
+  serverExternalPackages: ['better-auth', 'better-call', 'autumn-js', 'pg'],
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.

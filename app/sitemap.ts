@@ -10,8 +10,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return {
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified,
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
     }
   })
 
@@ -40,6 +40,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/ai-search-visibility`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    ...[
+      'generative-engine-optimization',
+      'answer-engine-optimization',
+      'llm-seo',
+      'how-to-rank-on-chatgpt',
+      'perplexity-seo',
+      'ai-rank-tracker',
+    ].map((slug) => ({
+      url: `${baseUrl}/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    })),
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),

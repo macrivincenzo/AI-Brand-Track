@@ -67,16 +67,47 @@ export default async function BlogPostPage({ params }: PageProps) {
             headline: post.title,
             description: post.excerpt,
             datePublished: post.date,
+            dateModified: post.date,
+            keywords: Array.isArray(post.keywords) ? post.keywords.join(', ') : post.keywords,
+            image: {
+              '@type': 'ImageObject',
+              url: 'https://www.aibrandtrack.com/og-image.png',
+              width: 1200,
+              height: 630,
+            },
             author: {
               '@type': 'Organization',
               name: post.author ?? 'AI Brand Track Team',
+              url: 'https://www.aibrandtrack.com',
             },
             publisher: {
               '@type': 'Organization',
               name: 'AI Brand Track',
               url: 'https://www.aibrandtrack.com',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.aibrandtrack.com/ai-brand-track-logo.jpeg',
+              },
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://www.aibrandtrack.com/blog/${post.slug}`,
             },
             url: `https://www.aibrandtrack.com/blog/${post.slug}`,
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.aibrandtrack.com' },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.aibrandtrack.com/blog' },
+              { '@type': 'ListItem', position: 3, name: post.title, item: `https://www.aibrandtrack.com/blog/${post.slug}` },
+            ],
           }),
         }}
       />

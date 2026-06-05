@@ -1,0 +1,4326 @@
+[
+  {
+    "topic": "Google AI Overviews / Gemini / AI Mode",
+    "format": "Informational",
+    "slug": "ai-overview",
+    "primary_keyword": "ai overview",
+    "primary_volume": 74000,
+    "primary_kd": 58,
+    "primary_intent": "informational",
+    "cluster_keywords": 29,
+    "cluster_volume": 108390,
+    "cluster_avg_kd": 50,
+    "opportunity": 1806.5,
+    "title_tag": "AI Overview | AI Brand Track",
+    "h1": "AI Overview",
+    "supporting_keywords": [
+      {
+        "keyword": "google ai overview",
+        "volume": 22200,
+        "kd": 71,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview google",
+        "volume": 5400,
+        "kd": 67,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview google search",
+        "volume": 4400,
+        "kd": 68,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview search",
+        "volume": 1300,
+        "kd": 56,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview website",
+        "volume": 210,
+        "kd": 75,
+        "intent": "informational"
+      },
+      {
+        "keyword": "search labs ai overview",
+        "volume": 210,
+        "kd": 80,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google ai overview not showing up",
+        "volume": 140,
+        "kd": 9,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview optimization",
+        "volume": 90,
+        "kd": 20,
+        "intent": "informational"
+      },
+      {
+        "keyword": "gmail ai overview",
+        "volume": 70,
+        "kd": 48,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "google sge and seo",
+        "volume": 50,
+        "kd": 4,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview download",
+        "volume": 50,
+        "kd": 66,
+        "intent": "informational"
+      },
+      {
+        "keyword": "gemini seo",
+        "volume": 40,
+        "kd": 20,
+        "intent": "informational"
+      },
+      {
+        "keyword": "are you ai overview",
+        "volume": 40,
+        "kd": 74,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google ai mode seo",
+        "volume": 30,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview in seo",
+        "volume": 20,
+        "kd": 25,
+        "intent": "informational"
+      },
+      {
+        "keyword": "gemini ai seo",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google sge seo",
+        "volume": 10,
+        "kd": 27,
+        "intent": "informational"
+      },
+      {
+        "keyword": "schema ai overview visibility",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google ai mode and seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo guidelines google ai overviews",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google ai overview impact on seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overviews impact on seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google ai overviews seo ranking",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google sge ai overview",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google sge impact on seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "AI SEO Tools & Agencies",
+    "format": "Informational",
+    "slug": "ai-for-seo",
+    "primary_keyword": "ai for seo",
+    "primary_volume": 8100,
+    "primary_kd": 25,
+    "primary_intent": "commercial",
+    "cluster_keywords": 641,
+    "cluster_volume": 74940,
+    "cluster_avg_kd": 33,
+    "opportunity": 1742.79,
+    "title_tag": "AI for SEO | AI Brand Track",
+    "h1": "AI for SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "ai and seo",
+        "volume": 8100,
+        "kd": 47,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo",
+        "volume": 8100,
+        "kd": 52,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo ai",
+        "volume": 8100,
+        "kd": 52,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai in seo",
+        "volume": 8100,
+        "kd": 52,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai marketing",
+        "volume": 5400,
+        "kd": 29,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai in marketing",
+        "volume": 3600,
+        "kd": 38,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo services",
+        "volume": 880,
+        "kd": 3,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo service",
+        "volume": 880,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo agency",
+        "volume": 880,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo for ai",
+        "volume": 880,
+        "kd": 47,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo optimization",
+        "volume": 880,
+        "kd": 64,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo agencies",
+        "volume": 880,
+        "kd": 68,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo writing ai",
+        "volume": 720,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo writer ai",
+        "volume": 720,
+        "kd": 42,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo company",
+        "volume": 590,
+        "kd": 10,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo companies",
+        "volume": 590,
+        "kd": 10,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai agents",
+        "volume": 320,
+        "kd": 2,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai agent",
+        "volume": 320,
+        "kd": 4,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai agency",
+        "volume": 320,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo and ai",
+        "volume": 320,
+        "kd": 54,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "semrush ai seo",
+        "volume": 320,
+        "kd": 63,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo agent",
+        "volume": 260,
+        "kd": 19,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai driven seo",
+        "volume": 260,
+        "kd": 34,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo for ai search",
+        "volume": 260,
+        "kd": 38,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai powered seo",
+        "volume": 260,
+        "kd": 39,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "AI SEO Tools & Agencies",
+    "format": "Tool / Software",
+    "slug": "ai-marketing-tools",
+    "primary_keyword": "ai marketing tools",
+    "primary_volume": 5400,
+    "primary_kd": 19,
+    "primary_intent": "commercial",
+    "cluster_keywords": 324,
+    "cluster_volume": 31520,
+    "cluster_avg_kd": 36,
+    "opportunity": 685.22,
+    "title_tag": "AI Marketing Tools | AI Brand Track",
+    "h1": "AI Marketing Tools",
+    "supporting_keywords": [
+      {
+        "keyword": "search atlas ai seo software",
+        "volume": 3600,
+        "kd": 11,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo tool",
+        "volume": 2900,
+        "kd": 16,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo tools",
+        "volume": 2900,
+        "kd": 16,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai powered marketing platform",
+        "volume": 1900,
+        "kd": 93,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai-powered seo tools",
+        "volume": 1000,
+        "kd": 39,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai powered seo tools",
+        "volume": 1000,
+        "kd": 48,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai powered seo tool",
+        "volume": 1000,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai tools",
+        "volume": 720,
+        "kd": 39,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "semrush ai seo tool",
+        "volume": 720,
+        "kd": 49,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo ai tool",
+        "volume": 720,
+        "kd": 53,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo software",
+        "volume": 480,
+        "kd": 22,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai based seo tools",
+        "volume": 390,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai-based seo tools",
+        "volume": 390,
+        "kd": 43,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo content generator",
+        "volume": 390,
+        "kd": 52,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "free ai seo tool",
+        "volume": 320,
+        "kd": 34,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "free seo ai tools",
+        "volume": 320,
+        "kd": 38,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "free seo ai tool",
+        "volume": 320,
+        "kd": 61,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo optimization tool",
+        "volume": 260,
+        "kd": 30,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo optimization tools",
+        "volume": 260,
+        "kd": 30,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "free ai seo tools",
+        "volume": 260,
+        "kd": 39,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai driven seo tools",
+        "volume": 210,
+        "kd": 26,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai driven seo tool",
+        "volume": 210,
+        "kd": 27,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo platform",
+        "volume": 210,
+        "kd": 78,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "generative ai seo software",
+        "volume": 170,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai software",
+        "volume": 170,
+        "kd": 40,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "ChatGPT Visibility",
+    "format": "Commercial",
+    "slug": "chatgpt-for-marketing",
+    "primary_keyword": "chatgpt for marketing",
+    "primary_volume": 720,
+    "primary_kd": 7,
+    "primary_intent": "commercial",
+    "cluster_keywords": 274,
+    "cluster_volume": 6100,
+    "cluster_avg_kd": 18,
+    "opportunity": 217.86,
+    "title_tag": "ChatGPT for Marketing | AI Brand Track",
+    "h1": "ChatGPT for Marketing",
+    "supporting_keywords": [
+      {
+        "keyword": "chatgpt seo",
+        "volume": 480,
+        "kd": 18,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo for chatgpt",
+        "volume": 320,
+        "kd": 17,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt marketing",
+        "volume": 260,
+        "kd": 18,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for digital marketing",
+        "volume": 170,
+        "kd": 3,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompt for marketing",
+        "volume": 140,
+        "kd": 6,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompts for marketing",
+        "volume": 140,
+        "kd": 6,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "affiliate marketing with chatgpt",
+        "volume": 90,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt seo optimization",
+        "volume": 90,
+        "kd": 18,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt ai marketing",
+        "volume": 70,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt marketing prompts",
+        "volume": 70,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "marketing prompts for chatgpt",
+        "volume": 70,
+        "kd": 4,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt marketing prompt",
+        "volume": 70,
+        "kd": 6,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo chatgpt",
+        "volume": 70,
+        "kd": 17,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "marketing prompt for chatgpt",
+        "volume": 70,
+        "kd": 26,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for affiliate marketing",
+        "volume": 50,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompts for social media marketing",
+        "volume": 50,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompt for email marketing",
+        "volume": 50,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompts for email marketing",
+        "volume": 50,
+        "kd": 7,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo prompts for chatgpt",
+        "volume": 50,
+        "kd": 8,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for social media marketing",
+        "volume": 50,
+        "kd": 8,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo prompt for chatgpt",
+        "volume": 50,
+        "kd": 9,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt seo prompt",
+        "volume": 50,
+        "kd": 10,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt seo prompts",
+        "volume": 50,
+        "kd": 14,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt para seo",
+        "volume": 50,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt affiliate marketing",
+        "volume": 40,
+        "kd": 0,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Generative Engine Optimization (GEO)",
+    "format": "Informational",
+    "slug": "geo-seo",
+    "primary_keyword": "geo seo",
+    "primary_volume": 2400,
+    "primary_kd": 55,
+    "primary_intent": "informational",
+    "cluster_keywords": 40,
+    "cluster_volume": 5760,
+    "cluster_avg_kd": 34,
+    "opportunity": 130.91,
+    "title_tag": "GEO SEO | AI Brand Track",
+    "h1": "GEO SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "generative engine optimization geo",
+        "volume": 1300,
+        "kd": 59,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo: generative engine optimization",
+        "volume": 720,
+        "kd": 53,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo generative engine optimization",
+        "volume": 720,
+        "kd": 55,
+        "intent": "informational"
+      },
+      {
+        "keyword": "aeo geo seo",
+        "volume": 110,
+        "kd": 18,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo ai seo",
+        "volume": 90,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "aeo seo geo",
+        "volume": 50,
+        "kd": 26,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo aeo",
+        "volume": 30,
+        "kd": 15,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo geo",
+        "volume": 30,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo geo aeo seo",
+        "volume": 10,
+        "kd": 15,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo ai",
+        "volume": 10,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo for ai geo",
+        "volume": 10,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo ai geo",
+        "volume": 10,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai geo seo",
+        "volume": 10,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo geo ai",
+        "volume": 10,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how generative engine optimization geo rewrites the rules of search",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "generative engine optimization or geo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "a16z geo seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo llmo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo llm seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo reddit",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "o'que é geo seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "llm seo geo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo and geo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo and aeo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo aio",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "AI SEO Tools & Agencies",
+    "format": "Best-of / Listicle",
+    "slug": "best-ai-seo-tool",
+    "primary_keyword": "best ai seo tool",
+    "primary_volume": 720,
+    "primary_kd": 28,
+    "primary_intent": "commercial",
+    "cluster_keywords": 36,
+    "cluster_volume": 3920,
+    "cluster_avg_kd": 26,
+    "opportunity": 108.89,
+    "title_tag": "Best AI SEO Tool | AI Brand Track",
+    "h1": "Best AI SEO Tool",
+    "supporting_keywords": [
+      {
+        "keyword": "best ai seo tools",
+        "volume": 720,
+        "kd": 28,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo",
+        "volume": 390,
+        "kd": 48,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo ai tool",
+        "volume": 320,
+        "kd": 24,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo ai tools",
+        "volume": 320,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo software",
+        "volume": 260,
+        "kd": 41,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai for seo",
+        "volume": 260,
+        "kd": 46,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo tools 2025",
+        "volume": 170,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo ai",
+        "volume": 140,
+        "kd": 24,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo agency",
+        "volume": 90,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best free seo ai tools",
+        "volume": 70,
+        "kd": 6,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best free ai seo tools",
+        "volume": 70,
+        "kd": 11,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo ai writer",
+        "volume": 70,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo ai tools free",
+        "volume": 50,
+        "kd": 12,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo tools 2024",
+        "volume": 30,
+        "kd": 14,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai for seo optimization",
+        "volume": 30,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo writer",
+        "volume": 20,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo content writer",
+        "volume": 10,
+        "kd": 14,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo writer ai",
+        "volume": 10,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best free ai for seo optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "rank math seo with ai best seo tools",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo ai writing tools",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai powered seo tools",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo blog writer",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best free ai for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo course",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Other / Adjacent",
+    "format": "Tool / Software",
+    "slug": "ai-tool-for-seo",
+    "primary_keyword": "ai tool for seo",
+    "primary_volume": 1000,
+    "primary_kd": 8,
+    "primary_intent": "commercial",
+    "cluster_keywords": 38,
+    "cluster_volume": 3440,
+    "cluster_avg_kd": 28,
+    "opportunity": 90.53,
+    "title_tag": "AI Tool for SEO | AI Brand Track",
+    "h1": "AI Tool for SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "ai tools for seo",
+        "volume": 1000,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai software for seo",
+        "volume": 140,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tools for seo optimization",
+        "volume": 110,
+        "kd": 7,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tool for seo optimization",
+        "volume": 110,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "premier ai tool for search optimization in marketing",
+        "volume": 90,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tools for website seo",
+        "volume": 90,
+        "kd": 22,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "free ai tool for seo",
+        "volume": 70,
+        "kd": 22,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tools in seo",
+        "volume": 70,
+        "kd": 24,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "free ai tools for seo",
+        "volume": 70,
+        "kd": 26,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tool for seo keyword research",
+        "volume": 70,
+        "kd": 27,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tools for seo keyword research",
+        "volume": 70,
+        "kd": 33,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "top ai tools for seo",
+        "volume": 70,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tool for seo analysis",
+        "volume": 70,
+        "kd": 66,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tools for seo free",
+        "volume": 50,
+        "kd": 24,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai content generator seo",
+        "volume": 50,
+        "kd": 34,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tool for seo free",
+        "volume": 50,
+        "kd": 39,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tools for seo content writing",
+        "volume": 30,
+        "kd": 31,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai tool for seo content writing",
+        "volume": 30,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "free ai tools for seo optimization",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo keywords generator ai",
+        "volume": 10,
+        "kd": 31,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo keyword generator ai",
+        "volume": 10,
+        "kd": 31,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai keyword tool for seo research",
+        "volume": 10,
+        "kd": 33,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo studio tools ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo article generator ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai checker small seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "LLM SEO / Optimization",
+    "format": "Commercial",
+    "slug": "llm-seo",
+    "primary_keyword": "llm seo",
+    "primary_volume": 880,
+    "primary_kd": 20,
+    "primary_intent": "commercial",
+    "cluster_keywords": 29,
+    "cluster_volume": 1680,
+    "cluster_avg_kd": 17,
+    "opportunity": 62.22,
+    "title_tag": "LLM SEO | AI Brand Track",
+    "h1": "LLM SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "seo for llm",
+        "volume": 260,
+        "kd": 20,
+        "intent": "informational"
+      },
+      {
+        "keyword": "llm seo company coalition",
+        "volume": 140,
+        "kd": 8,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm seo optimization",
+        "volume": 70,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm optimization seo",
+        "volume": 50,
+        "kd": 20,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm seo company",
+        "volume": 30,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm and seo",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo and llm",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo llm txt",
+        "volume": 10,
+        "kd": 18,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "seo in llm",
+        "volume": 10,
+        "kd": 20,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo llm optimization",
+        "volume": 10,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm seo course",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo llm optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo for llm search",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm seo audit",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm optimization marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm txt seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "llm seo eeat",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "vercel llm seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "the reddit llm seo method",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "llm seo report",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "anvil seo llm",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "llm seo full form",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "yoast seo llm txt",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "llm ai seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "llm seo reddit",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      }
+    ]
+  },
+  {
+    "topic": "Other / Adjacent",
+    "format": "Best-of / Listicle",
+    "slug": "best-ai-tools-for-seo",
+    "primary_keyword": "best ai tools for seo",
+    "primary_volume": 480,
+    "primary_kd": 8,
+    "primary_intent": "commercial",
+    "cluster_keywords": 23,
+    "cluster_volume": 1630,
+    "cluster_avg_kd": 19,
+    "opportunity": 56.21,
+    "title_tag": "Best AI Tools for SEO | AI Brand Track",
+    "h1": "Best AI Tools for SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "best ai tool for seo",
+        "volume": 480,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai visibility platforms with seo capabilities",
+        "volume": 170,
+        "kd": 11,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai tools for seo optimization",
+        "volume": 110,
+        "kd": 1,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai tool for seo optimization",
+        "volume": 110,
+        "kd": 14,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best free ai tools for seo",
+        "volume": 90,
+        "kd": 22,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai writer for seo",
+        "volume": 30,
+        "kd": 20,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai writers for seo",
+        "volume": 10,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai tool for writing seo-rich blog content",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "which ai is best for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "which ai tool is best for seo content generation",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai prompts for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai tools for seo content writing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai for website seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai tool for seo content writing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "which ai tool is best for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai for writing seo content",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai writing tools for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai tool for seo writing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai tool for writing seo rich blog content",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo blog writing ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai model for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai content writer for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "ChatGPT Visibility",
+    "format": "Tool / Software",
+    "slug": "chatgpt-seo-tool",
+    "primary_keyword": "chatgpt seo tool",
+    "primary_volume": 590,
+    "primary_kd": 14,
+    "primary_intent": "commercial",
+    "cluster_keywords": 9,
+    "cluster_volume": 1330,
+    "cluster_avg_kd": 14,
+    "opportunity": 55.42,
+    "title_tag": "ChatGPT SEO Tool | AI Brand Track",
+    "h1": "ChatGPT SEO Tool",
+    "supporting_keywords": [
+      {
+        "keyword": "chatgpt seo tools",
+        "volume": 590,
+        "kd": 19,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo tools for chatgpt",
+        "volume": 90,
+        "kd": 9,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo app chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo app chatgpt plugin",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt seo app",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "digital marketing masterclass ai and chatgpt for marketing free download",
+        "volume": 10,
+        "kd": null,
+        "intent": "transactional"
+      },
+      {
+        "keyword": "free chatgpt prompts for marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for online marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Generative Engine Optimization (GEO)",
+    "format": "Segment / Service",
+    "slug": "generative-engine-optimization-geo-services",
+    "primary_keyword": "generative engine optimization geo services",
+    "primary_volume": 480,
+    "primary_kd": 0,
+    "primary_intent": "commercial",
+    "cluster_keywords": 3,
+    "cluster_volume": 510,
+    "cluster_avg_kd": 0,
+    "opportunity": 51,
+    "title_tag": "Generative Engine Optimization GEO Services | AI Brand Track",
+    "h1": "Generative Engine Optimization GEO Services",
+    "supporting_keywords": [
+      {
+        "keyword": "geo seo services",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo seo agency",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "ChatGPT Visibility",
+    "format": "How-to / Guide",
+    "slug": "how-to-rank-on-chatgpt",
+    "primary_keyword": "how to rank on chatgpt",
+    "primary_volume": 140,
+    "primary_kd": 0,
+    "primary_intent": "informational",
+    "cluster_keywords": 66,
+    "cluster_volume": 1230,
+    "cluster_avg_kd": 15,
+    "opportunity": 49.2,
+    "title_tag": "How to Rank on ChatGPT | AI Brand Track",
+    "h1": "How to Rank on ChatGPT",
+    "supporting_keywords": [
+      {
+        "keyword": "how to rank in chatgpt",
+        "volume": 140,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt for seo",
+        "volume": 90,
+        "kd": 7,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to rank in chatgpt search",
+        "volume": 50,
+        "kd": 2,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt for marketing",
+        "volume": 50,
+        "kd": 6,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt prompt for marketing strategy",
+        "volume": 40,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompts for marketing strategy",
+        "volume": 40,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to do seo for chatgpt",
+        "volume": 30,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to rank on chatgpt search",
+        "volume": 20,
+        "kd": 2,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt for affiliate marketing",
+        "volume": 20,
+        "kd": 9,
+        "intent": "informational"
+      },
+      {
+        "keyword": "marketing strategy chatgpt prompt",
+        "volume": 20,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for marketing strategy",
+        "volume": 20,
+        "kd": 47,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to optimize seo for chatgpt",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt for seo keyword research",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to rank higher on chatgpt",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to rank higher in chatgpt",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt prompts for social media marketing strategy",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to use chatgpt for sales and marketing",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt in marketing",
+        "volume": 10,
+        "kd": 6,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt seo",
+        "volume": 10,
+        "kd": 7,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt for email marketing",
+        "volume": 10,
+        "kd": 10,
+        "intent": "informational"
+      },
+      {
+        "keyword": "marketing strategy prompts for chatgpt",
+        "volume": 10,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt marketing strategy prompts",
+        "volume": 10,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompt marketing strategy",
+        "volume": 10,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to use chatgpt for social media marketing",
+        "volume": 10,
+        "kd": 19,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use chatgpt for digital marketing",
+        "volume": 10,
+        "kd": 25,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "LLM SEO / Optimization",
+    "format": "Tool / Software",
+    "slug": "llm-seo-tools",
+    "primary_keyword": "llm seo tools",
+    "primary_volume": 480,
+    "primary_kd": 2,
+    "primary_intent": "commercial",
+    "cluster_keywords": 6,
+    "cluster_volume": 1300,
+    "cluster_avg_kd": 18,
+    "opportunity": 46.43,
+    "title_tag": "LLM SEO Tools | AI Brand Track",
+    "h1": "LLM SEO Tools",
+    "supporting_keywords": [
+      {
+        "keyword": "llm seo tool",
+        "volume": 480,
+        "kd": 7,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm tracker",
+        "volume": 170,
+        "kd": 34,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "llm rank tracker",
+        "volume": 140,
+        "kd": 28,
+        "intent": "informational"
+      },
+      {
+        "keyword": "llm visibility tools seo",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm seo monitor",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "ChatGPT Visibility",
+    "format": "Segment / Service",
+    "slug": "chatgpt-for-seo",
+    "primary_keyword": "chatgpt for seo",
+    "primary_volume": 590,
+    "primary_kd": 31,
+    "primary_intent": "commercial",
+    "cluster_keywords": 45,
+    "cluster_volume": 1290,
+    "cluster_avg_kd": 18,
+    "opportunity": 46.07,
+    "title_tag": "ChatGPT for SEO | AI Brand Track",
+    "h1": "ChatGPT for SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "using chatgpt for seo",
+        "volume": 70,
+        "kd": 17,
+        "intent": "informational"
+      },
+      {
+        "keyword": "use chatgpt for seo",
+        "volume": 70,
+        "kd": 31,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt prompt for seo",
+        "volume": 50,
+        "kd": 9,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompts for seo",
+        "volume": 50,
+        "kd": 11,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt seo services",
+        "volume": 40,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for seo optimization",
+        "volume": 30,
+        "kd": 18,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is chatgpt bad for seo",
+        "volume": 20,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt seo agency",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for business marketing",
+        "volume": 20,
+        "kd": null,
+        "intent": "transactional"
+      },
+      {
+        "keyword": "chatgpt for seo prompts",
+        "volume": 10,
+        "kd": 9,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for seo keywords",
+        "volume": 10,
+        "kd": 15,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is chatgpt content good for seo",
+        "volume": 10,
+        "kd": 16,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt for seo content",
+        "volume": 10,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt content for seo",
+        "volume": 10,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is chatgpt good for seo",
+        "volume": 10,
+        "kd": 26,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt plugins for seo",
+        "volume": 10,
+        "kd": 29,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt plugin for seo",
+        "volume": 10,
+        "kd": 29,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompts for seo content writing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt for seo reddit",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompt for seo blog",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "chatgpt for seo keyword research",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt prompts for seo keywords",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt extension for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "can you use chatgpt for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt prompt for seo meta description",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "ChatGPT Visibility",
+    "format": "Informational",
+    "slug": "rank-on-chatgpt",
+    "primary_keyword": "rank on chatgpt",
+    "primary_volume": 40,
+    "primary_kd": 4,
+    "primary_intent": "informational",
+    "cluster_keywords": 95,
+    "cluster_volume": 990,
+    "cluster_avg_kd": 19,
+    "opportunity": 34.14,
+    "title_tag": "Rank on ChatGPT | AI Brand Track",
+    "h1": "Rank on ChatGPT",
+    "supporting_keywords": [
+      {
+        "keyword": "chatgpt ai seo",
+        "volume": 40,
+        "kd": 18,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "how will chatgpt affect seo",
+        "volume": 20,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt marketing examples",
+        "volume": 20,
+        "kd": 39,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is seo dead with chatgpt",
+        "volume": 10,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is seo dead after chatgpt",
+        "volume": 10,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo for chatgpt",
+        "volume": 10,
+        "kd": 0,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "impact of chatgpt on seo",
+        "volume": 10,
+        "kd": 12,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo using chatgpt",
+        "volume": 10,
+        "kd": 17,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "seo ai chatgpt",
+        "volume": 10,
+        "kd": 18,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "how chatgpt will change marketing",
+        "volume": 10,
+        "kd": 20,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt share marketing",
+        "volume": 10,
+        "kd": 26,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "seo chatgpt plugin",
+        "volume": 10,
+        "kd": 29,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "using chatgpt in marketing",
+        "volume": 10,
+        "kd": 30,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how will chatgpt change marketing",
+        "volume": 10,
+        "kd": 44,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt use in marketing",
+        "volume": 10,
+        "kd": 47,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo chatgpt seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "llm seo chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "seo core ai chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "can chatgpt do seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt 5 seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "chatgpt seo blog",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "chatgpt article seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "will chatgpt kill seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo voor chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "chatgpt pour le seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "Google AI Overviews / Gemini / AI Mode",
+    "format": "Commercial",
+    "slug": "ai-overview-seo",
+    "primary_keyword": "ai overview seo",
+    "primary_volume": 210,
+    "primary_kd": 25,
+    "primary_intent": "commercial",
+    "cluster_keywords": 24,
+    "cluster_volume": 1040,
+    "cluster_avg_kd": 21,
+    "opportunity": 33.55,
+    "title_tag": "AI Overview SEO | AI Brand Track",
+    "h1": "AI Overview SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "ai overviews seo",
+        "volume": 210,
+        "kd": 28,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overviews and seo",
+        "volume": 70,
+        "kd": 17,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overview and seo",
+        "volume": 70,
+        "kd": 19,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo for ai overviews",
+        "volume": 70,
+        "kd": 27,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai overview",
+        "volume": 50,
+        "kd": 20,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google ai overview seo",
+        "volume": 50,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overview google seo",
+        "volume": 50,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google ai overviews seo",
+        "volume": 50,
+        "kd": 26,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai overviews",
+        "volume": 50,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google gemini seo",
+        "volume": 20,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google ai overview seo impact",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo and ai overview",
+        "volume": 10,
+        "kd": 19,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overviews google seo",
+        "volume": 10,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo for google ai overviews",
+        "volume": 10,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overviews brand visibility factors",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google ai mode seo impact",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overview impact on seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google ai mode seo implications",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google ai search seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overviews seo content marketing roi",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai overviews seo discoverability",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "impact of ai overviews on seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "gemini seo prompts",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "AI SEO Tools & Agencies",
+    "format": "How-to / Guide",
+    "slug": "how-to-use-ai-for-seo",
+    "primary_keyword": "how to use ai for seo",
+    "primary_volume": 210,
+    "primary_kd": 8,
+    "primary_intent": "informational",
+    "cluster_keywords": 39,
+    "cluster_volume": 1200,
+    "cluster_avg_kd": 27,
+    "opportunity": 32.43,
+    "title_tag": "How to Use AI for SEO | AI Brand Track",
+    "h1": "How to Use AI for SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "ai seo strategy",
+        "volume": 170,
+        "kd": 14,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo strategies",
+        "volume": 170,
+        "kd": 24,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo guide",
+        "volume": 70,
+        "kd": 42,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai driven seo strategies",
+        "volume": 40,
+        "kd": 10,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai-driven seo strategies",
+        "volume": 40,
+        "kd": 11,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai powered seo strategy",
+        "volume": 40,
+        "kd": 44,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to optimize seo for ai",
+        "volume": 30,
+        "kd": 26,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to do ai seo",
+        "volume": 30,
+        "kd": 38,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use ai in seo",
+        "volume": 30,
+        "kd": 39,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai and seo strategy",
+        "volume": 30,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to use ai for seo optimization",
+        "volume": 20,
+        "kd": 22,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to do seo with ai",
+        "volume": 20,
+        "kd": 38,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo leads ai search strategy shifts",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to seo with ai",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo checklist",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo best practices",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to do seo for ai",
+        "volume": 10,
+        "kd": 38,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo ai visibility checklist",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to automate seo with ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to do seo for ai search",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how do you call seo for ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai and seo best practices",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to use ai seo to improve your website",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo ai tools tutorial",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "how to ai seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "AI Brand Monitoring / Visibility",
+    "format": "Tool / Software",
+    "slug": "ai-brand-visibility-tools",
+    "primary_keyword": "ai brand visibility tools",
+    "primary_volume": 590,
+    "primary_kd": 22,
+    "primary_intent": "commercial",
+    "cluster_keywords": 11,
+    "cluster_volume": 1200,
+    "cluster_avg_kd": 29,
+    "opportunity": 30.77,
+    "title_tag": "AI Brand Visibility Tools | AI Brand Track",
+    "h1": "AI Brand Visibility Tools",
+    "supporting_keywords": [
+      {
+        "keyword": "ai visibility tracker",
+        "volume": 320,
+        "kd": 44,
+        "intent": "informational"
+      },
+      {
+        "keyword": "se ranking ai visibility tracker",
+        "volume": 170,
+        "kd": 20,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai brand monitoring tools",
+        "volume": 30,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai search visibility monitor",
+        "volume": 30,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai brand monitoring software",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai visibility audit tool",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "writesonic ai visibility tracker",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "ai search visibility tracker",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "free ai visibility tracker",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "amplitude ai visibility tracker",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Answer Engine Optimization (AEO)",
+    "format": "Informational",
+    "slug": "answer-engine-optimization-aeo",
+    "primary_keyword": "answer engine optimization aeo",
+    "primary_volume": 390,
+    "primary_kd": 25,
+    "primary_intent": "informational",
+    "cluster_keywords": 6,
+    "cluster_volume": 990,
+    "cluster_avg_kd": 26,
+    "opportunity": 27.5,
+    "title_tag": "Answer Engine Optimization AEO | AI Brand Track",
+    "h1": "Answer Engine Optimization AEO",
+    "supporting_keywords": [
+      {
+        "keyword": "aeo ai",
+        "volume": 320,
+        "kd": 30,
+        "intent": "informational"
+      },
+      {
+        "keyword": "aeo answer engine optimization",
+        "volume": 210,
+        "kd": 32,
+        "intent": "informational"
+      },
+      {
+        "keyword": "answer engine seo techniques",
+        "volume": 50,
+        "kd": 15,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo aeo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "aeo answer engine optimisation",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "Google AI Overviews / Gemini / AI Mode",
+    "format": "How-to / Guide",
+    "slug": "how-to-rank-in-ai-overviews",
+    "primary_keyword": "how to rank in ai overviews",
+    "primary_volume": 320,
+    "primary_kd": 25,
+    "primary_intent": "informational",
+    "cluster_keywords": 8,
+    "cluster_volume": 700,
+    "cluster_avg_kd": 21,
+    "opportunity": 22.58,
+    "title_tag": "How to Rank in AI Overviews | AI Brand Track",
+    "h1": "How to Rank in AI Overviews",
+    "supporting_keywords": [
+      {
+        "keyword": "how to rank in google ai overviews",
+        "volume": 90,
+        "kd": 10,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to rank in google's ai overviews",
+        "volume": 90,
+        "kd": 11,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to use google ai overview",
+        "volume": 90,
+        "kd": 52,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to rank in google sge",
+        "volume": 70,
+        "kd": 7,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how to appear in google ai overviews",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overviews seo strategies",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "google gemini seo guide",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "Generative Engine Optimization (GEO)",
+    "format": "Tool / Software",
+    "slug": "recommended-generative-engine-optimization-software",
+    "primary_keyword": "recommended generative engine optimization software",
+    "primary_volume": 110,
+    "primary_kd": 0,
+    "primary_intent": "commercial",
+    "cluster_keywords": 9,
+    "cluster_volume": 310,
+    "cluster_avg_kd": 4,
+    "opportunity": 22.14,
+    "title_tag": "Recommended Generative Engine Optimization Software | AI Brand Track",
+    "h1": "Recommended Generative Engine Optimization Software",
+    "supporting_keywords": [
+      {
+        "keyword": "generative engine optimization geo tools",
+        "volume": 110,
+        "kd": 6,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo seo tool",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo tools",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo generative engine optimization tools",
+        "volume": 10,
+        "kd": 6,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai monitor's course on generative engine optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geopits geo seo tools",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geoptie geo seo tools",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo tools ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "AI SEO Tools & Agencies",
+    "format": "Definition / What-is",
+    "slug": "what-is-ai-seo",
+    "primary_keyword": "what is ai seo",
+    "primary_volume": 210,
+    "primary_kd": 30,
+    "primary_intent": "informational",
+    "cluster_keywords": 15,
+    "cluster_volume": 700,
+    "cluster_avg_kd": 23,
+    "opportunity": 21.21,
+    "title_tag": "What is AI SEO | AI Brand Track",
+    "h1": "What is AI SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "what is seo for ai called",
+        "volume": 170,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is ai seo called",
+        "volume": 170,
+        "kd": 10,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is seo ai",
+        "volume": 30,
+        "kd": 44,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is seo in ai",
+        "volume": 20,
+        "kd": 30,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is the equivalent of seo for ai",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is the new seo for ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo what is it called",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo meaning",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo for ai what is it called",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is ai seo optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is the future of seo with ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo ai meaning",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is ai powered seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo ai tools explained",
+        "volume": 0,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "AI Rank / Prompt Tracking",
+    "format": "Tool / Software",
+    "slug": "ai-rank-tracker",
+    "primary_keyword": "ai rank tracker",
+    "primary_volume": 320,
+    "primary_kd": 25,
+    "primary_intent": "informational",
+    "cluster_keywords": 7,
+    "cluster_volume": 1110,
+    "cluster_avg_kd": 48,
+    "opportunity": 19.14,
+    "title_tag": "AI Rank Tracker | AI Brand Track",
+    "h1": "AI Rank Tracker",
+    "supporting_keywords": [
+      {
+        "keyword": "seo ai keyword rank checker",
+        "volume": 320,
+        "kd": 62,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai google website rank checker",
+        "volume": 260,
+        "kd": 90,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "seo ai rank checker",
+        "volume": 140,
+        "kd": 41,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "keyword com ai rank tracker",
+        "volume": 30,
+        "kd": 20,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai visibility rank tracker",
+        "volume": 30,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "pro rank tracker ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Other / Adjacent",
+    "format": "Informational",
+    "slug": "seo-in-the-age-of-ai",
+    "primary_keyword": "seo in the age of ai",
+    "primary_volume": 70,
+    "primary_kd": 6,
+    "primary_intent": "informational",
+    "cluster_keywords": 45,
+    "cluster_volume": 620,
+    "cluster_avg_kd": 24,
+    "opportunity": 18.24,
+    "title_tag": "SEO in the Age of AI | AI Brand Track",
+    "h1": "SEO in the Age of AI",
+    "supporting_keywords": [
+      {
+        "keyword": "will seo be replaced by ai",
+        "volume": 40,
+        "kd": 3,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is seo dead with ai",
+        "volume": 40,
+        "kd": 16,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how ai is changing seo",
+        "volume": 40,
+        "kd": 17,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how seo will change with ai",
+        "volume": 20,
+        "kd": 46,
+        "intent": "informational"
+      },
+      {
+        "keyword": "does ai content hurt seo",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "can ai help with seo",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo in age of ai",
+        "volume": 10,
+        "kd": 6,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how seo is changing with ai",
+        "volume": 10,
+        "kd": 17,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how will seo change with ai",
+        "volume": 10,
+        "kd": 18,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how ai will change seo",
+        "volume": 10,
+        "kd": 18,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how ai will affect seo",
+        "volume": 10,
+        "kd": 29,
+        "intent": "informational"
+      },
+      {
+        "keyword": "does ai content affect seo",
+        "volume": 10,
+        "kd": 33,
+        "intent": "informational"
+      },
+      {
+        "keyword": "park seo joon là ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is seo dying with ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how ai can improve your seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is seo dead because of ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "does ai written content affect seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo in guk là ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "will seo die with ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how ai is impacting seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "how has seo changed with ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai viết content chuẩn seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "does ai-generated content affect seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "does ai generated content affect seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai thay park hang seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      }
+    ]
+  },
+  {
+    "topic": "Other / Adjacent",
+    "format": "Commercial",
+    "slug": "ai-impact-on-seo",
+    "primary_keyword": "ai impact on seo",
+    "primary_volume": 90,
+    "primary_kd": 42,
+    "primary_intent": "commercial",
+    "cluster_keywords": 55,
+    "cluster_volume": 930,
+    "cluster_avg_kd": 42,
+    "opportunity": 17.88,
+    "title_tag": "AI Impact on SEO | AI Brand Track",
+    "h1": "AI Impact on SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "seo content writing ai",
+        "volume": 70,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai-generated content seo",
+        "volume": 70,
+        "kd": 42,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai generated content seo",
+        "volume": 70,
+        "kd": 46,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "jasper ai and surfer seo",
+        "volume": 40,
+        "kd": 2,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai and machine learning in seo",
+        "volume": 40,
+        "kd": 18,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai content and seo",
+        "volume": 30,
+        "kd": 43,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo content writer ai",
+        "volume": 30,
+        "kd": 44,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo optimization with ai",
+        "volume": 20,
+        "kd": 44,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo equivalent for ai",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo keyword research ai",
+        "volume": 20,
+        "kd": 54,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai for youtube seo",
+        "volume": 10,
+        "kd": 11,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai used in seo",
+        "volume": 10,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai for local seo",
+        "volume": 10,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo content writing with ai",
+        "volume": 10,
+        "kd": 42,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "track ai visibility prompts",
+        "volume": 10,
+        "kd": null,
+        "intent": "transactional"
+      },
+      {
+        "keyword": "ai powered search and seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo friendly content writing ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai to improve seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo article writer ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai for website seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai impact on local seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo article writing ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai mode impact on seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo meta description ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai generated content and seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "LLM SEO / Optimization",
+    "format": "Segment / Service",
+    "slug": "llm-seo-services",
+    "primary_keyword": "llm seo services",
+    "primary_volume": 90,
+    "primary_kd": 0,
+    "primary_intent": "commercial",
+    "cluster_keywords": 4,
+    "cluster_volume": 270,
+    "cluster_avg_kd": 6,
+    "opportunity": 16.88,
+    "title_tag": "LLM SEO Services | AI Brand Track",
+    "h1": "LLM SEO Services",
+    "supporting_keywords": [
+      {
+        "keyword": "llm seo agency",
+        "volume": 90,
+        "kd": 0,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm txt for seo",
+        "volume": 70,
+        "kd": 18,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "llm for seo",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "AI Brand Monitoring / Visibility",
+    "format": "Commercial",
+    "slug": "ai-brand-monitoring",
+    "primary_keyword": "ai brand monitoring",
+    "primary_volume": 210,
+    "primary_kd": 61,
+    "primary_intent": "commercial",
+    "cluster_keywords": 6,
+    "cluster_volume": 530,
+    "cluster_avg_kd": 29,
+    "opportunity": 13.59,
+    "title_tag": "AI Brand Monitoring | AI Brand Track",
+    "h1": "AI Brand Monitoring",
+    "supporting_keywords": [
+      {
+        "keyword": "ai brand visibility",
+        "volume": 170,
+        "kd": 41,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai visibility audit",
+        "volume": 70,
+        "kd": 6,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "brand visibility in ai search",
+        "volume": 40,
+        "kd": 19,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "similarweb ai brand visibility",
+        "volume": 30,
+        "kd": 3,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "brand visibility ai",
+        "volume": 10,
+        "kd": 41,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "AI SEO Tools & Agencies",
+    "format": "Comparison / Alternatives",
+    "slug": "seo-ai-reviews",
+    "primary_keyword": "seo ai reviews",
+    "primary_volume": 40,
+    "primary_kd": 4,
+    "primary_intent": "commercial",
+    "cluster_keywords": 18,
+    "cluster_volume": 290,
+    "cluster_avg_kd": 14,
+    "opportunity": 12.08,
+    "title_tag": "SEO AI Reviews | AI Brand Track",
+    "h1": "SEO AI Reviews",
+    "supporting_keywords": [
+      {
+        "keyword": "seo ai review",
+        "volume": 40,
+        "kd": 5,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo vs ai optimization",
+        "volume": 40,
+        "kd": 9,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo vs ai",
+        "volume": 40,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai vs seo",
+        "volume": 20,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo vs ai search",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo writing ai review",
+        "volume": 10,
+        "kd": 11,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo vs ai seo",
+        "volume": 10,
+        "kd": 23,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo vs ai search optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ranked ai seo review",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo writing ai alternative",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "wp seo ai reviews",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seona ai seo reviews",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai vs seo relevance",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "alli ai seo review",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai tools versus ableton",
+        "volume": 0,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai tools comparison",
+        "volume": 0,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo ai tools vs ableton",
+        "volume": 0,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Other / Adjacent",
+    "format": "Segment / Service",
+    "slug": "ai-generated-content-for-seo",
+    "primary_keyword": "ai-generated content for seo",
+    "primary_volume": 50,
+    "primary_kd": 27,
+    "primary_intent": "commercial",
+    "cluster_keywords": 20,
+    "cluster_volume": 470,
+    "cluster_avg_kd": 30,
+    "opportunity": 11.75,
+    "title_tag": "Ai-generated Content for SEO | AI Brand Track",
+    "h1": "Ai-generated Content for SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "ai generated content for seo",
+        "volume": 50,
+        "kd": 35,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai content for seo",
+        "volume": 50,
+        "kd": 43,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is ai-generated content good for seo",
+        "volume": 40,
+        "kd": 34,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is ai generated content good for seo",
+        "volume": 40,
+        "kd": 34,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai writer for seo",
+        "volume": 40,
+        "kd": 73,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is ai content bad for seo",
+        "volume": 30,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is ai content good for seo",
+        "volume": 30,
+        "kd": 16,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai writing for seo",
+        "volume": 20,
+        "kd": 21,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai prompts for seo",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is ai bad for seo",
+        "volume": 10,
+        "kd": 19,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is ai written content bad for seo",
+        "volume": 10,
+        "kd": 25,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai automation for seo",
+        "volume": 10,
+        "kd": 27,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is ai generated text bad for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "google ai update for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "can we use ai content for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ecommerce seo product description writer ai gpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "is ai-generated content bad for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what does ai mean for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "is ai generated content bad for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "Perplexity Visibility",
+    "format": "Informational",
+    "slug": "perplexity-seo",
+    "primary_keyword": "perplexity seo",
+    "primary_volume": 70,
+    "primary_kd": 7,
+    "primary_intent": "informational",
+    "cluster_keywords": 5,
+    "cluster_volume": 150,
+    "cluster_avg_kd": 5,
+    "opportunity": 10,
+    "title_tag": "Perplexity SEO | AI Brand Track",
+    "h1": "Perplexity SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "perplexity ai seo",
+        "volume": 40,
+        "kd": 0,
+        "intent": "informational"
+      },
+      {
+        "keyword": "seo for perplexity",
+        "volume": 20,
+        "kd": 7,
+        "intent": "informational"
+      },
+      {
+        "keyword": "perplexity parasite seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "perplexity pages seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "navigational"
+      }
+    ]
+  },
+  {
+    "topic": "LLM SEO / Optimization",
+    "format": "Definition / What-is",
+    "slug": "what-is-llm-seo",
+    "primary_keyword": "what is llm seo",
+    "primary_volume": 50,
+    "primary_kd": 1,
+    "primary_intent": "informational",
+    "cluster_keywords": 7,
+    "cluster_volume": 140,
+    "cluster_avg_kd": 4,
+    "opportunity": 10,
+    "title_tag": "What is LLM SEO | AI Brand Track",
+    "h1": "What is LLM SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "what is llm in seo",
+        "volume": 30,
+        "kd": 7,
+        "intent": "informational"
+      },
+      {
+        "keyword": "llm seo meaning",
+        "volume": 20,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "llm meaning seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is llm driven seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "llm meaning in seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is llm seo called",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "ChatGPT Visibility",
+    "format": "Best-of / Listicle",
+    "slug": "best-chatgpt-prompts-for-marketing",
+    "primary_keyword": "best chatgpt prompts for marketing",
+    "primary_volume": 20,
+    "primary_kd": 5,
+    "primary_intent": "commercial",
+    "cluster_keywords": 28,
+    "cluster_volume": 290,
+    "cluster_avg_kd": 23,
+    "opportunity": 8.79,
+    "title_tag": "Best ChatGPT Prompts for Marketing | AI Brand Track",
+    "h1": "Best ChatGPT Prompts for Marketing",
+    "supporting_keywords": [
+      {
+        "keyword": "best marketing prompts for chatgpt",
+        "volume": 20,
+        "kd": 10,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt prompts for seo",
+        "volume": 10,
+        "kd": 13,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best prompts for chatgpt marketing",
+        "volume": 10,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best marketing chatgpt prompts",
+        "volume": 10,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt marketing prompts",
+        "volume": 10,
+        "kd": 23,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo prompts for chatgpt",
+        "volume": 10,
+        "kd": 25,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best ai seo tools for optimizing content for chatgpt searches",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo plugin for chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo plugins for chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt model for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo chatgpt plugins",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best seo plugin chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt seo plugin",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt plugins for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt plugin for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt seo prompts",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt prompt for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt prompts for seo content writing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt prompts for email marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt plugins for marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt prompts for marketing plan",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt prompts for social media marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt prompts for digital marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best chatgpt plugins marketing",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "best prompts for marketing chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Generative Engine Optimization (GEO)",
+    "format": "Definition / What-is",
+    "slug": "what-is-geo-seo",
+    "primary_keyword": "what is geo seo",
+    "primary_volume": 140,
+    "primary_kd": 38,
+    "primary_intent": "informational",
+    "cluster_keywords": 5,
+    "cluster_volume": 470,
+    "cluster_avg_kd": 47,
+    "opportunity": 8.25,
+    "title_tag": "What is GEO SEO | AI Brand Track",
+    "h1": "What is GEO SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "what is generative engine optimization geo",
+        "volume": 140,
+        "kd": 57,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo meaning",
+        "volume": 90,
+        "kd": 37,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is geo generative engine optimization",
+        "volume": 90,
+        "kd": 54,
+        "intent": "informational"
+      },
+      {
+        "keyword": "geo seo definition",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "AI Mentions / Citations / Share of Voice",
+    "format": "Informational",
+    "slug": "ai-brand-mentions",
+    "primary_keyword": "ai brand mentions",
+    "primary_volume": 140,
+    "primary_kd": 25,
+    "primary_intent": "informational",
+    "cluster_keywords": 4,
+    "cluster_volume": 250,
+    "cluster_avg_kd": 22,
+    "opportunity": 7.81,
+    "title_tag": "AI Brand Mentions | AI Brand Track",
+    "h1": "AI Brand Mentions",
+    "supporting_keywords": [
+      {
+        "keyword": "track brand mentions in ai",
+        "volume": 70,
+        "kd": 18,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai share of voice",
+        "volume": 30,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai seo citations",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "Generative Engine Optimization (GEO)",
+    "format": "Commercial",
+    "slug": "geo-ai-optimization",
+    "primary_keyword": "geo ai optimization",
+    "primary_volume": 70,
+    "primary_kd": 26,
+    "primary_intent": "commercial",
+    "cluster_keywords": 20,
+    "cluster_volume": 280,
+    "cluster_avg_kd": 26,
+    "opportunity": 7.78,
+    "title_tag": "GEO AI Optimization | AI Brand Track",
+    "h1": "GEO AI Optimization",
+    "supporting_keywords": [
+      {
+        "keyword": "generative engine optimization marketing",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo llm optimization",
+        "volume": 20,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo optimization ai",
+        "volume": 10,
+        "kd": 26,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo generative engine optimization arxiv",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo generative engine optimization pranjal aggarwal",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo mastering generative engine optimization geo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo generative engine optimization paper",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo: generative engine optimization pranjal aggarwal",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "generative engine optimization audit",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo: generative engine optimization paper",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo generative engine optimization course",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo generative optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "generative ai optimization geo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo gen ai optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo ai seo herrmann new york magazine",
+        "volume": 10,
+        "kd": null,
+        "intent": "transactional"
+      },
+      {
+        "keyword": "ai and geo seo trends",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo ai seo herrmann york magazine",
+        "volume": 10,
+        "kd": null,
+        "intent": "transactional"
+      },
+      {
+        "keyword": "geo seo course",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "geo seo courses",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Answer Engine Optimization (AEO)",
+    "format": "Definition / What-is",
+    "slug": "what-is-answer-engine-optimization-aeo",
+    "primary_keyword": "what is answer engine optimization aeo",
+    "primary_volume": 70,
+    "primary_kd": 29,
+    "primary_intent": "informational",
+    "cluster_keywords": 4,
+    "cluster_volume": 210,
+    "cluster_avg_kd": 28,
+    "opportunity": 5.53,
+    "title_tag": "What is Answer Engine Optimization AEO | AI Brand Track",
+    "h1": "What is Answer Engine Optimization AEO",
+    "supporting_keywords": [
+      {
+        "keyword": "what is aeo seo",
+        "volume": 70,
+        "kd": 33,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is aeo answer engine optimization",
+        "volume": 40,
+        "kd": 26,
+        "intent": "informational"
+      },
+      {
+        "keyword": "aeo seo meaning",
+        "volume": 30,
+        "kd": 23,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "Google AI Overviews / Gemini / AI Mode",
+    "format": "Tool / Software",
+    "slug": "ai-overview-app",
+    "primary_keyword": "ai overview app",
+    "primary_volume": 140,
+    "primary_kd": 76,
+    "primary_intent": "informational",
+    "cluster_keywords": 5,
+    "cluster_volume": 210,
+    "cluster_avg_kd": 40,
+    "opportunity": 4.2,
+    "title_tag": "AI Overview App | AI Brand Track",
+    "h1": "AI Overview App",
+    "supporting_keywords": [
+      {
+        "keyword": "seo com's ai overview checker",
+        "volume": 30,
+        "kd": 4,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "seo com ai overview checker",
+        "volume": 20,
+        "kd": null,
+        "intent": "navigational"
+      },
+      {
+        "keyword": "ai overview app free",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "ai overview download free",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "Answer Engine Optimization (AEO)",
+    "format": "Commercial",
+    "slug": "aeo-ai-engine-optimization",
+    "primary_keyword": "aeo ai engine optimization",
+    "primary_volume": 110,
+    "primary_kd": 40,
+    "primary_intent": "commercial",
+    "cluster_keywords": 5,
+    "cluster_volume": 160,
+    "cluster_avg_kd": 40,
+    "opportunity": 3.2,
+    "title_tag": "AEO AI Engine Optimization | AI Brand Track",
+    "h1": "AEO AI Engine Optimization",
+    "supporting_keywords": [
+      {
+        "keyword": "ai engine optimization aeo",
+        "volume": 20,
+        "kd": 40,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "answer engine optimization aeo course",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "aeo answer engine optimization course",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "answer engine optimisation aeo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "AI Search Optimization (general)",
+    "format": "Commercial",
+    "slug": "ai-search-engine-marketing",
+    "primary_keyword": "ai search engine marketing",
+    "primary_volume": 30,
+    "primary_kd": 42,
+    "primary_intent": "commercial",
+    "cluster_keywords": 8,
+    "cluster_volume": 120,
+    "cluster_avg_kd": 42,
+    "opportunity": 2.31,
+    "title_tag": "AI Search Engine Marketing | AI Brand Track",
+    "h1": "AI Search Engine Marketing",
+    "supporting_keywords": [
+      {
+        "keyword": "seo and generative ai",
+        "volume": 20,
+        "kd": 41,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo for generative ai",
+        "volume": 20,
+        "kd": 54,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai search engine seo",
+        "volume": 10,
+        "kd": 24,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo optimization for ai search",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai search and seo",
+        "volume": 10,
+        "kd": 48,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai search impact on seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "the wordpress & seo masterclass with generative ai 2024",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Other / Adjacent",
+    "format": "Definition / What-is",
+    "slug": "what-is-seo-called-for-ai",
+    "primary_keyword": "what is seo called for ai",
+    "primary_volume": 20,
+    "primary_kd": 10,
+    "primary_intent": "informational",
+    "cluster_keywords": 3,
+    "cluster_volume": 40,
+    "cluster_avg_kd": 10,
+    "opportunity": 2,
+    "title_tag": "What is SEO Called for AI | AI Brand Track",
+    "h1": "What is SEO Called for AI",
+    "supporting_keywords": [
+      {
+        "keyword": "what is seo but for ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "what is the ai version of seo called",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "ChatGPT Visibility",
+    "format": "Comparison / Alternatives",
+    "slug": "claude-vs-chatgpt-for-marketing",
+    "primary_keyword": "claude vs chatgpt for marketing",
+    "primary_volume": 30,
+    "primary_kd": null,
+    "primary_intent": "commercial",
+    "cluster_keywords": 4,
+    "cluster_volume": 60,
+    "cluster_avg_kd": 50,
+    "opportunity": 1,
+    "title_tag": "Claude vs ChatGPT for Marketing | AI Brand Track",
+    "h1": "Claude vs ChatGPT for Marketing",
+    "supporting_keywords": [
+      {
+        "keyword": "seo vs chatgpt",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "chatgpt vs seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "gemini vs chatgpt for seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Generative Engine Optimization (GEO)",
+    "format": "Comparison / Alternatives",
+    "slug": "generative-engine-optimization-vs-seo",
+    "primary_keyword": "generative engine optimization vs seo",
+    "primary_volume": 20,
+    "primary_kd": null,
+    "primary_intent": "commercial",
+    "cluster_keywords": 4,
+    "cluster_volume": 50,
+    "cluster_avg_kd": 50,
+    "opportunity": 0.83,
+    "title_tag": "Generative Engine Optimization vs SEO | AI Brand Track",
+    "h1": "Generative Engine Optimization vs SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "generative engine optimization vs aeo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "answer engine optimization vs geo",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "ai seo vs geo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      }
+    ]
+  },
+  {
+    "topic": "LLM SEO / Optimization",
+    "format": "Comparison / Alternatives",
+    "slug": "llm-vs-seo",
+    "primary_keyword": "llm vs seo",
+    "primary_volume": 20,
+    "primary_kd": null,
+    "primary_intent": "commercial",
+    "cluster_keywords": 3,
+    "cluster_volume": 40,
+    "cluster_avg_kd": 50,
+    "opportunity": 0.67,
+    "title_tag": "LLM vs SEO | AI Brand Track",
+    "h1": "LLM vs SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "seo vs llm",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      },
+      {
+        "keyword": "seo vs llm optimization",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  },
+  {
+    "topic": "Other / Adjacent",
+    "format": "How-to / Guide",
+    "slug": "how-to-use-ai-to-improve-seo",
+    "primary_keyword": "how to use ai to improve seo",
+    "primary_volume": 10,
+    "primary_kd": null,
+    "primary_intent": "informational",
+    "cluster_keywords": 4,
+    "cluster_volume": 40,
+    "cluster_avg_kd": 50,
+    "opportunity": 0.67,
+    "title_tag": "How to Use AI to Improve SEO | AI Brand Track",
+    "h1": "How to Use AI to Improve SEO",
+    "supporting_keywords": [
+      {
+        "keyword": "how can ai help with seo",
+        "volume": 10,
+        "kd": null,
+        "intent": "informational"
+      },
+      {
+        "keyword": "unified seo ppc strategy ai era",
+        "volume": 10,
+        "kd": null,
+        "intent": "transactional"
+      },
+      {
+        "keyword": "seo content strategy with ai",
+        "volume": 10,
+        "kd": null,
+        "intent": "commercial"
+      }
+    ]
+  }
+]

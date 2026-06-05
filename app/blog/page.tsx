@@ -44,6 +44,24 @@ export default async function BlogPage() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: 'AI Brand Track Blog',
+            url: 'https://www.aibrandtrack.com/blog',
+            itemListElement: posts.map((post, idx) => ({
+              '@type': 'ListItem',
+              position: idx + 1,
+              name: post.title,
+              url: `https://www.aibrandtrack.com/blog/${post.slug}`,
+              description: post.excerpt,
+            })),
+          }),
+        }}
+      />
 
       <div className="min-h-screen bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

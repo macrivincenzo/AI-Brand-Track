@@ -31,7 +31,7 @@ export function Footer() {
       
       <footer className="bg-white text-zinc-600 border-t border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
             {/* Brand and Description - SEO Rich */}
             <div className="col-span-1 lg:col-span-2">
               <div className="mb-4">
@@ -59,14 +59,51 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-<Link href="/" className="text-sm hover:text-zinc-900 transition-colors">
-                  AI Brand Tracking
+<Link href="/ai-rank-tracker" className="text-sm hover:text-zinc-900 transition-colors">
+                  AI Rank Tracker
                 </Link>
                 </li>
                 <li>
-<Link href="/" className="text-sm hover:text-zinc-900 transition-colors">
+<Link href="/ai-search-visibility" className="text-sm hover:text-zinc-900 transition-colors">
                   AI Search Optimization
                 </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Learn - internal links to the AI search visibility hub + guides */}
+            <div>
+              <h3 className="text-zinc-900 font-semibold mb-4">Learn</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/ai-search-visibility" className="text-sm hover:text-zinc-900 transition-colors">
+                    AI Search Visibility
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/generative-engine-optimization" className="text-sm hover:text-zinc-900 transition-colors">
+                    Generative Engine Optimization
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/answer-engine-optimization" className="text-sm hover:text-zinc-900 transition-colors">
+                    Answer Engine Optimization
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/llm-seo" className="text-sm hover:text-zinc-900 transition-colors">
+                    LLM SEO
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/how-to-rank-on-chatgpt" className="text-sm hover:text-zinc-900 transition-colors">
+                    How to Rank on ChatGPT
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/perplexity-seo" className="text-sm hover:text-zinc-900 transition-colors">
+                    Perplexity SEO
+                  </Link>
                 </li>
               </ul>
             </div>

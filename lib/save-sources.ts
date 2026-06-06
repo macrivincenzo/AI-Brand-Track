@@ -52,9 +52,11 @@ export async function saveSourcesToDatabase(
     
     // Save domains and pages
     for (const [domainKey, domainData] of domainMap.entries()) {
-      // Calculate share of citations for this domain
-      const shareOfCitations = totalCitations > 0 
-        ? Math.round((domainData.timesCited / totalCitations) * 1000) / 10 
+      // Calculate share of citations for this domain.
+      // share_of_citations is an integer column (percentage 0-100), so round to a
+      // whole number — passing a decimal (e.g. 16.9) makes Postgres reject the insert.
+      const shareOfCitations = totalCitations > 0
+        ? Math.round((domainData.timesCited / totalCitations) * 100)
         : 0;
       
       // Save domain (category is already set by aggregateSourcesByDomain with context)

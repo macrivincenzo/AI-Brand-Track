@@ -1,12 +1,12 @@
 import { betterAuth } from 'better-auth';
-import { Pool } from 'pg';
+import { pool } from './db';
 import { sendEmail } from './email';
 import { autumn } from 'autumn-js/better-auth';
 
 export const auth = betterAuth({
-  database: new Pool({
-    connectionString: process.env.DATABASE_URL!,
-  }),
+  // Share the app's single pg pool instead of opening a second one — two pools
+  // (20 + 10 connections) against a 15-connection pooler caused EMAXCONNSESSION.
+  database: pool,
   secret: process.env.BETTER_AUTH_SECRET || 'placeholder-secret-for-build',
   baseURL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   emailAndPassword: {
@@ -54,6 +54,14 @@ export const auth = betterAuth({
   session: {
     expiresIn: 40 * 60, // 40 minutes — logout 40 min after last activity
     updateAge: 0, // refresh on every request so expiry = last activity + 40 min; inactive 40 min = logged out
+    cookieCache: {
+      // Serve the session from a short-lived signed cookie so getSession()
+      // doesn't hit the DB on every request (the main source of pooler
+      // pressure). Expiry is now refreshed at most every 5 min instead of
+      // every request — inactivity logout stays ~40 min, just coarser.
+      enabled: true,
+      maxAge: 5 * 60,
+    },
     cookieOptions: {
       httpOnly: true,
       sameSite: 'lax',

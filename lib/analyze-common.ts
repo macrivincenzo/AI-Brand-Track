@@ -371,6 +371,27 @@ export async function performAnalysis({
     await Promise.all(batchPromises);
   }
 
+  // Per-provider summary so the logs make it obvious which providers produced
+  // data and which silently failed (e.g. Google showing blank/0% in the matrix).
+  const responsesByProvider = availableProviders.reduce((acc, p) => {
+    acc[p.name] = responses.filter(
+      r => (r.provider || '').toLowerCase() === p.name.toLowerCase()
+    ).length;
+    return acc;
+  }, {} as Record<string, number>);
+  console.log('[Analysis Summary] Responses per provider:', responsesByProvider);
+  if (errors.length > 0) {
+    console.error(`[Analysis Summary] ${errors.length} provider error(s) this run:`, errors);
+  }
+  for (const p of availableProviders) {
+    if ((responsesByProvider[p.name] || 0) === 0) {
+      console.error(
+        `[Analysis Summary] ⚠️ ${p.name} produced 0 responses — its column will be blank/0%. ` +
+        `See the "${p.name}:" entries in the errors above for the real cause (missing API key, quota, or model).`
+      );
+    }
+  }
+
   // Stage 4: Calculate scores
   await sendEvent({
     type: 'stage',

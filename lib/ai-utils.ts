@@ -763,7 +763,8 @@ export async function analyzePromptWithProvider(
   provider: string,
   brandName: string,
   competitors: string[],
-  useMockMode: boolean = false
+  useMockMode: boolean = false,
+  modelId?: string
 ): Promise<AIResponse> {
   // Mock mode for demo/testing without API keys
   if (useMockMode || provider === 'Mock') {
@@ -772,9 +773,10 @@ export async function analyzePromptWithProvider(
 
   // Normalize provider name for consistency
   const normalizedProvider = normalizeProviderName(provider);
-  
-  // Get model from centralized configuration
-  const model = getProviderModel(normalizedProvider);
+
+  // Get model from centralized configuration (modelId overrides the default so
+  // the caller can walk the provider's fallback chain on model retirement)
+  const model = getProviderModel(normalizedProvider, modelId);
   
   if (!model) {
     console.warn(`Provider ${provider} not configured, skipping provider`);

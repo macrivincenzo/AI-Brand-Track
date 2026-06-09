@@ -42,6 +42,13 @@ export interface ProviderConfig {
   envKey: string;
   models: ProviderModel[];
   defaultModel: string;
+  /**
+   * Ordered model fallback chain (single source of truth). The analysis pipeline
+   * tries these in order and advances to the next ONLY when a model is retired
+   * (404 / NOT_FOUND / "no longer available"). Swapping a retired model is a
+   * one-line edit here. The first entry should match defaultModel.
+   */
+  fallbackModels?: string[];
   capabilities: ProviderCapabilities;
   getModel: (modelId?: string, options?: any) => LanguageModelV1 | null;
   isConfigured: () => boolean;
@@ -98,6 +105,7 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
       },
     ],
     defaultModel: 'gpt-4o',
+    fallbackModels: ['gpt-4o', 'gpt-4o-mini'],
     capabilities: {
       webSearch: true, // Via responses API with specific models
       functionCalling: true,
@@ -152,6 +160,7 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
       },
     ],
     defaultModel: 'claude-4-sonnet-20250514',
+    fallbackModels: ['claude-4-sonnet-20250514', 'claude-3-5-sonnet-20241022'],
     capabilities: {
       webSearch: false,
       functionCalling: true,
@@ -191,6 +200,7 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
       },
     ],
     defaultModel: 'gemini-2.5-flash',
+    fallbackModels: ['gemini-2.5-flash', 'gemini-2.5-flash-lite'],
     capabilities: {
       webSearch: true, // Native search grounding
       functionCalling: true,
@@ -232,6 +242,7 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
       },
     ],
     defaultModel: 'sonar-pro',
+    fallbackModels: ['sonar-pro', 'sonar'],
     capabilities: {
       webSearch: true, // All models have built-in web search
       functionCalling: false,
@@ -291,6 +302,19 @@ export function getProviderModel(
     return null;
   }
   return provider.getModel(modelId, options);
+}
+
+/**
+ * Get the ordered model fallback chain for a provider (single source of truth).
+ * Falls back to [defaultModel] when no explicit chain is configured. Accepts a
+ * provider id or display name (case-insensitive).
+ */
+export function getModelChain(providerId: string): string[] {
+  const provider = getProviderConfig(providerId);
+  if (!provider) return [];
+  return provider.fallbackModels && provider.fallbackModels.length > 0
+    ? provider.fallbackModels
+    : [provider.defaultModel];
 }
 
 /**

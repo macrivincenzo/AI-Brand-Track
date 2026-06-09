@@ -1,8 +1,28 @@
 import { AIResponse, AnalysisProgressData, Company, PartialResultData, ProgressData, PromptGeneratedData, ScoringProgressData, SSEEvent } from './types';
 import { generatePromptsForCompany, analyzePromptWithProvider, calculateBrandScores, analyzeCompetitors, identifyCompetitors, analyzeCompetitorsByProvider } from './ai-utils';
 import { analyzePromptWithProvider as analyzePromptWithProviderEnhanced } from './ai-utils-enhanced';
-import { getConfiguredProviders, resolveProviderDisplayName } from './provider-config';
+import { getConfiguredProviders, resolveProviderDisplayName, getModelChain } from './provider-config';
 import { extractSourcesFromResponse } from './source-tracker-utils';
+
+/**
+ * Detect a RETIRED-MODEL error specifically: 404 / NOT_FOUND / "no longer
+ * available". Deliberately EXCLUDES quota/auth/rate-limit (401/403/429) so the
+ * fallback chain only advances when the model itself is gone — not for billing
+ * or rate problems, where retrying another model would just waste calls.
+ */
+function isRetiredModelError(err: any): boolean {
+  const status = err?.statusCode ?? err?.status ?? err?.cause?.statusCode;
+  if (status === 401 || status === 403 || status === 429) return false;
+  const text = `${err?.message ?? ''} ${err?.responseBody ?? ''}`.toLowerCase();
+  return (
+    status === 404 ||
+    text.includes('not_found') ||
+    text.includes('no longer available') ||
+    text.includes('is not found') ||
+    text.includes('not supported for') ||
+    text.includes('does not exist')
+  );
+}
 
 export interface AnalysisConfig {
   company: Company;
@@ -227,15 +247,41 @@ export async function performAnalysis({
           
           // Choose the appropriate analysis function based on useWebSearch
           const analyzeFunction = useWebSearch ? analyzePromptWithProviderEnhanced : analyzePromptWithProvider;
-          
-          let response = await analyzeFunction(
-            prompt.prompt, 
-            provider.name, 
-            company.name, 
-            competitors,
-            useMockMode,
-            ...(useWebSearch ? [true] : []) // Pass web search flag only for enhanced version
-          );
+
+          // Walk the provider's model fallback chain. Advance to the next model
+          // ONLY on a retired-model error (404 / NOT_FOUND / "no longer
+          // available"). Any other error (quota/auth/rate-limit) is re-thrown to
+          // the existing catch below unchanged.
+          const modelChain = getModelChain(provider.name);
+          let response: AIResponse | null = null;
+          for (let mi = 0; mi < modelChain.length; mi++) {
+            const modelId = modelChain[mi];
+            try {
+              response = await analyzeFunction(
+                prompt.prompt,
+                provider.name,
+                company.name,
+                competitors,
+                useMockMode,
+                ...(useWebSearch ? [true, modelId] : [modelId]) // enhanced takes (useWebSearch, modelId); standard takes (modelId)
+              );
+              break; // success — stop walking the chain
+            } catch (modelError) {
+              if (isRetiredModelError(modelError)) {
+                const nextModel = modelChain[mi + 1];
+                if (nextModel) {
+                  console.warn(
+                    `[MODEL RETIRED] ${provider.name}'s ${modelId} returned 404 — falling back to ${nextModel}. Update the config.`
+                  );
+                  continue; // try the next model in the chain
+                }
+                console.error(
+                  `[MODEL RETIRED] ${provider.name}: every model in the fallback chain failed as retired/unavailable (${modelChain.join(' -> ')}). Update the config immediately.`
+                );
+              }
+              throw modelError; // non-retired error, or chain exhausted → existing catch handles it
+            }
+          }
           
           // Extract sources from response if not already included
           if (response && !response.sources && response.response) {

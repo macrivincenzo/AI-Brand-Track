@@ -63,7 +63,8 @@ export async function analyzePromptWithProviderEnhanced(
   brandName: string,
   competitors: string[],
   useMockMode: boolean = false,
-  useWebSearch: boolean = true
+  useWebSearch: boolean = true,
+  modelId?: string
 ): Promise<AIResponse> {
   if (useMockMode || provider === 'Mock') {
     return generateMockResponse(prompt, provider, brandName, competitors);
@@ -82,9 +83,9 @@ export async function analyzePromptWithProviderEnhanced(
   const generateConfig: Record<string, unknown> = {};
 
   if (normalizedProvider === 'openai' && useWebSearch) {
-    model = getProviderModel('openai', 'gpt-4o-mini', { useWebSearch: true });
+    model = getProviderModel('openai', modelId || 'gpt-4o-mini', { useWebSearch: true });
   } else {
-    model = getProviderModel(normalizedProvider, undefined, { useWebSearch });
+    model = getProviderModel(normalizedProvider, modelId, { useWebSearch });
   }
 
   if (!model) {

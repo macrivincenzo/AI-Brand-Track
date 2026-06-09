@@ -174,14 +174,6 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     enabled: PROVIDER_ENABLED_CONFIG.google,
     models: [
       {
-        id: 'gemini-2.0-flash',
-        name: 'Gemini 2.0 Flash',
-        maxTokens: 1000000,
-        supportsFunctionCalling: true,
-        supportsStructuredOutput: true,
-        supportsWebSearch: true,
-      },
-      {
         id: 'gemini-2.5-flash',
         name: 'Gemini 2.5 Flash',
         maxTokens: 1000000,
@@ -198,7 +190,7 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
         supportsWebSearch: true,
       },
     ],
-    defaultModel: 'gemini-2.0-flash',
+    defaultModel: 'gemini-2.5-flash',
     capabilities: {
       webSearch: true, // Native search grounding
       functionCalling: true,

@@ -1,4 +1,13 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'How AI Brand Track collects, uses and protects your personal data.',
+  alternates: {
+    canonical: 'https://www.aibrandtrack.com/privacy-policy',
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

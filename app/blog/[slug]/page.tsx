@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             keywords: Array.isArray(post.keywords) ? post.keywords.join(', ') : post.keywords,
             image: {
               '@type': 'ImageObject',
-              url: 'https://www.aibrandtrack.com/og-image.png',
+              url: 'https://www.aibrandtrack.com/opengraph-image',
               width: 1200,
               height: 630,
             },
@@ -165,19 +165,19 @@ export default async function BlogPostPage({ params }: PageProps) {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h1: ({ children, ...props }) => {
+                  h1: ({ node, children, ...props }) => {
                     const text = typeof children === 'string' ? children : String(children);
                     return (
-                      <h1
+                      <h2
                         id={generateHeadingId(text)}
                         className="text-3xl font-bold text-zinc-900 mt-12 mb-4 first:mt-0 scroll-mt-24"
                         {...props}
                       >
                         {children}
-                      </h1>
+                      </h2>
                     );
                   },
-                  h2: ({ children, ...props }) => {
+                  h2: ({ node, children, ...props }) => {
                     const text = typeof children === 'string' ? children : String(children);
                     return (
                       <h2
@@ -189,7 +189,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       </h2>
                     );
                   },
-                  h3: ({ children, ...props }) => {
+                  h3: ({ node, children, ...props }) => {
                     const text = typeof children === 'string' ? children : String(children);
                     return (
                       <h3
@@ -201,27 +201,27 @@ export default async function BlogPostPage({ params }: PageProps) {
                       </h3>
                     );
                   },
-                  p: ({ children, ...props }) => (
+                  p: ({ node, children, ...props }) => (
                     <p className="text-zinc-700 leading-relaxed mb-4" {...props}>
                       {children}
                     </p>
                   ),
-                  ul: ({ children, ...props }) => (
+                  ul: ({ node, children, ...props }) => (
                     <ul className="list-disc pl-6 mb-4 space-y-2 text-zinc-700" {...props}>
                       {children}
                     </ul>
                   ),
-                  ol: ({ children, ...props }) => (
+                  ol: ({ node, children, ...props }) => (
                     <ol className="list-decimal pl-6 mb-4 space-y-2 text-zinc-700" {...props}>
                       {children}
                     </ol>
                   ),
-                  li: ({ children, ...props }) => (
+                  li: ({ node, children, ...props }) => (
                     <li className="leading-relaxed" {...props}>
                       {children}
                     </li>
                   ),
-                  strong: ({ children, ...props }) => (
+                  strong: ({ node, children, ...props }) => (
                     <strong className="font-semibold text-zinc-900" {...props}>
                       {children}
                     </strong>
@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   ),
                 }}
               >
-                {post.content}
+                {post.content.replace(/^\s*# .*(\r?\n)+/, '')}
               </ReactMarkdown>
             </div>
           </article>

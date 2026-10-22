@@ -50,6 +50,12 @@ const nextConfig: NextConfig = {
         destination: 'https://www.aibrandtrack.com',
         permanent: true,
       },
+      // Consolidate old/test pricing URLs on the real pricing page
+      { source: '/pricing', destination: '/plans', permanent: true },
+      { source: '/pricing-public', destination: '/plans', permanent: true },
+      { source: '/pricing-dynamic', destination: '/plans', permanent: true },
+      { source: '/ai-brand-track', destination: '/', permanent: true },
+      { source: '/blog/keyword-slug', destination: '/blog/how-do-i-track-my-brand-mentions-in-ai-search', permanent: true },
       // Redirect duplicate blog URL to canonical (fix duplicate content)
       {
         source: '/blog/2026-03-05-generative-engine-optimization',

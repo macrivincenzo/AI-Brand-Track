@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us - AI Brand Track',
+  title: 'About Us',
   description: 'Learn about AI Brand Track and our mission to help businesses understand and improve their presence in AI-powered search. Empowering brands with AI visibility insights.',
   keywords: [
     'about AI brand tracking',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'AI platform monitoring'
   ],
   openGraph: {
-    title: 'About Us - AI Brand Track',
+    title: 'About Us | AI Brand Track',
     description: 'Learn about AI Brand Track and our mission to help businesses understand and improve their presence in AI-powered search.',
     url: 'https://www.aibrandtrack.com/about',
   },

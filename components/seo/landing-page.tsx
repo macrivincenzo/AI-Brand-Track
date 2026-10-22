@@ -56,7 +56,7 @@ export function LandingPage({ data }: { data: LandingPageData }) {
             "@type": "Article",
             headline: data.h1,
             description: data.subhead,
-            image: `${SITE}/og-image.png`,
+            image: `${SITE}/opengraph-image`,
             datePublished: published,
             dateModified: modified,
             author: { "@type": "Organization", name: "AI Brand Track", url: SITE },
@@ -92,13 +92,22 @@ export function LandingPage({ data }: { data: LandingPageData }) {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+              ...(url === `${SITE}/ai-search-visibility`
+                ? []
+                : [
+                    {
+                      "@type": "ListItem",
+                      position: 2,
+                      name: "AI Search Visibility",
+                      item: `${SITE}/ai-search-visibility`,
+                    },
+                  ]),
               {
                 "@type": "ListItem",
-                position: 2,
-                name: "AI Search Visibility",
-                item: `${SITE}/ai-search-visibility`,
+                position: url === `${SITE}/ai-search-visibility` ? 2 : 3,
+                name: data.breadcrumb,
+                item: url,
               },
-              { "@type": "ListItem", position: 3, name: data.breadcrumb, item: url },
             ],
           }),
         }}

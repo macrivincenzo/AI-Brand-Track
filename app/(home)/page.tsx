@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useSession } from "@/lib/auth-client";
 import { PlanCheckoutLink } from "@/components/plans/plan-checkout-link";
-import { ReviewsSection } from "@/components/reviews-section";
+import { ReviewsSection, reviews, averageRating } from "@/components/reviews-section";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -59,11 +59,18 @@ export default function Home() {
             ],
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "ratingCount": "150",
+              "ratingValue": averageRating,
+              "reviewCount": reviews.length,
               "bestRating": "5",
               "worstRating": "1"
             },
+            "review": reviews.map((r) => ({
+              "@type": "Review",
+              "author": { "@type": "Person", "name": r.author },
+              "datePublished": new Date(r.date).toISOString().slice(0, 10),
+              "reviewRating": { "@type": "Rating", "ratingValue": r.rating, "bestRating": 5 },
+              "reviewBody": r.quote
+            })),
             "description": "AI Brand Track is the leading AI brand visibility monitoring platform. Track how ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors. Get actionable insights to improve your AI search presence and dominate generative engine results.",
             "featureList": [
               "Real-time AI brand visibility monitoring across ChatGPT, Claude, Perplexity, and Google Gemini",
@@ -75,7 +82,7 @@ export default function Home() {
               "Multi-platform AI monitoring dashboard",
               "Prompt response analysis and quality scoring"
             ],
-            "screenshot": "https://www.aibrandtrack.com/og-image.png",
+            "screenshot": "https://www.aibrandtrack.com/opengraph-image",
             "softwareVersion": "2.0",
             "datePublished": "2025-01-01",
             "dateModified": "2026-01-02",
@@ -120,16 +127,12 @@ export default function Home() {
             "url": "https://www.aibrandtrack.com",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://www.aibrandtrack.com/logo.png",
+              "url": "https://www.aibrandtrack.com/ai-brand-track-logo.jpeg",
               "width": 250,
               "height": 60
             },
             "description": "AI Brand Track is a leading AI brand visibility monitoring platform that helps businesses track their presence across ChatGPT, Claude, Perplexity, and Google Gemini. Founded in 2025, we provide real-time insights and strategic recommendations for AI search optimization (AEO) and generative engine optimization (GEO).",
             "foundingDate": "2025",
-            "founder": {
-              "@type": "Organization",
-              "name": "AI Brand Track"
-            },
             "areaServed": {
               "@type": "Place",
               "name": "Global"
@@ -137,7 +140,7 @@ export default function Home() {
             "sameAs": [
               "https://twitter.com/aibrandtrack",
               "https://linkedin.com/company/aibrandtrack",
-              "https://github.com/aibrandtrack"
+              "https://alternativeto.net/software/ai-brand-track/about/"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -233,37 +236,6 @@ export default function Home() {
         }}
       />
 
-      {/* NEW: BreadcrumbList for better navigation understanding */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.aibrandtrack.com"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Brand Monitor",
-                "item": "https://www.aibrandtrack.com/brand-monitor"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Pricing",
-                "item": "https://www.aibrandtrack.com/plans"
-              }
-            ]
-          })
-        }}
-      />
-
       {/* NEW: HowTo Schema for "How to track AI brand visibility" */}
       <script
         type="application/ld+json"
@@ -273,7 +245,7 @@ export default function Home() {
             "@type": "HowTo",
             "name": "How to Track Your Brand Visibility Across AI Platforms",
             "description": "Learn how to monitor your brand presence on ChatGPT, Claude, Perplexity, and Google Gemini with AI Brand Track",
-            "image": "https://www.aibrandtrack.com/og-image.png",
+            "image": "https://www.aibrandtrack.com/opengraph-image",
             "totalTime": "PT1M",
             "estimatedCost": {
               "@type": "MonetaryAmount",
@@ -313,40 +285,7 @@ export default function Home() {
         }}
       />
 
-      {/* NEW: Article Schema for better content understanding */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "AI Brand Visibility Monitoring: Track ChatGPT, Claude, Perplexity & Gemini",
-            "description": "Comprehensive guide to AI brand visibility monitoring across ChatGPT, Claude, Perplexity, and Google Gemini. Learn how to track your brand in AI search results.",
-            "image": "https://www.aibrandtrack.com/og-image.png",
-            "author": {
-              "@type": "Organization",
-              "name": "AI Brand Track"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "AI Brand Track",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.aibrandtrack.com/logo.png"
-              }
-            },
-            "datePublished": "2025-01-01",
-            "dateModified": "2026-01-02",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://www.aibrandtrack.com"
-            },
-            "keywords": "AI brand monitoring, ChatGPT SEO, Claude brand tracking, Perplexity visibility, Gemini AI tracking, AEO optimization, GEO optimization, AI search visibility"
-          })
-        }}
-      />
-
-      {/* NEW: WebSite Schema with search action */}
+      {/* WebSite Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -355,146 +294,7 @@ export default function Home() {
             "@type": "WebSite",
             "name": "AI Brand Track",
             "alternateName": ["AI Brand Monitoring", "AI Brand Visibility Tracker"],
-            "url": "https://www.aibrandtrack.com",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://www.aibrandtrack.com/search?q={search_term_string}"
-              },
-              "query-input": "required name=search_term_string"
-            }
-          })
-        }}
-      />
-
-      {/* ULTRATHINK: Product Reviews for star ratings in search results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "AI Brand Track",
-            "description": "AI brand visibility monitoring platform for tracking your brand across ChatGPT, Claude, Perplexity, and Google Gemini",
-            "image": "https://www.aibrandtrack.com/og-image.png",
-            "brand": {
-              "@type": "Brand",
-              "name": "AI Brand Track"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "150",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "review": [
-              {
-                "@type": "Review",
-                "author": {
-                  "@type": "Person",
-                  "name": "Sarah Johnson"
-                },
-                "datePublished": "2025-12-20",
-                "reviewRating": {
-                  "@type": "Rating",
-                  "ratingValue": "5",
-                  "bestRating": "5"
-                },
-                "reviewBody": "AI Brand Track helped us discover we were missing from ChatGPT recommendations entirely. After implementing their suggestions, we went from 0% visibility to top 3 mentions in our category within 30 days. The insights are incredibly actionable."
-              },
-              {
-                "@type": "Review",
-                "author": {
-                  "@type": "Person",
-                  "name": "Michael Chen"
-                },
-                "datePublished": "2025-12-15",
-                "reviewRating": {
-                  "@type": "Rating",
-                  "ratingValue": "5",
-                  "bestRating": "5"
-                },
-                "reviewBody": "As a marketing director, this tool is essential. We track our AI brand visibility weekly and can see exactly how we compare against competitors across Claude, Perplexity, and Gemini. The 60-second analysis saves hours of manual research."
-              },
-              {
-                "@type": "Review",
-                "author": {
-                  "@type": "Person",
-                  "name": "Emily Rodriguez"
-                },
-                "datePublished": "2025-12-10",
-                "reviewRating": {
-                  "@type": "Rating",
-                  "ratingValue": "4.5",
-                  "bestRating": "5"
-                },
-                "reviewBody": "Finally a tool that shows how AI platforms actually see your brand. The competitor analysis is eye-opening. We discovered our main competitor was dominating Perplexity results, and now we're closing that gap using AI Brand Track's recommendations."
-              }
-            ],
-            "offers": {
-              "@type": "AggregateOffer",
-              "lowPrice": "0",
-              "highPrice": "149",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock",
-              "url": "https://www.aibrandtrack.com/plans"
-            }
-          })
-        }}
-      />
-
-      {/* ULTRATHINK: LocalBusiness Schema for authority signals */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "AI Brand Track",
-            "image": "https://www.aibrandtrack.com/og-image.png",
-            "@id": "https://www.aibrandtrack.com",
-            "url": "https://www.aibrandtrack.com",
-            "telephone": "+1-555-AIBRAND",
-            "priceRange": "$0-$149",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Global Digital Services",
-              "addressLocality": "San Francisco",
-              "addressRegion": "CA",
-              "postalCode": "94102",
-              "addressCountry": "US"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 37.7749,
-              "longitude": -122.4194
-            },
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
-              ],
-              "opens": "00:00",
-              "closes": "23:59"
-            },
-            "sameAs": [
-              "https://twitter.com/aibrandtrack",
-              "https://linkedin.com/company/aibrandtrack",
-              "https://github.com/aibrandtrack"
-            ],
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "150"
-            }
+            "url": "https://www.aibrandtrack.com"
           })
         }}
       />

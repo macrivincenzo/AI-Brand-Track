@@ -25,12 +25,12 @@ export const metadata: Metadata = {
 
   // OPTIMIZED: More specific, AI-quotable title with year
   title: {
-    default: "AI Brand Track: Monitor Your Brand Visibility Across ChatGPT, Claude, Perplexity & Gemini (2026)",
-    template: "%s | AI Brand Track - AI Brand Visibility Monitoring"
+    default: "AI Brand Track: AI Visibility Tracker for ChatGPT, Claude, Perplexity & Gemini",
+    template: "%s | AI Brand Track"
   },
 
   // OPTIMIZED: Longer, more detailed description with specific claims
-  description: "AI Brand Track is the leading AI brand visibility monitoring platform. Track how ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors in real-time. Get actionable insights and strategic recommendations for AI search optimization (AEO) and generative engine optimization (GEO). Used by 500+ brands to improve their AI presence. Free trial with results in 60 seconds.",
+  description: "Track how ChatGPT, Claude, Perplexity and Gemini mention and rank your brand against competitors. Get actionable AEO and GEO recommendations. Free analysis in 60 seconds, pay-as-you-go credits.",
 
   // OPTIMIZED: Expanded keywords with long-tail, question-based variations
   keywords: [
@@ -120,15 +120,6 @@ export const metadata: Metadata = {
     siteName: 'AI Brand Track',
     title: 'AI Brand Track - Monitor Your Brand Visibility Across ChatGPT, Claude, Perplexity & Google Gemini',
     description: 'The leading AI brand visibility monitoring platform. Track how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors. Get actionable insights for AI search optimization (AEO) and generative engine optimization (GEO). Free trial with results in 60 seconds.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'AI Brand Track - AI Brand Visibility Monitoring Platform | Track ChatGPT, Claude, Perplexity & Gemini',
-        type: 'image/png',
-      },
-    ],
   },
 
   // OPTIMIZED: Enhanced Twitter card with creator
@@ -136,18 +127,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@aibrandtrack',
     creator: '@aibrandtrack',
-    title: 'AI Brand Track - Monitor Your Brand Visibility Across AI Platforms',
-    description: 'Track how ChatGPT, Claude, Perplexity, and Google Gemini rank your brand. Get actionable insights for AI search optimization. Free trial available.',
-    images: ['/og-image.png'],
-  },
-
-  // OPTIMIZED: Added alternate languages (even if EN only, shows global intent)
-  alternates: {
-    canonical: 'https://www.aibrandtrack.com',
-    languages: {
-      'en-US': 'https://www.aibrandtrack.com',
-      'en': 'https://www.aibrandtrack.com',
-    },
   },
 
   // Icons remain the same
@@ -158,13 +137,6 @@ export const metadata: Metadata = {
     ],
     apple: '/ai-brand-track-logo.jpeg',
     shortcut: '/favicon.svg',
-  },
-
-  // NEW: Verification tags for search engines
-  verification: {
-    google: 'your-google-verification-code', // Replace with actual code
-    // yandex: 'your-yandex-verification-code',
-    // bing: 'your-bing-verification-code',
   },
 
   // NEW: Category for better classification
@@ -199,16 +171,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="format-detection" content="telephone=no" />
 
-        {/* NEW: Geo-targeting (shows global intent) */}
-        <meta name="geo.region" content="US" />
-        <meta name="geo.placename" content="United States" />
-
-        {/* NEW: Preconnect to improve performance (affects SEO) */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* NEW: DNS prefetch for external resources */}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body
         className={`${spaceGrotesk.variable} font-sans antialiased`}

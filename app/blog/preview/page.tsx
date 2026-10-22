@@ -7,8 +7,12 @@ import remarkGfm from 'remark-gfm';
 import { TableOfContents } from './table-of-contents';
 
 export const metadata: Metadata = {
-  title: 'Blog Preview - AI Brand Track',
+  title: 'Blog Preview',
   description: 'Preview of AI brand visibility blog content',
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 async function getLatestBlogPost() {

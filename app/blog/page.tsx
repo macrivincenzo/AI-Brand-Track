@@ -4,7 +4,7 @@ import { getPosts } from '@/lib/blog-posts';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Blog - AI Brand Track',
+  title: 'AI Search Visibility & GEO Blog',
   description:
     'Insights, tips, and updates about AI brand visibility, ChatGPT SEO, Claude optimization, Perplexity tracking, and AI search engine optimization strategies.',
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'GEO optimization strategies',
   ],
   openGraph: {
-    title: 'Blog - AI Brand Track',
+    title: 'AI Search Visibility & GEO Blog | AI Brand Track',
     description:
       'Insights, tips, and updates about AI brand visibility, ChatGPT SEO, Claude optimization, and AI search engine optimization.',
     url: 'https://www.aibrandtrack.com/blog',

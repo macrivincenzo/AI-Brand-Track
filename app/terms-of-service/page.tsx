@@ -1,4 +1,13 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'The terms and conditions for using AI Brand Track.',
+  alternates: {
+    canonical: 'https://www.aibrandtrack.com/terms-of-service',
+  },
+};
 
 export default function TermsOfServicePage() {
   return (

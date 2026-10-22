@@ -6,6 +6,33 @@ import { useSession } from "@/lib/auth-client";
 import { PlanCheckoutLink } from "@/components/plans/plan-checkout-link";
 import { ReviewsSection, reviews, averageRating } from "@/components/reviews-section";
 
+const faqs = [
+  {
+    q: "What is AI brand visibility monitoring?",
+    a: "AI brand visibility monitoring is the process of tracking how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini mention, rank, and recommend your brand in their answers. Unlike traditional SEO, which focuses on Google search rankings, AI brand monitoring tracks your presence in generative AI responses. AI Brand Track analyzes your visibility across the major AI platforms, compares you against competitors, and gives actionable recommendations to improve your presence through AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization)."
+  },
+  {
+    q: "How does AI Brand Track work?",
+    a: "AI Brand Track works in three steps. First, you enter your website URL and we automatically extract your brand information, industry, and keywords (1 credit). Second, we query ChatGPT, Claude, Perplexity, and Google Gemini with industry-relevant prompts to see how they rank your brand against competitors (10 credits). Third, you get a report with your brand visibility score (0-100), competitor rankings, which prompts mention your brand, sentiment, and specific recommendations. A complete analysis takes about 60 seconds and uses 11 credits. Competitor scraping is free."
+  },
+  {
+    q: "Which AI platforms does AI Brand Track monitor?",
+    a: "AI Brand Track monitors OpenAI ChatGPT, Anthropic Claude, Perplexity, and Google Gemini. All platforms are queried during each analysis, so you get visibility scores for each one side by side. This matters because different AI models use different data sources and rank brands differently."
+  },
+  {
+    q: "What is the difference between SEO and AEO?",
+    a: "SEO (Search Engine Optimization) focuses on ranking in traditional search engines like Google through keywords, backlinks, and technical improvements. AEO (Answer Engine Optimization) focuses on being mentioned and recommended in AI answers from platforms like ChatGPT, Claude, and Perplexity, through clear, authoritative content and well-defined entities. SEO targets positions in search results; AEO targets how often and how favorably AI assistants mention you. Both matter, and they reinforce each other."
+  },
+  {
+    q: "How much does AI Brand Track cost?",
+    a: "AI Brand Track offers flexible pricing. Free Trial ($0) includes 11 credits for 1 complete analysis, no credit card required. Single Analysis ($49) provides 53 credits for ~4 analyses. Credit Pack ($149) includes 220 credits for 20 analyses. Monthly subscriptions: Starter ($39/month) with 53 credits/month and Pro ($69/month) with 154 credits/month. Each analysis uses 11 credits (1 for extraction + 10 for AI analysis). Competitor scraping is free. Pay-as-you-go credits never expire."
+  },
+  {
+    q: "How often should I monitor my AI brand visibility?",
+    a: "We recommend weekly monitoring for brands actively optimizing their AI presence, monthly monitoring for established brands tracking long-term trends, and an extra check after major changes like product launches, rebrands, or competitor moves. AI answers change as new content is indexed and competitors publish, so regular monitoring shows the impact of your optimization work and surfaces new opportunities."
+  }
+];
+
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { data: session } = useSession();
@@ -167,71 +194,21 @@ export default function Home() {
         }}
       />
 
-      {/* Enhanced FAQPage Schema with LONGER, more detailed answers */}
+      {/* FAQPage Schema (same questions as the visible FAQ) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is AI brand visibility monitoring?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "AI brand visibility monitoring is the process of tracking how artificial intelligence platforms like ChatGPT, Claude, Perplexity, and Google Gemini mention, rank, and recommend your brand in their responses. Unlike traditional SEO which focuses on Google search results, AI brand monitoring tracks your presence in generative AI responses. This matters because 67% of users now consult AI platforms before making purchase decisions. AI Brand Track analyzes your brand visibility across 4+ major AI platforms, compares you against competitors, and provides actionable insights to improve your AI search presence through AEO (AI Engine Optimization) and GEO (Generative Engine Optimization) strategies."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How does AI Brand Track work?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "AI Brand Track works in three steps: 1) You enter your website URL and we automatically extract your brand information, industry, and keywords (1 credit). 2) Discover and scrape competitor websites for FREE to include in your analysis. 3) Our system simultaneously queries ChatGPT, Claude, Perplexity, Google Gemini with industry-relevant prompts to see how they rank your brand (10 credits). You receive a comprehensive report showing your brand visibility score (0-100), competitor rankings, which prompts trigger your brand mention, sentiment analysis, and specific recommendations to improve your AI presence. Each complete analysis takes approximately 60 seconds and uses 11 credits total."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Which AI platforms does AI Brand Track monitor?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "AI Brand Track monitors all major AI platforms including: OpenAI ChatGPT (GPT-4 and GPT-3.5), Anthropic Claude (Claude 3 Opus, Sonnet, and Haiku), Perplexity AI (standard and Pro search), Google Gemini (Gemini Pro and Ultra), and other emerging AI search engines. As new AI platforms launch, we continuously expand our monitoring capabilities to ensure comprehensive coverage. Each platform is queried simultaneously during analysis to provide real-time visibility scores across the entire AI landscape. This multi-platform approach is essential because different AI models have different training data, ranking algorithms, and user bases."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is the difference between SEO and AEO?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "SEO (Search Engine Optimization) focuses on ranking in traditional search engines like Google, Bing, and Yahoo through keyword optimization, backlinks, and technical website improvements. AEO (AI Engine Optimization) focuses on being recommended by AI platforms like ChatGPT, Claude, and Perplexity through clear, authoritative content, semantic relationships, and structured data. The key differences: 1) SEO targets search rankings, AEO targets conversational recommendations. 2) SEO relies on keywords and links, AEO relies on natural language understanding and entity relationships. 3) SEO measures success by position in results, AEO measures success by frequency and quality of mentions. Both are important in 2026, but AEO is becoming critical as more users ask AI instead of searching Google. AI Brand Track helps you optimize for both by showing how AI platforms currently perceive your brand and what changes improve your visibility."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much does AI Brand Track cost?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "AI Brand Track offers flexible pricing options. Free Trial ($0) includes 11 credits for 1 complete brand analysis. Single Analysis ($49) provides 53 credits for approximately 4 full analyses with no expiration. Credit Pack ($149) includes 220 credits for 20 analyses, saving 25% compared to the single pack. Monthly subscriptions: Starter ($39/month) gets 53 credits/month (~4 analyses), Pro ($69/month) gets 154 credits/month (~14 analyses). Each complete brand analysis uses 11 credits total: 1 credit for website extraction and 10 credits for multi-platform AI scanning across ChatGPT, Claude, Perplexity, and Gemini. Competitor scraping is included FREE with all plans. Pay-as-you-go credits never expire."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How often should I monitor my AI brand visibility?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The optimal monitoring frequency depends on your business goals and market dynamics. For most brands, we recommend: Weekly monitoring for actively optimizing brands making content updates or running campaigns. Monthly monitoring for established brands tracking long-term trends. After major changes like product launches, rebranding, PR campaigns, or competitor moves. When competitors make significant market moves or announcements. AI models update their training data periodically, and your brand visibility can change based on new content indexed, competitor activity, and shifts in how AI platforms rank authority. Regular monitoring lets you track the impact of optimization efforts, spot emerging competitors, and identify new opportunities. Agencies typically monitor client brands bi-weekly, while enterprise brands with high AI search volume monitor weekly. The AI Brand Track dashboard makes it easy to compare results over time and measure ROI from AEO and GEO efforts."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What insights and metrics does AI Brand Track provide?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "AI Brand Track provides comprehensive AI visibility metrics including: Brand Visibility Score (0-100 scale showing overall AI presence), Competitor Rankings (how you rank against 6 competitors across each AI platform), Prompt Analysis (which queries trigger your brand mention and in what position), Sentiment Analysis (whether AI mentions are positive, neutral, or negative), Response Quality Scoring (how comprehensive and accurate AI descriptions of your brand are), Share of Voice (percentage of mentions compared to competitors), Platform-Specific Rankings (individual scores for ChatGPT, Claude, Perplexity, Gemini), Strategic Insights (AI-generated recommendations to improve visibility), Quick Wins (high-impact, low-effort optimization opportunities), Competitive Gap Analysis (areas where competitors outrank you), Brand Health Score (overall assessment from Excellent to Critical), and Trend Tracking (visibility changes over time). All metrics are displayed in an intuitive dashboard with visual charts, exportable reports, and clear explanations of what each metric means for your business."
-                }
+            "mainEntity": faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
               }
-            ]
+            }))
           })
         }}
       />
@@ -415,7 +392,7 @@ export default function Home() {
             67% of consumers consult AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini before making purchase decisions. When users ask "What are the best [your category] tools?", AI platforms typically mention only 3-5 brands. If you're not one of them, you're invisible.
           </p>
           <p className="text-lg text-gray-600">
-            AI Brand Track helps you monitor your visibility across ChatGPT (OpenAI), Claude (Anthropic), Perplexity AI, and Google Gemini. Track your rankings, compare against competitors, and get strategic recommendations to improve your AI search presence through AEO (AI Engine Optimization) and GEO (Generative Engine Optimization).
+            AI Brand Track helps you monitor your visibility across ChatGPT (OpenAI), Claude (Anthropic), Perplexity AI, and Google Gemini. Track your rankings, compare against competitors, and get strategic recommendations to improve your AI search presence through AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization).
           </p>
         </div>
       </section>
@@ -768,35 +745,11 @@ export default function Home() {
           </div>
 
           <div className="space-y-3">
-            {[
-              {
-                q: "What is AI brand visibility monitoring?",
-                a: "AI brand visibility monitoring is the process of tracking how artificial intelligence platforms like ChatGPT, Claude, Perplexity, and Google Gemini mention, rank, and recommend your brand in their responses. Unlike traditional SEO which focuses on Google search rankings, AI brand monitoring tracks your presence in generative AI responses. This matters because 67% of users now consult AI platforms before making purchase decisions. AI Brand Track analyzes your brand visibility across 4+ major AI platforms, compares you against competitors, and provides actionable insights to improve your AI search presence through AEO (AI Engine Optimization) and GEO (Generative Engine Optimization) strategies."
-              },
-              {
-                q: "How does AI Brand Track work?",
-                a: "AI Brand Track works in three steps: First, you enter your website URL and we automatically extract your brand information, industry keywords, and relevant data. Second, our system simultaneously queries ChatGPT, Claude, Perplexity, Google Gemini, and other major AI platforms with industry-relevant prompts to see how they rank your brand against competitors. Third, you receive a comprehensive report showing your brand visibility score (0-100), competitor rankings, which prompts trigger your brand mention, sentiment analysis, and specific recommendations to improve your AI presence. Each analysis takes approximately 60 seconds and uses 10 credits."
-              },
-              {
-                q: "Which AI platforms does AI Brand Track monitor?",
-                a: "AI Brand Track monitors all major AI platforms including OpenAI ChatGPT (GPT-4 and GPT-3.5), Anthropic Claude (Claude 3 Opus, Sonnet, and Haiku), Perplexity AI (standard and Pro search), Google Gemini (Gemini Pro and Ultra), and other emerging AI search engines. As new AI platforms launch, we continuously expand our monitoring capabilities to ensure comprehensive coverage. Each platform is queried simultaneously during analysis to provide real-time visibility scores across the entire AI landscape."
-              },
-              {
-                q: "What is the difference between SEO and AEO?",
-                a: "SEO (Search Engine Optimization) focuses on ranking in traditional search engines like Google through keyword optimization, backlinks, and technical website improvements. AEO (AI Engine Optimization) focuses on being recommended by AI platforms like ChatGPT and Claude through clear, authoritative content and semantic relationships. The key differences: SEO targets search rankings while AEO targets conversational recommendations; SEO relies on keywords and links while AEO relies on natural language understanding; SEO measures success by position in results while AEO measures success by frequency and quality of mentions. Both are important in 2026, but AEO is becoming critical as more users ask AI instead of searching Google."
-              },
-              {
-                q: "How much does AI Brand Track cost?",
-                a: "AI Brand Track offers flexible pricing. Free Trial ($0) includes 11 credits for 1 complete analysis. Single Analysis ($49) provides 53 credits for ~4 analyses. Credit Pack ($149) includes 220 credits for 20 analyses, saving 25%. Monthly subscriptions: Starter ($39/month) gets 53 credits/month (~4 analyses), Pro ($69/month) gets 154 credits/month (~14 analyses). Each analysis uses 11 credits (1 for extraction + 10 for AI analysis). Competitor scraping is FREE. Pay-as-you-go credits never expire."
-              },
-              {
-                q: "How often should I monitor my AI brand visibility?",
-                a: "The optimal monitoring frequency depends on your business goals. We recommend weekly monitoring for brands actively optimizing their AI presence, monthly monitoring for established brands tracking long-term trends, and immediate monitoring after major changes like product launches or competitor moves. AI models update their training data periodically, and your brand visibility can change based on new content indexed and competitor activity. Regular monitoring lets you track the impact of optimization efforts and identify new opportunities."
-              }
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="bg-white border-2 border-gray-200 rounded-none overflow-hidden">
                 <button
                   onClick={() => toggleFaq(index)}
+                  aria-expanded={openFaq === index}
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                 >
                   <h3 className="text-base font-semibold text-gray-900 pr-4">
@@ -811,13 +764,12 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                {openFaq === index && (
-                  <div className="px-6 py-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600">
-                      {faq.a}
-                    </p>
-                  </div>
-                )}
+                {/* Always in the HTML so crawlers can read every answer; hidden until opened */}
+                <div className={`px-6 py-4 border-t border-gray-200 ${openFaq === index ? '' : 'hidden'}`}>
+                  <p className="text-sm text-gray-600">
+                    {faq.a}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

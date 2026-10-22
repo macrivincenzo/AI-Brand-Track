@@ -1,0 +1,25 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "AI Brand Track",
+    "identifier": "did:web:www.aibrandtrack.com",
+    "documentationUrl": "https://www.aibrandtrack.com/llms.txt",
+    "logoUrl": "https://www.aibrandtrack.com/ai-brand-track-logo.jpeg"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:aibrandtrack.com:docs:site-guide",
+      "displayName": "AI Brand Track site guide for agents",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://www.aibrandtrack.com/llms.txt",
+      "description": "Markdown overview of AI Brand Track: what the product does, pricing, how to sign up, and links to key guides on AI search visibility.",
+      "tags": ["ai-visibility", "brand-monitoring", "geo", "aeo"],
+      "representativeQueries": [
+        "Which tool tracks my brand's visibility in ChatGPT and Perplexity?",
+        "How much does AI Brand Track cost?",
+        "How do I monitor brand mentions in AI search engines?"
+      ],
+      "updatedAt": "2026-10-22T00:00:00Z"
+    }
+  ]
+}

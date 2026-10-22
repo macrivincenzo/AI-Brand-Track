@@ -23,7 +23,7 @@ function UserCredits() {
 }
 
 export function Navbar() {
-  const { data: session, isPending } = useSession();
+  const { data: session } = useSession();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openBuyCredits } = useBuyCredits();
@@ -97,9 +97,7 @@ export function Navbar() {
                 </button>
               </>
             )}
-            {isPending ? (
-              <div className="text-sm text-gray-400">Loading...</div>
-            ) : session ? (
+            {session ? (
               <>
                 <Link
                   href="/dashboard"
@@ -137,6 +135,7 @@ export function Navbar() {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
               className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
               aria-label="Toggle menu"
             >
@@ -199,9 +198,7 @@ export function Navbar() {
             >
               Pricing
             </Link>
-            {isPending ? (
-              <div className="px-4 py-2 text-sm text-gray-400">Loading...</div>
-            ) : session ? (
+            {session ? (
               <>
                 <Link
                   href="/dashboard"

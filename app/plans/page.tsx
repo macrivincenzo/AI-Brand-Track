@@ -19,16 +19,11 @@ const PurchaseButton = dynamic(
 
 const CHECKOUT_PRODUCT_IDS = new Set(['single-analysis', 'credit-pack', 'starter-monthly', 'pro-monthly']);
 
-function PlansLoading() {
-  return (
-    <div className="min-h-screen bg-white flex items-center justify-center py-12">
-      <Loader2 className="h-10 w-10 animate-spin text-blue-600" />
-    </div>
-  );
-}
-
-function PricingPageContent() {
-  const { data: session, isPending } = useSession();
+// Handles ?checkout=productId (e.g. from home or after login) by going straight to
+// Stripe checkout. Kept in its own Suspense boundary so useSearchParams doesn't
+// force the whole pricing page to render client-side only.
+function CheckoutRedirect() {
+  const { data: session } = useSession();
   const searchParams = useSearchParams();
   const hasRedirected = useRef(false);
 
@@ -72,19 +67,26 @@ function PricingPageContent() {
   const checkoutProductId = searchParams.get('checkout');
   const isRedirectingToCheckout = session?.user && checkoutProductId && CHECKOUT_PRODUCT_IDS.has(checkoutProductId);
 
-  if (isRedirectingToCheckout) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="h-10 w-10 animate-spin text-blue-600 mx-auto mb-4" />
-          <p className="text-gray-600">Taking you to checkout...</p>
-        </div>
+  if (!isRedirectingToCheckout) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
+      <div className="text-center">
+        <Loader2 className="h-10 w-10 animate-spin text-blue-600 mx-auto mb-4" />
+        <p className="text-gray-600">Taking you to checkout...</p>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
+export default function PricingPage() {
+  const { data: session, isPending } = useSession();
 
   return (
     <div className="min-h-screen bg-white py-12">
+      <Suspense fallback={null}>
+        <CheckoutRedirect />
+      </Suspense>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-gray-900">
@@ -468,13 +470,5 @@ function PricingPageContent() {
         </div>
       </div>
     </div>
-  );
-}
-
-export default function PricingPage() {
-  return (
-    <Suspense fallback={<PlansLoading />}>
-      <PricingPageContent />
-    </Suspense>
   );
 }

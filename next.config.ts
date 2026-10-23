@@ -55,13 +55,27 @@ const nextConfig: NextConfig = {
       { source: '/pricing-public', destination: '/plans', permanent: true },
       { source: '/pricing-dynamic', destination: '/plans', permanent: true },
       { source: '/ai-brand-track', destination: '/', permanent: true },
-      { source: '/blog/keyword-slug', destination: '/blog/how-do-i-track-my-brand-mentions-in-ai-search', permanent: true },
+      { source: '/blog/keyword-slug', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
       // Redirect duplicate blog URL to canonical (fix duplicate content)
       {
         source: '/blog/2026-03-05-generative-engine-optimization',
-        destination: '/blog/generative-engine-optimization',
+        destination: '/generative-engine-optimization',
         permanent: true,
       },
+      // Consolidated near-duplicate blog posts into one strong post per topic
+      { source: '/blog/ai-brand-visibility-tracking', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
+      { source: '/blog/brand-visibility-in-ai-search', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
+      { source: '/blog/how-to-track-your-brand-in-ai-search-results', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
+      { source: '/blog/how-do-i-track-my-brand-mentions-in-ai-search', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
+      { source: '/blog/how-to-measure-brand-visibility-ai-platforms', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
+      { source: '/blog/ai-platform-analytics', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
+      { source: '/blog/how-to-track-your-brand-on-chatgpt-perplexity', destination: '/blog/how-to-track-brand-visibility-in-ai-platforms', permanent: true },
+      { source: '/blog/how-to-track-brand-visibility-in-chatgpt', destination: '/blog/how-to-track-chatgpt-brand-mentions', permanent: true },
+      { source: '/blog/chatgpt-brand-tracking', destination: '/blog/how-to-track-chatgpt-brand-mentions', permanent: true },
+      { source: '/blog/why-ai-brand-visibility-matters', destination: '/blog/ai-brand-visibility-guide', permanent: true },
+      { source: '/blog/ai-brand-visibility-crisis-2026', destination: '/blog/ai-brand-visibility-guide', permanent: true },
+      { source: '/blog/ai-search-optimization', destination: '/blog/ai-search-engine-optimization', permanent: true },
+      { source: '/blog/generative-engine-optimization', destination: '/generative-engine-optimization', permanent: true },
     ];
   },
 };

@@ -357,7 +357,7 @@ const CHATGPT: LandingPageData = {
   slug: "how-to-rank-on-chatgpt",
   breadcrumb: "How to Rank on ChatGPT",
   eyebrow: "ChatGPT Visibility",
-  h1: "How to Rank on ChatGPT",
+  h1: "ChatGPT SEO: How to Rank on ChatGPT",
   subhead:
     "ChatGPT recommends only a few brands per answer. Here's how ChatGPT chooses them and what you can do to be one — practical SEO for ChatGPT.",
   intro: [
@@ -446,7 +446,7 @@ const PERPLEXITY: LandingPageData = {
   slug: "perplexity-seo",
   breadcrumb: "Perplexity SEO",
   eyebrow: "Perplexity Visibility",
-  h1: "Perplexity SEO: How to Rank on Perplexity AI",
+  h1: "Perplexity SEO: How to Rank and Track Your Brand on Perplexity",
   subhead:
     "Perplexity cites its sources on every answer. That makes it one of the most winnable AI engines — if you understand how it picks them.",
   intro: [
@@ -477,6 +477,19 @@ const PERPLEXITY: LandingPageData = {
       body: [
         "Start by measuring which buyer prompts Perplexity answers with competitors, which sources it cites, and how you're characterized when you appear.",
         "AI Brand Track tracks Perplexity alongside ChatGPT, Claude, and Gemini, scoring your share of voice and returning specific, prioritized recommendations.",
+      ],
+    },
+    {
+      heading: "How to track your Perplexity rankings",
+      body: [
+        "A Perplexity rank tracker works differently from a Google rank tracker: there is no fixed list of ten blue links, so you track whether you are mentioned, where in the answer you appear, and whether your pages are among the cited sources.",
+        "Run the same set of buyer prompts on a regular schedule and record the results for you and your competitors. Answers vary between runs, so look at trends across several checks rather than a single result.",
+      ],
+      bullets: [
+        "Mention rate: the share of prompts where Perplexity names your brand",
+        "Position: whether you are recommended first, in a list, or only in passing",
+        "Citations: which of your pages (and which competitor or review pages) Perplexity cites",
+        "Share of voice: your mentions compared with competitors for the same prompts",
       ],
     },
   ],
@@ -620,37 +633,37 @@ export const SEO_PAGES: Record<string, LandingPageData> = {
 
 export const SEO_PAGE_META: Record<string, { title: string; description: string }> = {
   "ai-search-visibility": {
-    title: "AI Search Visibility: Get Found by ChatGPT, Perplexity & Gemini",
+    title: "AI Search Visibility: Tools & Tactics to Get Found",
     description:
       "AI search visibility hub: GEO, AEO, LLM SEO and platform tactics to get your brand cited and recommended by ChatGPT, Perplexity, Google AI Overviews and Gemini.",
   },
   "generative-engine-optimization": {
-    title: "Generative Engine Optimization (GEO): The 2026 Guide",
+    title: "Generative Engine Optimization (GEO): Guide & Tools",
     description:
-      "What generative engine optimization (GEO) is, how GEO differs from SEO and AEO, what generative engines reward, and how to get your brand cited in AI answers.",
+      "What generative engine optimization (GEO) is, how it differs from SEO and AEO, which GEO tools help, and how to get your brand cited in AI answers.",
   },
   "answer-engine-optimization": {
-    title: "Answer Engine Optimization (AEO): The 2026 Guide",
+    title: "Answer Engine Optimization (AEO): Guide & Tools",
     description:
-      "What answer engine optimization (AEO) is, how it differs from SEO and GEO, and how to structure content so AI answer engines extract it as the direct answer.",
+      "What answer engine optimization (AEO) is, how it differs from SEO and GEO, which AEO tools to use, and how to become the direct answer in AI engines.",
   },
   "llm-seo": {
-    title: "LLM SEO: How to Optimize for Large Language Models",
+    title: "LLM SEO: Guide & Tools to Rank in AI Answers",
     description:
       "LLM SEO explained: how large language models perceive your brand, how it differs from traditional SEO, LLM SEO tools, and how to start optimizing.",
   },
   "how-to-rank-on-chatgpt": {
-    title: "How to Rank on ChatGPT: SEO for ChatGPT Visibility",
+    title: "ChatGPT SEO: How to Rank on ChatGPT",
     description:
-      "How ChatGPT chooses which brands to recommend and practical SEO for ChatGPT — including ChatGPT for marketing — so your brand gets named, not skipped.",
+      "ChatGPT SEO explained: how ChatGPT chooses which brands to recommend, practical tactics and tools to rank on ChatGPT, and how to track your mentions.",
   },
   "perplexity-seo": {
-    title: "Perplexity SEO: How to Rank on Perplexity AI",
+    title: "Perplexity SEO: How to Rank & Track on Perplexity",
     description:
-      "How Perplexity AI selects and cites sources, why it's a high-leverage AI engine, and how to measure and improve your Perplexity visibility.",
+      "How Perplexity AI selects and cites sources, how to rank on Perplexity, and how to track your Perplexity visibility and rankings over time.",
   },
   "ai-rank-tracker": {
-    title: "AI Rank Tracker: Monitor Brand Visibility Across AI Assistants",
+    title: "AI Rank Tracker for ChatGPT, Perplexity & Gemini",
     description:
       "An AI rank tracker measures how often ChatGPT, Perplexity, Gemini and Claude mention and recommend your brand over time — the share of voice analytics can't see.",
   },

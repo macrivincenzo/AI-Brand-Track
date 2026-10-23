@@ -45,59 +45,35 @@ export function CookieConsent() {
 
   if (!showBanner) return null;
 
+  // Slim bottom bar: small on mobile so it never covers the page or becomes the LCP element
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 animate-in slide-in-from-bottom-4 duration-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
-        <div className="bg-white border border-gray-200 rounded-lg shadow-2xl p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            {/* Content */}
-            <div className="flex-1">
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  🍪 Cookie Consent
-                </h3>
-                <button
-                  onClick={handleClose}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
-                  aria-label="Close"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">
-                We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. 
-                By clicking &quot;Accept All&quot;, you consent to our use of cookies. You can also choose to reject 
-                non-essential cookies or learn more in our{' '}
-                <Link 
-                  href="/privacy-policy" 
-                  className="text-blue-600 hover:underline font-medium"
-                >
-                  Privacy Policy
-                </Link>
-                .
-              </p>
-            </div>
-
-            {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <Button
-                onClick={handleReject}
-                variant="outline"
-                className="w-full sm:w-auto"
-              >
-                Reject Non-Essential
-              </Button>
-              <Button
-                onClick={handleAccept}
-                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                Accept All
-              </Button>
-            </div>
+      <div className="mx-auto max-w-5xl px-3 pb-3">
+        <div className="relative bg-white border border-gray-200 rounded-lg shadow-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+          <p className="text-xs sm:text-sm text-gray-600 pr-6 sm:pr-0 flex-1">
+            We use cookies to improve your experience and analyze traffic. See our{' '}
+            <Link href="/privacy-policy" className="text-blue-600 hover:underline font-medium">
+              Privacy Policy
+            </Link>
+            .
+          </p>
+          <div className="flex gap-2 shrink-0">
+            <Button onClick={handleReject} variant="outline" size="sm" className="flex-1 sm:flex-none">
+              Reject non-essential
+            </Button>
+            <Button onClick={handleAccept} size="sm" className="flex-1 sm:flex-none bg-blue-600 hover:bg-blue-700 text-white">
+              Accept all
+            </Button>
           </div>
+          <button
+            onClick={handleClose}
+            className="absolute top-2 right-2 sm:static text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Close cookie banner"
+          >
+            <X className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </div>
   );
 }
-

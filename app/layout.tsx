@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
   // OPTIMIZED: More specific, AI-quotable title with year
   title: {
-    default: "AI Brand Track: AI Visibility Tracker for ChatGPT, Claude, Perplexity & Gemini",
+    default: "AI Brand Tracker & AI Visibility Platform | AI Brand Track",
     template: "%s | AI Brand Track"
   },
 

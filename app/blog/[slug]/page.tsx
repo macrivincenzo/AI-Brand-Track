@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog-posts';
+import { getPostRelated } from '@/lib/blog-links';
 import { Calendar, ArrowLeft } from 'lucide-react';
 
 function generateHeadingId(text: string): string {
@@ -239,10 +240,55 @@ export default async function BlogPostPage({ params }: PageProps) {
                   ),
                 }}
               >
-                {post.content.replace(/^\s*# .*(\r?\n)+/, '')}
+                {post.content.replace(/^\s*(---\s*)?# .*(\r?\n)+/, '')}
               </ReactMarkdown>
             </div>
           </article>
+
+          {/* CTA */}
+          <aside className="mt-16 p-8 bg-zinc-50 border border-zinc-200 rounded-xl">
+            <h2 className="text-2xl font-bold text-zinc-900 mb-3">
+              See how AI assistants talk about your brand
+            </h2>
+            <p className="text-zinc-600 mb-6">
+              AI Brand Track checks ChatGPT, Claude, Perplexity and Gemini and shows your visibility
+              score, competitor rankings and what to fix. Your first analysis is free, no credit card needed.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/register"
+                className="inline-flex items-center justify-center rounded-[10px] text-base font-medium bg-zinc-900 text-white h-12 px-6 hover:bg-zinc-800 transition-colors"
+              >
+                Run a free analysis
+              </Link>
+              <Link
+                href="/plans"
+                className="inline-flex items-center justify-center rounded-[10px] text-base font-medium border border-zinc-300 text-zinc-900 h-12 px-6 hover:bg-zinc-100 transition-colors"
+              >
+                See pricing
+              </Link>
+            </div>
+          </aside>
+
+          {/* Related guides */}
+          <nav className="mt-12" aria-labelledby="related-heading">
+            <h2 id="related-heading" className="text-xl font-bold text-zinc-900 mb-4">
+              Related guides
+            </h2>
+            <ul className="grid sm:grid-cols-3 gap-4">
+              {getPostRelated(post.slug).map((r) => (
+                <li key={r.href}>
+                  <Link
+                    href={r.href}
+                    className="block h-full p-4 border border-zinc-200 rounded-xl hover:border-zinc-400 transition-colors"
+                  >
+                    <span className="block font-semibold text-zinc-900 mb-1">{r.title}</span>
+                    <span className="block text-sm text-zinc-600">{r.desc}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           <div className="mt-16 pt-8 border-t border-zinc-200">
             <Link

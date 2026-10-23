@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LANDING_GUIDES } from "@/lib/blog-links";
 
 /**
  * Shared, fully server-rendered SEO landing page.
@@ -256,6 +257,30 @@ export function LandingPage({ data }: { data: LandingPageData }) {
                   </Link>
                 ))}
               </div>
+            </div>
+          </section>
+        )}
+
+        {/* Supporting guides from the blog */}
+        {(LANDING_GUIDES[data.slug] ?? []).length > 0 && (
+          <section className="pb-16 px-4 sm:px-6 lg:px-8 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
+                In-depth guides
+              </h2>
+              <ul className="grid md:grid-cols-3 gap-6">
+                {LANDING_GUIDES[data.slug].map((g) => (
+                  <li key={g.href}>
+                    <Link
+                      href={g.href}
+                      className="block h-full p-6 bg-gray-50 border-2 border-gray-200 hover:border-blue-600 rounded-none transition-colors"
+                    >
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{g.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{g.desc}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
         )}

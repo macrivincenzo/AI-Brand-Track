@@ -15,8 +15,8 @@ const HUB: LandingPageData = {
   subhead:
     "AI search visibility is how often AI assistants name and recommend your brand. This is the hub for everything that drives it — GEO, AEO, LLM SEO, and platform-specific tactics.",
   intro: [
-    "Search is splitting in two. People still type queries into Google, but a fast-growing share now ask ChatGPT, Perplexity, Google's AI Overviews, and Gemini instead — and those assistants answer with a short list of brands, not ten blue links. If your brand is not on that list, the customer never learns you exist.",
-    "AI search optimization is the practice of earning a place on that list. It spans several disciplines, each with its own tactics and search behavior. The pages below break them down. AI Brand Track measures where you stand today across every major assistant and shows exactly what to fix.",
+    "Search is splitting in two. People still type queries into Google, but a growing number also ask ChatGPT, Perplexity, Gemini, or read Google's AI Overviews — and those answers tend to name a short list of brands, not ten blue links. If your brand is not on that list, the customer never learns you exist.",
+    "AI search optimization is the practice of earning a place on that list. It spans several disciplines, each with its own tactics and search behavior. The pages below break them down. AI Brand Track measures where you stand today in ChatGPT, Claude, Perplexity, and Gemini and recommends what to fix.",
   ],
   sections: [
     {
@@ -35,8 +35,8 @@ const HUB: LandingPageData = {
     {
       heading: "Why AI visibility is now a growth channel, not a science project",
       body: [
-        "Buyers increasingly shortlist vendors by asking an assistant \"what are the best tools for X?\" The model typically names three to five. Those mentions carry the trust of a recommendation, not an ad — and they happen before the prospect ever reaches a search engine or your site.",
-        "Unlike classic SEO, you cannot see this in Google Analytics. The conversation happens off your property. The only way to manage it is to measure what the assistants actually say about you and your competitors, then optimize the sources they read.",
+        "Buyers increasingly shortlist vendors by asking an assistant \"what are the best tools for X?\" The answer usually names only a handful. Those mentions carry the trust of a recommendation, not an ad — and they happen before the prospect ever reaches a search engine or your site.",
+        "Unlike classic SEO, you cannot see this in Google Analytics. The conversation happens off your property. The practical way to manage it is to measure what the assistants actually say about you and your competitors, then optimize the sources they read.",
       ],
     },
     {
@@ -58,11 +58,11 @@ const HUB: LandingPageData = {
     },
     {
       q: "Which AI platforms should I optimize for?",
-      a: "Start with the ones your buyers actually use: ChatGPT (largest reach), Google AI Overviews and Gemini (default for Google users), and Perplexity (popular for research and comparisons). AI Brand Track monitors all of these plus Claude so you can prioritize by where you are weakest.",
+      a: "Start with the ones your buyers actually use: ChatGPT (one of the most widely used assistants), Gemini and Google's AI Overviews (built into Google products), Perplexity (popular for research and comparisons), and Claude. AI Brand Track measures ChatGPT, Claude, Perplexity, and Gemini side by side so you can prioritize where you are weakest; it does not track Google AI Overviews.",
     },
     {
       q: "How do I measure AI visibility?",
-      a: "You can't see it in standard analytics because the answer is generated off-site. You measure it by systematically prompting each assistant with buyer questions and recording whether, where, and how your brand appears versus competitors. AI Brand Track automates this across all major platforms.",
+      a: "You can't see it in standard analytics because the answer is generated off-site. You measure it by systematically prompting each assistant with buyer questions and recording whether, where, and how your brand appears versus competitors. AI Brand Track automates this for ChatGPT, Claude, Perplexity, and Gemini.",
     },
   ],
   related: [
@@ -84,7 +84,7 @@ const HUB: LandingPageData = {
     {
       href: "/how-to-rank-on-chatgpt",
       title: "How to Rank on ChatGPT",
-      desc: "Tactics specific to the largest AI assistant.",
+      desc: "Tactics specific to OpenAI's assistant.",
     },
     {
       href: "/perplexity-seo",
@@ -161,7 +161,7 @@ const GEO: LandingPageData = {
     },
     {
       q: "How do I measure GEO performance?",
-      a: "Track how frequently your brand is mentioned and recommended across AI assistants for your target prompts, in what position, with what sentiment, and relative to competitors. AI Brand Track automates this measurement and trends it over time.",
+      a: "Track how frequently your brand is mentioned and recommended across AI assistants for your target prompts, in what position, with what sentiment, and relative to competitors. AI Brand Track automates this measurement, and saved analyses can be compared over time when you re-run them.",
     },
     {
       q: "How quickly does GEO work?",
@@ -196,7 +196,7 @@ const AEO: LandingPageData = {
     "AEO is structuring your content so answer engines extract it directly as the answer. Learn what it is, how it differs from SEO and GEO, and where to start.",
   intro: [
     "Answer Engine Optimization (AEO) is the practice of formatting and structuring content so that answer engines — AI assistants, AI Overviews, and voice assistants — lift it directly as the response to a user's question. Instead of competing for a click, you are competing to be the sentence the engine reads back.",
-    "AEO has become critical because a large and growing share of questions are now answered without a single click. If the engine can extract a clean answer from your page, you earn the mention and the authority. If it can't, a competitor does.",
+    "AEO matters because many questions are now answered directly in an AI response or on the results page, without a click. If the engine can extract a clean answer from your page, you earn the mention and the authority. If it can't, a competitor does.",
   ],
   sections: [
     {
@@ -221,7 +221,7 @@ const AEO: LandingPageData = {
       heading: "Start by finding your answer gaps",
       body: [
         "The highest-leverage AEO work is on questions where an assistant currently answers with a competitor. You need to know which buyer questions trigger which brand, on which engine, before you rewrite anything.",
-        "AI Brand Track surfaces exactly those gaps across ChatGPT, Claude, Perplexity, and Gemini and tells you which to prioritize by commercial intent.",
+        "AI Brand Track surfaces those gaps across ChatGPT, Claude, Perplexity, and Gemini and recommends which to prioritize.",
       ],
     },
   ],
@@ -244,7 +244,7 @@ const AEO: LandingPageData = {
     },
     {
       q: "How is AEO performance measured?",
-      a: "By whether AI assistants and answer engines return your content as the answer for target questions, and how that compares to competitors over time. AI Brand Track tracks this across all major AI platforms.",
+      a: "By whether AI assistants and answer engines return your content as the answer for target questions, and how that compares to competitors over time. AI Brand Track measures this across ChatGPT, Claude, Perplexity, and Gemini.",
     },
   ],
   related: [
@@ -256,7 +256,7 @@ const AEO: LandingPageData = {
     {
       href: "/how-to-rank-on-chatgpt",
       title: "How to Rank on ChatGPT",
-      desc: "Apply AEO to the largest assistant.",
+      desc: "Apply AEO to ChatGPT.",
     },
     {
       href: "/ai-search-visibility",
@@ -361,14 +361,14 @@ const CHATGPT: LandingPageData = {
   subhead:
     "ChatGPT recommends only a few brands per answer. Here's how ChatGPT chooses them and what you can do to be one — practical SEO for ChatGPT.",
   intro: [
-    "ChatGPT is the largest AI assistant, and when someone asks it to recommend tools or vendors, it typically names just three to five. \"Ranking\" on ChatGPT means being one of those names. There is no submission form and no ad slot — inclusion is earned through how ChatGPT's model and its browsing sources understand your brand.",
+    "ChatGPT is one of the most widely used AI assistants, and when someone asks it to recommend tools or vendors, it usually names only a handful. \"Ranking\" on ChatGPT means being one of those names. There is no submission form and no ad slot — inclusion is earned through how ChatGPT's model and its browsing sources understand your brand.",
     "This guide covers what actually influences ChatGPT recommendations and how to do practical SEO for ChatGPT, including ChatGPT for marketing use cases.",
   ],
   sections: [
     {
       heading: "How ChatGPT decides which brands to name",
       body: [
-        "ChatGPT draws on patterns from its training data and, when browsing, on current high-authority sources. Brands that appear consistently across trusted comparisons, reviews, and reference content — described the same way each time — become the safe, confident picks the model returns.",
+        "ChatGPT draws on patterns from its training data and, when it searches the web, on current sources it retrieves. Brands that appear consistently across trusted comparisons, reviews, and reference content — described the same way each time — become the safe, confident picks the model returns.",
       ],
       bullets: [
         "Consistent presence in the listicles and comparisons ChatGPT is likely to read.",
@@ -450,14 +450,14 @@ const PERPLEXITY: LandingPageData = {
   subhead:
     "Perplexity cites its sources on every answer. That makes it one of the most winnable AI engines — if you understand how it picks them.",
   intro: [
-    "Perplexity AI is a research-oriented answer engine that explicitly cites the sources behind every response. Buyers use it heavily for comparisons and due diligence, which makes Perplexity SEO especially valuable: the engine tells you, transparently, which sources earned the citation — and those are the sources you need to win.",
-    "Because Perplexity leans on current, citable web content, it is often one of the faster AI engines to influence once you know where you stand.",
+    "Perplexity AI is a research-oriented answer engine; according to Perplexity's own FAQ, every answer includes footnotes linking to the original sources. Many people use it for comparisons and due diligence, which makes Perplexity SEO especially valuable: the engine tells you, transparently, which sources earned the citation — and those are the sources you need to win.",
+    "Because Perplexity searches the web for current content when it answers, it can be quicker to influence than models that rely mainly on training data.",
   ],
   sections: [
     {
       heading: "How Perplexity selects and cites sources",
       body: [
-        "Perplexity retrieves relevant, credible pages, synthesizes them, and links the citations inline. It favors content that is current, specifically on-topic, and authoritative enough to trust for a factual answer. Winning means being among those cited pages for your buyer's questions.",
+        "Perplexity retrieves relevant pages, synthesizes them, and links the citations inline. Perplexity does not publish its ranking criteria, but in practice cited pages tend to be current, specifically on-topic, and authoritative enough to trust for a factual answer. Winning means being among those cited pages for your buyer's questions.",
       ],
       bullets: [
         "Up-to-date content that directly addresses the query.",
@@ -469,14 +469,14 @@ const PERPLEXITY: LandingPageData = {
     {
       heading: "Why Perplexity is a high-leverage target",
       body: [
-        "Its citation transparency removes the guesswork: you can see which competitor sources are being cited instead of yours and work directly on closing that gap. For many brands, Perplexity is a lower-difficulty, faster-feedback engine than the larger assistants.",
+        "Its citation transparency removes the guesswork: you can see which competitor sources are being cited instead of yours and work directly on closing that gap. For many brands, that makes Perplexity a faster-feedback engine than assistants that show fewer sources.",
       ],
     },
     {
       heading: "Baseline your Perplexity visibility",
       body: [
         "Start by measuring which buyer prompts Perplexity answers with competitors, which sources it cites, and how you're characterized when you appear.",
-        "AI Brand Track tracks Perplexity alongside ChatGPT, Claude, and Gemini, scoring your share of voice and returning specific, prioritized recommendations.",
+        "AI Brand Track queries Perplexity alongside ChatGPT, Claude, and Gemini, scoring your share of voice and returning specific, prioritized recommendations.",
       ],
     },
     {
@@ -508,7 +508,7 @@ const PERPLEXITY: LandingPageData = {
     },
     {
       q: "How do I measure Perplexity visibility?",
-      a: "Prompt Perplexity with your buyers' real questions and record whether you're mentioned and cited, in what position, and versus which competitors. AI Brand Track automates this and trends it over time.",
+      a: "Prompt Perplexity with your buyers' real questions and record whether you're mentioned and cited, in what position, and versus which competitors. AI Brand Track automates the prompting and scoring, and you can compare saved analyses over time.",
     },
     {
       q: "How often should I check Perplexity rankings?",
@@ -519,7 +519,7 @@ const PERPLEXITY: LandingPageData = {
     {
       href: "/how-to-rank-on-chatgpt",
       title: "How to Rank on ChatGPT",
-      desc: "The largest assistant buyers use.",
+      desc: "Tactics for one of the most widely used assistants.",
     },
     {
       href: "/answer-engine-optimization",
@@ -565,14 +565,14 @@ const RANK_TRACKER: LandingPageData = {
     {
       heading: "Why prompt monitoring beats one-off checks",
       body: [
-        "AI answers vary by phrasing and shift as sources and models update. A single manual check is a snapshot, not a trend. Systematic prompt monitoring across engines turns AI visibility from anecdote into a managed metric you can report on.",
+        "AI answers vary by phrasing and shift as sources and models update. A single manual check is a snapshot, not a trend. Re-running the same prompts across engines on a regular cadence turns AI visibility from anecdote into a managed metric you can report on.",
       ],
     },
     {
       heading: "Track it with AI Brand Track",
       body: [
-        "AI Brand Track is an AI rank tracker for ChatGPT, Claude, Perplexity, and Gemini. It runs your buyer prompts on each engine, scores visibility, share of voice, position, and sentiment, compares you to competitors, and trends everything so you can prove ROI from AEO and GEO work.",
-        "Each analysis takes about 60 seconds, and you can re-run it as often as your optimization cadence requires.",
+        "AI Brand Track is an AI rank tracker for ChatGPT, Claude, Perplexity, and Gemini. It runs buyer prompts on each engine, scores visibility, share of voice, position, and sentiment, and compares you to competitors. Analyses are saved, so you can compare results over time and see whether AEO and GEO work is paying off.",
+        "Each analysis takes about 60 seconds. There is no automatic scheduling or alerting; you re-run the analysis as often as your optimization cadence requires.",
       ],
     },
   ],
@@ -621,6 +621,111 @@ const RANK_TRACKER: LandingPageData = {
   },
 };
 
+const CHECKER: LandingPageData = {
+  slug: "ai-visibility-checker",
+  breadcrumb: "AI Visibility Checker",
+  eyebrow: "Free AI Visibility Check",
+  h1: "Free AI Visibility Checker: See How AI Assistants See Your Brand",
+  subhead:
+    "Check whether ChatGPT, Claude, Perplexity and Gemini mention your brand, how they describe it, and which competitors they recommend instead. Free, no credit card, results in about 60 seconds.",
+  intro: [
+    "An AI visibility checker shows you something no analytics tool can: what AI assistants say when buyers ask about your category. Enter your website and AI Brand Track runs industry-relevant prompts across ChatGPT, Claude, Perplexity and Google Gemini, then scores how visible your brand is compared with your competitors.",
+    "Your first full analysis is free. You get an AI visibility score from 0 to 100, competitor rankings, the prompts where you appear (and where you don't), sentiment, and concrete recommendations to improve.",
+  ],
+  sections: [
+    {
+      heading: "What the free AI visibility check includes",
+      body: [
+        "One complete analysis uses 11 credits, and the free trial includes exactly that: 11 credits, no credit card required.",
+      ],
+      bullets: [
+        "AI visibility score (0-100): how often and how prominently AI assistants mention you",
+        "Platform breakdown: separate results for ChatGPT, Claude, Perplexity and Gemini",
+        "Competitor rankings and share of voice: who gets recommended instead of you",
+        "Prompt-level results: which buyer questions trigger a mention",
+        "Sentiment: whether AI describes your brand positively, neutrally or negatively",
+        "Recommendations: specific actions to improve your AI visibility",
+      ],
+    },
+    {
+      heading: "How it works",
+      body: [
+        "1. Enter your website URL. Your brand name, industry and keywords are extracted automatically.",
+        "2. Pick competitors. Competitor websites are scraped for free so the comparison is fair.",
+        "3. Get your report. AI Brand Track queries all four assistants with buyer-style prompts and returns your score, rankings and recommendations in about 60 seconds.",
+      ],
+    },
+    {
+      heading: "AI visibility checker vs. AI visibility audit",
+      body: [
+        "A checker gives you a fast snapshot: are you visible, and who beats you? An AI visibility audit (sometimes called a GEO audit) goes further and asks why: is your site crawlable by AI bots, is your brand described consistently across the web, do third-party sources mention you, and does your content answer the questions buyers ask?",
+        "Start with the free check to find the gaps, then use the audit checklist in our AI brand visibility guide to fix the causes.",
+      ],
+    },
+    {
+      heading: "What a good AI visibility score looks like",
+      body: [
+        "There is no universal benchmark. AI visibility is relative: a score is good if it is higher than your direct competitors' for the prompts your buyers actually use. Track it over time, because AI answers change as models and sources update, and compare platforms, since you can be strong in one assistant and invisible in another.",
+      ],
+    },
+    {
+      heading: "Limitations to know",
+      body: [
+        "AI answers vary from run to run and by location and model version, so any single check is a snapshot rather than a permanent ranking. AI Brand Track covers ChatGPT, Claude, Perplexity and Gemini; it does not track Google AI Overviews. For a trend, re-run the analysis on a regular cadence with pay-as-you-go credits that never expire.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "Is the AI visibility checker really free?",
+      a: "Yes. The free trial includes 11 credits, which is one complete analysis across ChatGPT, Claude, Perplexity and Gemini. No credit card is required. After that you can buy pay-as-you-go credits or choose a monthly plan.",
+    },
+    {
+      q: "What is an AI visibility score?",
+      a: "It is a 0-100 score that summarizes how often and how prominently AI assistants mention your brand for buyer-style prompts in your category, compared with competitors. Higher means AI assistants mention and recommend you more often.",
+    },
+    {
+      q: "How do I check my AI visibility?",
+      a: "You can check manually by asking ChatGPT, Claude, Perplexity and Gemini the questions your buyers ask and recording whether you appear, or use an AI visibility checker that runs the prompts for you and compares you with competitors. AI Brand Track does this in about 60 seconds.",
+    },
+    {
+      q: "Which AI platforms does it check?",
+      a: "ChatGPT, Claude, Perplexity and Google Gemini. Google AI Overviews are not included.",
+    },
+    {
+      q: "What is a GEO audit?",
+      a: "A GEO (generative engine optimization) audit reviews why AI engines do or don't cite your brand: crawlability for AI bots, structured data, entity consistency, third-party mentions and answer-ready content. A visibility check tells you where you stand; an audit tells you what to fix.",
+    },
+    {
+      q: "How often should I check my AI visibility?",
+      a: "Weekly if you are actively optimizing, monthly for steady monitoring, and after major launches, PR or competitor moves. Because answers vary between runs, look at trends rather than a single result.",
+    },
+  ],
+  related: [
+    {
+      href: "/ai-rank-tracker",
+      title: "AI Rank Tracker",
+      desc: "Track your AI visibility over time.",
+    },
+    {
+      href: "/ai-search-visibility",
+      title: "AI Search Visibility Hub",
+      desc: "How to improve what the checker measures.",
+    },
+    {
+      href: "/generative-engine-optimization",
+      title: "Generative Engine Optimization",
+      desc: "Turn your results into citations.",
+    },
+  ],
+  cta: {
+    heading: "Check your AI visibility for free",
+    sub: "One full analysis across ChatGPT, Claude, Perplexity and Gemini. No credit card, about 60 seconds.",
+  },
+  datePublished: "2026-10-23",
+  dateModified: "2026-10-23",
+};
+
 export const SEO_PAGES: Record<string, LandingPageData> = {
   "ai-search-visibility": HUB,
   "generative-engine-optimization": GEO,
@@ -629,9 +734,15 @@ export const SEO_PAGES: Record<string, LandingPageData> = {
   "how-to-rank-on-chatgpt": CHATGPT,
   "perplexity-seo": PERPLEXITY,
   "ai-rank-tracker": RANK_TRACKER,
+  "ai-visibility-checker": CHECKER,
 };
 
 export const SEO_PAGE_META: Record<string, { title: string; description: string }> = {
+  "ai-visibility-checker": {
+    title: "Free AI Visibility Checker for ChatGPT, Claude & Gemini",
+    description:
+      "Free AI visibility checker: see if ChatGPT, Claude, Perplexity and Gemini mention your brand, your 0-100 AI visibility score and competitors. No card needed.",
+  },
   "ai-search-visibility": {
     title: "AI Search Visibility: Tools & Tactics to Get Found",
     description:

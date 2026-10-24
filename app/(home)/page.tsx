@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "How often should I monitor my AI brand visibility?",
-    a: "We recommend weekly monitoring for brands actively optimizing their AI presence, monthly monitoring for established brands tracking long-term trends, and an extra check after major changes like product launches, rebrands, or competitor moves. AI answers change as new content is indexed and competitors publish, so regular monitoring shows the impact of your optimization work and surfaces new opportunities."
+    a: "We recommend re-running your analysis weekly if you are actively optimizing your AI presence, monthly if you are tracking long-term trends, and after major changes like product launches, rebrands, or competitor moves. Analyses are run on demand (there is no automatic scheduling) and saved, so you can compare results over time. AI answers change as new content is indexed and competitors publish, so regular checks show the impact of your optimization work and surface new opportunities."
   }
 ];
 
@@ -98,9 +98,9 @@ export default function Home() {
               "reviewRating": { "@type": "Rating", "ratingValue": r.rating, "bestRating": 5 },
               "reviewBody": r.quote
             })),
-            "description": "AI Brand Track is the leading AI brand visibility monitoring platform. Track how ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors. Get actionable insights to improve your AI search presence and dominate generative engine results.",
+            "description": "AI Brand Track is an AI brand visibility tool. It queries ChatGPT, Claude, Perplexity, and Google Gemini with industry prompts and shows how they rank your brand against competitors, with a 0-100 visibility score, sentiment, share of voice, and actionable recommendations in about 60 seconds.",
             "featureList": [
-              "Real-time AI brand visibility monitoring across ChatGPT, Claude, Perplexity, and Google Gemini",
+              "On-demand AI brand visibility analysis across ChatGPT, Claude, Perplexity, and Google Gemini",
               "Competitor analysis and ranking comparison",
               "Strategic insights and actionable recommendations",
               "AI search optimization (AEO) guidance",
@@ -112,7 +112,7 @@ export default function Home() {
             "screenshot": "https://www.aibrandtrack.com/opengraph-image",
             "softwareVersion": "2.0",
             "datePublished": "2025-01-01",
-            "dateModified": "2026-01-02",
+            "dateModified": "2026-10-24",
             "author": {
               "@type": "Organization",
               "name": "AI Brand Track"
@@ -158,7 +158,7 @@ export default function Home() {
               "width": 250,
               "height": 60
             },
-            "description": "AI Brand Track is a leading AI brand visibility monitoring platform that helps businesses track their presence across ChatGPT, Claude, Perplexity, and Google Gemini. Founded in 2025, we provide real-time insights and strategic recommendations for AI search optimization (AEO) and generative engine optimization (GEO).",
+            "description": "AI Brand Track is an AI brand visibility monitoring tool that helps businesses measure their presence across ChatGPT, Claude, Perplexity, and Google Gemini. Founded in 2025, it provides visibility scores, competitor comparisons, and strategic recommendations for AI search optimization (AEO) and generative engine optimization (GEO).",
             "foundingDate": "2025",
             "areaServed": {
               "@type": "Place",
@@ -323,7 +323,7 @@ export default function Home() {
           {/* Stats */}
           <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-1">4+</div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">4</div>
               <div className="text-sm text-gray-600">AI Platforms</div>
             </div>
             <div className="text-center">
@@ -389,7 +389,7 @@ export default function Home() {
             Why AI Brand Visibility Matters in 2026
           </h2>
           <p className="text-lg text-gray-600 mb-6">
-            67% of consumers consult AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini before making purchase decisions. When users ask "What are the best [your category] tools?", AI platforms typically mention only 3-5 brands. If you're not one of them, you're invisible.
+            More and more buyers ask AI assistants like ChatGPT, Claude, Perplexity, and Google Gemini for recommendations before they buy. When someone asks "What are the best [your category] tools?", the answer usually names only a handful of brands. If you're not one of them, that buyer may never hear of you.
           </p>
           <p className="text-lg text-gray-600">
             AI Brand Track helps you monitor your visibility across ChatGPT (OpenAI), Claude (Anthropic), Perplexity AI, and Google Gemini. Track your rankings, compare against competitors, and get strategic recommendations to improve your AI search presence through AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization).
@@ -631,7 +631,7 @@ export default function Home() {
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    DataForSEO integration
+                    Keyword data via DataForSEO
                   </li>
                   <li className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -679,13 +679,13 @@ export default function Home() {
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    API access
+                    Custom prompt sets
                   </li>
                   <li className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    White label options
+                    Saved analysis history
                   </li>
                   <li className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

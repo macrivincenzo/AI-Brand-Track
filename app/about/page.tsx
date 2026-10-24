@@ -81,7 +81,7 @@ export default function AboutPage() {
               </p>
 
               <p className="text-lg leading-relaxed">
-                We believe that every business deserves transparency into how AI models rank and mention their brand. Our <Link href="/brand-monitor" className="text-blue-600 hover:underline">brand monitoring platform</Link> provides real-time insights, competitor analysis, and actionable recommendations to help you optimize your AI presence and ensure your brand is accurately represented across all major AI platforms.
+                We believe that every business deserves transparency into how AI models rank and mention their brand. Our <Link href="/brand-monitor" className="text-blue-600 hover:underline">brand monitoring platform</Link> queries ChatGPT, Claude, Perplexity, and Google Gemini on demand and gives you a visibility score, competitor analysis, sentiment, and actionable recommendations to help you optimize your AI presence and make sure your brand is accurately represented.
               </p>
 
               <p className="text-lg leading-relaxed">

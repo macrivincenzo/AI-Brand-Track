@@ -21,6 +21,7 @@ export async function GET() {
 ## Product
 - [Home](${SITE}/): Overview, features, reviews and FAQ
 - [Pricing](${SITE}/plans): Plans and credit packs
+- [Free AI Visibility Checker](${SITE}/ai-visibility-checker): Free analysis of how ChatGPT, Claude, Perplexity and Gemini see your brand
 - [AI Rank Tracker](${SITE}/ai-rank-tracker): Track brand rankings across AI assistants
 - [AI Search Visibility](${SITE}/ai-search-visibility): How to get found by ChatGPT, Perplexity and Gemini
 - [About](${SITE}/about): Company background

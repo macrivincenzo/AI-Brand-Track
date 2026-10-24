@@ -119,7 +119,7 @@ export const metadata: Metadata = {
     url: 'https://www.aibrandtrack.com',
     siteName: 'AI Brand Track',
     title: 'AI Brand Track - Monitor Your Brand Visibility Across ChatGPT, Claude, Perplexity & Google Gemini',
-    description: 'The leading AI brand visibility monitoring platform. Track how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors. Get actionable insights for AI search optimization (AEO) and generative engine optimization (GEO). Free trial with results in 60 seconds.',
+    description: 'AI brand visibility monitoring. See how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors. Get actionable insights for AI search optimization (AEO) and generative engine optimization (GEO). Free trial with results in 60 seconds.',
   },
 
   // OPTIMIZED: Enhanced Twitter card with creator

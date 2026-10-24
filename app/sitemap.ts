@@ -43,6 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       'how-to-rank-on-chatgpt',
       'perplexity-seo',
       'ai-rank-tracker',
+      'ai-visibility-checker',
     ].map((slug) => ({
       url: `${baseUrl}/${slug}`,
       changeFrequency: 'monthly' as const,

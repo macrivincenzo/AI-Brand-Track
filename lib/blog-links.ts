@@ -31,32 +31,47 @@ const B = {
   howAiAnswers: { href: '/blog/how-ai-answers-questions', title: 'How AI Answers Questions', desc: 'Why some brands make it into AI answers.' },
   drift: { href: '/blog/ai-model-drift-detection', title: 'Detecting AI Model Drift', desc: 'Spot when AI recommendations about you change.' },
   impactSeo: { href: '/blog/how-do-ai-search-engines-impact-seo', title: 'How AI Search Impacts SEO', desc: 'What changes for SEO as AI answers grow.' },
+  geoVsSeo: { href: '/blog/geo-vs-seo-vs-aeo', title: 'GEO vs SEO vs AEO', desc: 'How the three disciplines differ and overlap.' },
+  bestVisibilityTools: { href: '/blog/best-ai-visibility-tools', title: 'Best AI Visibility Tools', desc: '10 AI visibility platforms compared.' },
+  bestAeoGeoTools: { href: '/blog/best-aeo-geo-tools', title: 'Best AEO & GEO Tools', desc: 'The optimization toolkit, by category.' },
+  aiOverviews: { href: '/blog/how-to-rank-in-google-ai-overviews', title: 'How to Rank in Google AI Overviews', desc: 'Get cited in Google AI Overviews and AI Mode.' },
+  chatgptSources: { href: '/blog/where-does-chatgpt-get-its-information', title: 'Where Does ChatGPT Get Its Information?', desc: 'Training data, live search and citations.' },
+  sameAnswer: { href: '/blog/does-chatgpt-give-the-same-answer-to-everyone', title: 'Does ChatGPT Give Everyone the Same Answer?', desc: 'Why answers vary, and what it means for brands.' },
+  shareOfVoice: { href: '/blog/ai-share-of-voice', title: 'AI Share of Voice', desc: 'How to calculate and improve it.' },
   brandMonitoring: { href: '/blog/ai-brand-monitoring', title: 'AI Brand Monitoring', desc: 'Monitoring your brand inside AI assistants.' },
 } satisfies Record<string, InternalLink>;
 
 /** Supporting blog guides shown on each landing page. */
 export const LANDING_GUIDES: Record<string, InternalLink[]> = {
-  'ai-search-visibility': [B.trackAi, B.visibilityGuide, B.aiSeo],
-  'generative-engine-optimization': [B.aiSeo, B.recommendProducts, B.visibilityGuide],
-  'answer-engine-optimization': [B.aiSeo, B.howAiAnswers, B.recommendProducts],
-  'llm-seo': [B.aiSeo, B.howAiAnswers, B.drift],
-  'how-to-rank-on-chatgpt': [B.getMentioned, B.trackChatgpt, B.aiSeo],
+  'ai-search-visibility': [B.trackAi, B.bestVisibilityTools, B.aiOverviews],
+  'generative-engine-optimization': [B.geoVsSeo, B.bestAeoGeoTools, B.aiOverviews],
+  'answer-engine-optimization': [B.geoVsSeo, B.bestAeoGeoTools, B.aiOverviews],
+  'llm-seo': [B.geoVsSeo, B.aiSeo, B.howAiAnswers],
+  'how-to-rank-on-chatgpt': [B.getMentioned, B.chatgptSources, B.trackChatgpt],
   'perplexity-seo': [B.trackAi, B.aiSeo, B.recommendProducts],
-  'ai-rank-tracker': [B.trackAi, B.trackChatgpt, B.bestTracker],
+  'ai-rank-tracker': [B.bestVisibilityTools, B.shareOfVoice, B.trackAi],
+  'ai-visibility-checker': [B.visibilityGuide, B.bestVisibilityTools, B.shareOfVoice],
 };
 
 /** Related pages (landing pages first, then posts) shown under each blog post. */
 const POST_RELATED: Record<string, InternalLink[]> = {
-  'how-to-track-brand-visibility-in-ai-platforms': [L.aiRankTracker, B.trackChatgpt, B.visibilityGuide],
-  'how-to-track-chatgpt-brand-mentions': [L.rankOnChatgpt, B.getMentioned, B.trackAi],
+  'how-to-track-brand-visibility-in-ai-platforms': [L.aiRankTracker, B.bestVisibilityTools, B.shareOfVoice],
+  'how-to-track-chatgpt-brand-mentions': [L.rankOnChatgpt, B.chatgptSources, B.sameAnswer],
   'ai-brand-visibility-guide': [L.aiSearchVisibility, B.trackAi, B.aiSeo],
-  'ai-search-engine-optimization': [L.geo, L.aeo, B.trackAi],
+  'ai-search-engine-optimization': [B.geoVsSeo, L.geo, L.aeo],
+  'geo-vs-seo-vs-aeo': [L.geo, L.aeo, B.bestAeoGeoTools],
+  'best-ai-visibility-tools': [L.aiRankTracker, B.shareOfVoice, B.trackAi],
+  'best-aeo-geo-tools': [B.bestVisibilityTools, B.geoVsSeo, L.aeo],
+  'how-to-rank-in-google-ai-overviews': [B.geoVsSeo, B.aiSeo, L.aeo],
+  'where-does-chatgpt-get-its-information': [B.sameAnswer, L.rankOnChatgpt, B.trackChatgpt],
+  'does-chatgpt-give-the-same-answer-to-everyone': [B.chatgptSources, B.trackChatgpt, B.shareOfVoice],
+  'ai-share-of-voice': [L.aiRankTracker, B.bestVisibilityTools, B.trackAi],
   'how-to-get-your-brand-mentioned-in-chatgpt': [L.rankOnChatgpt, B.trackChatgpt, B.aiSeo],
-  'ai-brand-visibility-tracker': [L.aiRankTracker, B.trackAi, B.visibilityGuide],
+  'ai-brand-visibility-tracker': [B.bestVisibilityTools, L.aiRankTracker, B.trackAi],
   'how-ai-search-engines-recommend-products': [L.geo, B.aiSeo, B.getMentioned],
   'how-ai-answers-questions': [L.aeo, B.aiSeo, B.visibilityGuide],
   'ai-model-drift-detection': [L.aiRankTracker, B.trackAi, L.llmSeo],
-  'how-do-ai-search-engines-impact-seo': [L.llmSeo, B.aiSeo, L.geo],
+  'how-do-ai-search-engines-impact-seo': [B.geoVsSeo, L.llmSeo, B.aiSeo],
   'ai-brand-monitoring': [L.aiRankTracker, B.trackAi, B.visibilityGuide],
 };
 

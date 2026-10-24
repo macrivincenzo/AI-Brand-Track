@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Pricing: Pay-As-You-Go AI Visibility Tracking',
-  description: 'Simple pay-as-you-go pricing for AI brand visibility monitoring. Track your brand across ChatGPT, Claude, Perplexity, and more. No subscriptions, just credits.',
+  description: 'AI Brand Track pricing: a free analysis, pay-as-you-go credits that never expire, or monthly plans. Track your brand across ChatGPT, Claude, Perplexity and Gemini.',
   keywords: [
     'AI brand tracking pricing',
     'AI brand monitoring cost',
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Pricing: Pay-As-You-Go AI Visibility Tracking | AI Brand Track',
-    description: 'Simple pay-as-you-go pricing for AI brand visibility monitoring. Track your brand across ChatGPT, Claude, Perplexity, and more.',
+    description: 'A free analysis, pay-as-you-go credits that never expire, or monthly plans. Track your brand across ChatGPT, Claude, Perplexity and Gemini.',
     url: 'https://www.aibrandtrack.com/plans',
   },
   alternates: {

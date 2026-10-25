@@ -86,7 +86,6 @@ const RankingSchema = z.object({
   rankings: z.array(z.object({
     position: z.number(),
     company: z.string(),
-    reason: z.string().nullable().optional(),
     sentiment: z.enum(['positive', 'neutral', 'negative']).nullable().optional(),
   })),
   analysis: z.object({
@@ -850,11 +849,9 @@ Examples of mentions to catch:
 
     let object;
     try {
-      // Use a fast model for structured output if available
-      // Gemini (google) and Anthropic have issues with generateObject, so use OpenAI for analysis
-      const structuredModel = (normalizedProvider === 'anthropic' || normalizedProvider === 'google')
-        ? getProviderModel('openai', 'gpt-4o-mini') || model
-        : model;
+      // Parse every provider's answer with the cheap gpt-4o-mini: extraction
+      // doesn't need the answering model, and Perplexity has no structured output.
+      const structuredModel = getProviderModel('openai', 'gpt-4o-mini') || model;
       
       const result = await generateObject({
         model: structuredModel,
@@ -975,7 +972,6 @@ Return a simple analysis:
     const rankings = object.rankings.map((r): CompanyRanking => ({
       position: r.position,
       company: r.company,
-      reason: r.reason ?? undefined,
       sentiment: r.sentiment ?? undefined,
     }));
 

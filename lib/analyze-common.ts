@@ -30,6 +30,8 @@ function isRetiredModelError(err: any): boolean {
 function isRateLimitError(err: any): boolean {
   const status = err?.statusCode ?? err?.status ?? err?.cause?.statusCode ?? err?.lastError?.statusCode;
   const text = `${err?.message ?? ''} ${err?.responseBody ?? ''}`.toLowerCase();
+  // 429 is also returned for an empty balance ("insufficient_quota"); waiting won't fix that
+  if (text.includes('quota') || text.includes('no credits')) return false;
   return status === 429 || text.includes('rate limit');
 }
 

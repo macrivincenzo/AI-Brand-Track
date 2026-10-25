@@ -167,12 +167,6 @@ export function PromptsResponsesTab({
         
         // Check if any provider mentioned the brand
         const hasBrandMention = promptResponses.some(r => r.brandMentioned);
-        // #region agent log
-        if (typeof window !== 'undefined') {
-          const brandMentionedResponses = promptResponses.filter(r => r.brandMentioned);
-          fetch('http://127.0.0.1:7242/ingest/46fc0ebb-94f8-45d0-854e-584419eef9c4',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'components/brand-monitor/prompts-responses-tab.tsx:169',message:'Prompt brand mention check',data:{prompt:promptData.prompt.substring(0,50),totalResponsesForPrompt:promptResponses.length,brandMentionedCount:brandMentionedResponses.length,hasBrandMention,providers:promptResponses.map(r=>r.provider),brandMentionedProviders:brandMentionedResponses.map(r=>r.provider),allResponses:promptResponses.map(r=>({provider:r.provider,brandMentioned:r.brandMentioned,hasRankings:!!r.rankings?.length}))},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-        }
-        // #endregion
         
         // Check if this tile is expanded - auto-expand when searching
         const isExpanded = searchQuery 

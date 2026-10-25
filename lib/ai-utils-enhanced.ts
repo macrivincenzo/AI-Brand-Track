@@ -10,7 +10,6 @@ const RankingSchema = z.object({
   rankings: z.array(z.object({
     position: z.number(),
     company: z.string(),
-    reason: z.string().nullable().optional(),
     sentiment: z.enum(['positive', 'neutral', 'negative']).nullable().optional(),
   })),
   analysis: z.object({
@@ -222,7 +221,6 @@ IMPORTANT:
     const rankings: CompanyRanking[] = (object.rankings || []).map((r) => ({
       position: r.position,
       company: r.company,
-      reason: r.reason ?? undefined,
       sentiment: r.sentiment ?? undefined,
     }));
 

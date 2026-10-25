@@ -254,8 +254,8 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
         supportsWebSearch: true,
       },
     ],
-    defaultModel: 'sonar-pro',
-    fallbackModels: ['sonar-pro', 'sonar'],
+    defaultModel: 'sonar',
+    fallbackModels: ['sonar', 'sonar-pro'],
     capabilities: {
       webSearch: true, // All models have built-in web search
       functionCalling: false,

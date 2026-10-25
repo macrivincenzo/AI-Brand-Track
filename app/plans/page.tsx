@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useRef } from 'react';
 import { Loader2 } from 'lucide-react';
+import { attachBodyOptions } from '@/lib/autumn-checkout';
 
 // Dynamically import PurchaseButton to avoid SSR issues with useCustomer hook
 const PurchaseButton = dynamic(
@@ -42,6 +43,7 @@ function CheckoutRedirect() {
           credentials: 'include',
           body: JSON.stringify({
             product_id: checkoutProductId,
+            ...attachBodyOptions(checkoutProductId),
             return_url: window.location.origin + '/plans',
             success_url: window.location.origin + '/dashboard',
             cancel_url: window.location.origin + '/plans',

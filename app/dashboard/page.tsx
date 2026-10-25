@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Lock, CheckCircle, AlertCircle, Loader2, User, Mail, Phone, Edit2, Save, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProductChangeDialog from '@/components/autumn/product-change-dialog';
+import { attachHookOptions } from '@/lib/autumn-checkout';
 import { useProfile, useUpdateProfile, useSettings, useUpdateSettings } from '@/hooks/useProfile';
 
 // Separate component that uses Autumn hooks
@@ -76,6 +77,7 @@ function DashboardContent({ session }: { session: any }) {
       setLoadingProductId(productId);
       await attach({
         productId,
+        ...attachHookOptions(productId),
         dialog: ProductChangeDialog,
         returnUrl: window.location.origin + '/dashboard',
         successUrl: window.location.origin + '/dashboard',

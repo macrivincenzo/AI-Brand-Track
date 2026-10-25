@@ -10,6 +10,7 @@ import { Switch } from "@/components/ui/switch";
 import { Check, Loader2 } from "lucide-react";
 import AttachDialog from "@/components/autumn/attach-dialog";
 import { getPricingTableContent } from "@/lib/autumn/pricing-table-content";
+import { attachHookOptions } from "@/lib/autumn-checkout";
 import { Product, ProductItem } from "autumn-js";
 export default function PricingTable({
   productDetails,
@@ -78,6 +79,7 @@ export default function PricingTable({
                   if (product.id) {
                     await attach({
                       productId: product.id,
+                      ...attachHookOptions(product.id),
                       dialog: AttachDialog,
                       returnUrl: window.location.origin + '/dashboard',
                       successUrl: window.location.origin + '/dashboard',

@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react';
+import { attachBodyOptions } from '@/lib/autumn-checkout';
 
 export default function PurchaseButton({ productId, disabled, className, children, returnUrl, cancelUrl }: { 
   productId: string; 
@@ -60,6 +61,7 @@ export default function PurchaseButton({ productId, disabled, className, childre
         credentials: 'include',
         body: JSON.stringify({
           product_id: productId,
+          ...attachBodyOptions(productId),
           return_url: base + returnPath,
           success_url: base + '/dashboard',
           cancel_url: base + cancelPath,

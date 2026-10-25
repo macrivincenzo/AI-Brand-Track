@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 
   // OPTIMIZED: Longer, more detailed description with specific claims
-  description: "Track how ChatGPT, Claude, Perplexity and Gemini mention and rank your brand against competitors. Get actionable AEO and GEO recommendations. Free analysis in 60 seconds, pay-as-you-go credits.",
+  description: "Track how ChatGPT, Claude, Perplexity and Gemini mention and rank your brand against competitors. Get actionable AEO and GEO recommendations. Results in 60 seconds. Start a 14-day trial for $9 or buy pay-as-you-go credits.",
 
   // OPTIMIZED: Expanded keywords with long-tail, question-based variations
   keywords: [
@@ -119,7 +119,7 @@ export const metadata: Metadata = {
     url: 'https://www.aibrandtrack.com',
     siteName: 'AI Brand Track',
     title: 'AI Brand Track - Monitor Your Brand Visibility Across ChatGPT, Claude, Perplexity & Google Gemini',
-    description: 'AI brand visibility monitoring. See how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors. Get actionable insights for AI search optimization (AEO) and generative engine optimization (GEO). Free trial with results in 60 seconds.',
+    description: 'AI brand visibility monitoring. See how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini rank your brand against competitors. Get actionable insights for AI search optimization (AEO) and generative engine optimization (GEO). Results in 60 seconds; start with a 14-day trial for $9.',
   },
 
   // OPTIMIZED: Enhanced Twitter card with creator

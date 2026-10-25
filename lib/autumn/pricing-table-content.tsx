@@ -5,7 +5,7 @@ export const getPricingTableContent = (product: any) => {
 
   if (free_trial && free_trial.trial_available) {
     return {
-      buttonText: <p>Start Free Trial</p>,
+      buttonText: <p>Start for $9</p>,
     };
   }
 

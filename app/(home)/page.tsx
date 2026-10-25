@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "How does AI Brand Track work?",
-    a: "AI Brand Track works in three steps. First, you enter your website URL and we automatically extract your brand information, industry, and keywords (1 credit). Second, we query ChatGPT, Claude, Perplexity, and Google Gemini with industry-relevant prompts to see how they rank your brand against competitors (10 credits). Third, you get a report with your brand visibility score (0-100), competitor rankings, which prompts mention your brand, sentiment, and specific recommendations. A complete analysis takes about 60 seconds and uses 11 credits. Competitor scraping is free."
+    a: "AI Brand Track works in three steps. First, you enter your website URL and we automatically extract your brand information, industry, and keywords (1 credit). Second, we query ChatGPT, Claude, Perplexity, and Google Gemini with industry-relevant prompts to see how they rank your brand against competitors (10 credits). Third, you get a report with your brand visibility score (0-100), competitor rankings, which prompts mention your brand, sentiment, and specific recommendations. A complete analysis takes about 60 seconds and uses 11 credits. Competitor scraping is included at 0 credits."
   },
   {
     q: "Which AI platforms does AI Brand Track monitor?",
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "How much does AI Brand Track cost?",
-    a: "AI Brand Track offers flexible pricing. Free Trial ($0) includes 11 credits for 1 complete analysis, no credit card required. Single Analysis ($49) provides 53 credits for ~4 analyses. Credit Pack ($149) includes 220 credits for 20 analyses. Monthly subscriptions: Starter ($39/month) with 53 credits/month and Pro ($69/month) with 154 credits/month. Each analysis uses 11 credits (1 for extraction + 10 for AI analysis). Competitor scraping is free. Pay-as-you-go credits never expire."
+    a: "AI Brand Track offers flexible pricing. The Starter plan begins with a 14-day trial for $9 (card required) that includes Starter's 53 credits (about 4 full analyses); after 14 days it continues at $39/month unless you cancel. Single Analysis ($49) provides 53 credits for ~4 analyses. Credit Pack ($149) includes 220 credits for 20 analyses. Monthly subscriptions: Starter ($39/month) with 53 credits/month and Pro ($69/month) with 154 credits/month. Each analysis uses 11 credits (1 for extraction + 10 for AI analysis). Competitor scraping costs 0 credits. Pay-as-you-go credits never expire."
   },
   {
     q: "How often should I monitor my AI brand visibility?",
@@ -58,12 +58,13 @@ export default function Home() {
             "offers": [
               {
                 "@type": "Offer",
-                "name": "Free Trial",
-                "price": "0",
+                "name": "Starter 14-Day Trial",
+                "description": "14 days for $9 including 53 credits, then $39/month unless cancelled",
+                "price": "9",
                 "priceCurrency": "USD",
                 "priceValidUntil": "2026-12-31",
                 "availability": "https://schema.org/InStock",
-                "url": "https://www.aibrandtrack.com/register"
+                "url": "https://www.aibrandtrack.com/plans"
               },
               {
                 "@type": "Offer",
@@ -299,12 +300,22 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link
-                href={session ? "/brand-monitor" : "/login?from=/brand-monitor"}
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
-              >
-                Start Free Analysis
-              </Link>
+              {session ? (
+                <Link
+                  href="/brand-monitor"
+                  className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
+                >
+                  Start Analysis
+                </Link>
+              ) : (
+                <PlanCheckoutLink
+                  productId="starter-monthly"
+                  className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
+                  returnUrl="/"
+                >
+                  Start 14-day trial for $9
+                </PlanCheckoutLink>
+              )}
               <Link
                 href="/plans"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-gray-900 bg-white hover:bg-gray-50 border-2 border-gray-300 rounded-none transition-colors"
@@ -314,9 +325,9 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
-              <span>✓ No credit card</span>
-              <span>✓ 60 seconds</span>
-              <span>✓ 11 free credits (1 full analysis)</span>
+              <span>✓ 14 days for $9</span>
+              <span>✓ 53 credits (about 4 full analyses)</span>
+              <span>✓ Then $39/month · cancel anytime</span>
             </div>
           </div>
 
@@ -423,42 +434,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
-              {/* Free Tier */}
-              <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-                <h4 className="text-2xl font-bold mb-2 text-gray-900">Free Trial</h4>
-                <p className="text-gray-600 mb-6">Try it out</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">$0</span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    11 credits (1 full analysis)
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    All 4 AI providers included
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Competitor discovery included
-                  </li>
-                </ul>
-                <Link
-                  href="/register"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                >
-                  Start Free
-                </Link>
-              </div>
-
+            <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
               {/* Single Analysis */}
               <div className="bg-white p-8 border-2 border-blue-600 relative rounded-none">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1.5 text-sm font-semibold rounded-none border-2 border-blue-600">
@@ -486,7 +462,7 @@ export default function Home() {
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Free competitor scraping
+                    Competitor scraping included (0 credits)
                   </li>
                 </ul>
                 <PlanCheckoutLink
@@ -553,8 +529,9 @@ export default function Home() {
                 <h4 className="text-2xl font-bold mb-2 text-gray-900">Starter</h4>
                 <p className="text-gray-600 mb-6">Perfect for individuals</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">$39</span>
-                  <span className="text-gray-600 text-lg ml-2">/month</span>
+                  <span className="text-4xl font-bold text-gray-900">$9</span>
+                  <span className="text-gray-600 text-lg ml-2">for 14 days</span>
+                  <p className="text-sm text-gray-600 mt-2">Then $39/month · cancel anytime</p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center text-gray-700">
@@ -573,7 +550,7 @@ export default function Home() {
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Free competitor scraping
+                    Competitor scraping included (0 credits)
                   </li>
                   <li className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -587,7 +564,7 @@ export default function Home() {
                   className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
                   returnUrl="/"
                 >
-                  Subscribe
+                  Start 14-day trial for $9
                 </PlanCheckoutLink>
               </div>
 
@@ -619,7 +596,7 @@ export default function Home() {
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Free competitor scraping
+                    Competitor scraping included (0 credits)
                   </li>
                   <li className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -714,7 +691,7 @@ export default function Home() {
                   <div className="text-sm text-gray-600">Website extraction</div>
                 </div>
                 <div className="text-center p-4">
-                  <div className="text-2xl font-bold text-green-600 mb-1">FREE</div>
+                  <div className="text-2xl font-bold text-green-600 mb-1">0 credits</div>
                   <div className="text-sm text-gray-600">Competitor scraping</div>
                 </div>
                 <div className="text-center p-4">

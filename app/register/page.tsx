@@ -30,8 +30,15 @@ export default function RegisterPage() {
         // Wait a moment for the session to be properly set
         await new Promise(resolve => setTimeout(resolve, 100));
         
+        // New accounts have no credits, so send them straight to the $9 Starter
+        // trial checkout unless a same-site ?redirect= says otherwise.
+        const redirect = new URLSearchParams(window.location.search).get('redirect');
+        const next = redirect && redirect.startsWith('/') && !redirect.startsWith('//')
+          ? redirect
+          : '/plans?checkout=starter-monthly';
+
         // Force a hard navigation to ensure cookies are sent
-        window.location.href = '/';
+        window.location.href = next;
       } else {
         throw response.error;
       }
@@ -67,7 +74,7 @@ export default function RegisterPage() {
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>11 free credits on signup</span>
+              <span>14-day Starter trial for $9 (53 credits)</span>
             </div>
             <div className="flex items-center space-x-3">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

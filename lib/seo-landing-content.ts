@@ -43,7 +43,7 @@ const HUB: LandingPageData = {
       heading: "How AI Brand Track fits in",
       body: [
         "AI Brand Track queries ChatGPT, Claude, Perplexity, and Google Gemini with the prompts your buyers use, then scores how often you appear, in what position, with what sentiment, and how you compare to competitors. You get a visibility score, a competitive gap analysis, and concrete recommendations — in about 60 seconds.",
-        "Use the guides below to understand each discipline, then run a free analysis to see where you actually stand.",
+        "Use the guides below to understand each discipline, then run an analysis to see where you actually stand. A 14-day Starter trial costs $9.",
       ],
     },
   ],
@@ -99,7 +99,7 @@ const HUB: LandingPageData = {
   ],
   cta: {
     heading: "See where your brand stands in AI search",
-    sub: "Run a free analysis across ChatGPT, Claude, Perplexity, and Gemini in 60 seconds.",
+    sub: "Run an analysis across ChatGPT, Claude, Perplexity, and Gemini in 60 seconds. 14 days for $9, then $39/month, cancel anytime.",
   },
 };
 
@@ -183,7 +183,7 @@ const GEO: LandingPageData = {
   ],
   cta: {
     heading: "Is your brand getting cited — or skipped?",
-    sub: "Run a free GEO baseline across the major generative engines in 60 seconds.",
+    sub: "Run a GEO baseline across the major generative engines in 60 seconds. 14 days for $9, then $39/month, cancel anytime.",
   },
 };
 
@@ -266,7 +266,7 @@ const AEO: LandingPageData = {
   ],
   cta: {
     heading: "Find the questions where competitors win",
-    sub: "Run a free analysis to see which buyer questions return a competitor instead of you.",
+    sub: "Run an analysis to see which buyer questions return a competitor instead of you. 14 days for $9, then $39/month, cancel anytime.",
   },
 };
 
@@ -349,7 +349,7 @@ const LLM_SEO: LandingPageData = {
   ],
   cta: {
     heading: "What do the models actually think of your brand?",
-    sub: "Run a free LLM audit across ChatGPT, Claude, Perplexity, and Gemini.",
+    sub: "Run an LLM audit across ChatGPT, Claude, Perplexity, and Gemini. 14 days for $9, then $39/month, cancel anytime.",
   },
 };
 
@@ -438,7 +438,7 @@ const CHATGPT: LandingPageData = {
   ],
   cta: {
     heading: "See if ChatGPT recommends you or your competitor",
-    sub: "Run a free ChatGPT visibility analysis in 60 seconds.",
+    sub: "Run a ChatGPT visibility analysis in 60 seconds. 14 days for $9, then $39/month, cancel anytime.",
   },
 };
 
@@ -534,7 +534,7 @@ const PERPLEXITY: LandingPageData = {
   ],
   cta: {
     heading: "Which sources is Perplexity citing — yours or theirs?",
-    sub: "Run a free Perplexity visibility analysis in 60 seconds.",
+    sub: "Run a Perplexity visibility analysis in 60 seconds. 14 days for $9, then $39/month, cancel anytime.",
   },
 };
 
@@ -617,26 +617,26 @@ const RANK_TRACKER: LandingPageData = {
   ],
   cta: {
     heading: "Start tracking your AI share of voice",
-    sub: "Run a free baseline across ChatGPT, Claude, Perplexity, and Gemini in 60 seconds.",
+    sub: "Run a baseline across ChatGPT, Claude, Perplexity, and Gemini in 60 seconds. 14 days for $9, then $39/month, cancel anytime.",
   },
 };
 
 const CHECKER: LandingPageData = {
   slug: "ai-visibility-checker",
   breadcrumb: "AI Visibility Checker",
-  eyebrow: "Free AI Visibility Check",
-  h1: "Free AI Visibility Checker: See How AI Assistants See Your Brand",
+  eyebrow: "AI Visibility Check",
+  h1: "AI Visibility Checker: See How AI Assistants See Your Brand",
   subhead:
-    "Check whether ChatGPT, Claude, Perplexity and Gemini mention your brand, how they describe it, and which competitors they recommend instead. Free, no credit card, results in about 60 seconds.",
+    "Check whether ChatGPT, Claude, Perplexity and Gemini mention your brand, how they describe it, and which competitors they recommend instead. Start a 14-day trial for $9, results in about 60 seconds.",
   intro: [
     "An AI visibility checker shows you something no analytics tool can: what AI assistants say when buyers ask about your category. Enter your website and AI Brand Track runs industry-relevant prompts across ChatGPT, Claude, Perplexity and Google Gemini, then scores how visible your brand is compared with your competitors.",
-    "Your first full analysis is free. You get an AI visibility score from 0 to 100, competitor rankings, the prompts where you appear (and where you don't), sentiment, and concrete recommendations to improve.",
+    "Start with the 14-day Starter trial for $9, which includes 53 credits (about 4 full analyses). Each analysis gives you an AI visibility score from 0 to 100, competitor rankings, the prompts where you appear (and where you don't), sentiment, and concrete recommendations to improve.",
   ],
   sections: [
     {
-      heading: "What the free AI visibility check includes",
+      heading: "What the AI visibility check includes",
       body: [
-        "One complete analysis uses 11 credits, and the free trial includes exactly that: 11 credits, no credit card required.",
+        "One complete analysis uses 11 credits: 1 for website extraction and 10 for the AI analysis. The 14-day Starter trial costs $9 and includes 53 credits, enough for about 4 full analyses.",
       ],
       bullets: [
         "AI visibility score (0-100): how often and how prominently AI assistants mention you",
@@ -651,7 +651,7 @@ const CHECKER: LandingPageData = {
       heading: "How it works",
       body: [
         "1. Enter your website URL. Your brand name, industry and keywords are extracted automatically.",
-        "2. Pick competitors. Competitor websites are scraped for free so the comparison is fair.",
+        "2. Pick competitors. Competitor scraping is included at 0 credits, so the comparison is fair.",
         "3. Get your report. AI Brand Track queries all four assistants with buyer-style prompts and returns your score, rankings and recommendations in about 60 seconds.",
       ],
     },
@@ -659,7 +659,7 @@ const CHECKER: LandingPageData = {
       heading: "AI visibility checker vs. AI visibility audit",
       body: [
         "A checker gives you a fast snapshot: are you visible, and who beats you? An AI visibility audit (sometimes called a GEO audit) goes further and asks why: is your site crawlable by AI bots, is your brand described consistently across the web, do third-party sources mention you, and does your content answer the questions buyers ask?",
-        "Start with the free check to find the gaps, then use the audit checklist in our AI brand visibility guide to fix the causes.",
+        "Start with a quick check to find the gaps, then use the audit checklist in our AI brand visibility guide to fix the causes.",
       ],
     },
     {
@@ -677,8 +677,8 @@ const CHECKER: LandingPageData = {
   ],
   faqs: [
     {
-      q: "Is the AI visibility checker really free?",
-      a: "Yes. The free trial includes 11 credits, which is one complete analysis across ChatGPT, Claude, Perplexity and Gemini. No credit card is required. After that you can buy pay-as-you-go credits or choose a monthly plan.",
+      q: "How much does the AI visibility checker cost?",
+      a: "The Starter plan begins with a 14-day trial that costs $9 (card required) and includes 53 credits, about 4 complete analyses across ChatGPT, Claude, Perplexity and Gemini. After 14 days it continues at $39/month unless you cancel. You can also buy pay-as-you-go credits that never expire: Single Analysis ($49, 53 credits) or Credit Pack ($149, 220 credits).",
     },
     {
       q: "What is an AI visibility score?",
@@ -719,11 +719,11 @@ const CHECKER: LandingPageData = {
     },
   ],
   cta: {
-    heading: "Check your AI visibility for free",
-    sub: "One full analysis across ChatGPT, Claude, Perplexity and Gemini. No credit card, about 60 seconds.",
+    heading: "Check your AI visibility",
+    sub: "Full analyses across ChatGPT, Claude, Perplexity and Gemini in about 60 seconds. 14 days for $9, then $39/month, cancel anytime.",
   },
   datePublished: "2026-10-23",
-  dateModified: "2026-10-23",
+  dateModified: "2026-10-25",
 };
 
 export const SEO_PAGES: Record<string, LandingPageData> = {
@@ -739,9 +739,9 @@ export const SEO_PAGES: Record<string, LandingPageData> = {
 
 export const SEO_PAGE_META: Record<string, { title: string; description: string }> = {
   "ai-visibility-checker": {
-    title: "Free AI Visibility Checker for ChatGPT, Claude & Gemini",
+    title: "AI Visibility Checker for ChatGPT, Claude & Gemini",
     description:
-      "Free AI visibility checker: see if ChatGPT, Claude, Perplexity and Gemini mention your brand, your 0-100 AI visibility score and competitors. No card needed.",
+      "AI visibility checker: see if ChatGPT, Claude, Perplexity and Gemini mention your brand, your 0-100 AI visibility score and competitors. 14-day trial for $9.",
   },
   "ai-search-visibility": {
     title: "AI Search Visibility: Tools & Tactics to Get Found",

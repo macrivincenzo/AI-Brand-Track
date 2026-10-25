@@ -634,15 +634,15 @@ export default async function BlogPreviewPage() {
                     Ready to build?
                   </h3>
                   <p className="text-sm text-zinc-600 mb-6 leading-relaxed text-center">
-                    Start tracking your AI brand visibility for free and scale seamlessly as your project expands. No credit card needed.
+                    Start tracking your AI brand visibility with a 14-day trial for $9 and scale seamlessly as your project expands. Then $39/month, cancel anytime.
                   </p>
                   <div className="space-y-3">
                     <Link
-                      href="/brand-monitor?from=blog"
+                      href="/plans?checkout=starter-monthly"
                       className="btn-firecrawl-orange w-full inline-flex items-center justify-center whitespace-nowrap rounded-[10px] text-base font-medium transition-all duration-200 h-12 px-6"
                       prefetch={false}
                     >
-                      Start for free
+                      Start for $9
                     </Link>
                     <Link
                       href="/plans?from=blog"

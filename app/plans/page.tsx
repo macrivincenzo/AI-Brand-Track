@@ -24,9 +24,17 @@ const CHECKOUT_PRODUCT_IDS = new Set(['single-analysis', 'credit-pack', 'starter
 // Stripe checkout. Kept in its own Suspense boundary so useSearchParams doesn't
 // force the whole pricing page to render client-side only.
 function CheckoutRedirect() {
-  const { data: session } = useSession();
+  const { data: session, isPending } = useSession();
   const searchParams = useSearchParams();
   const hasRedirected = useRef(false);
+
+  // Logged-out visitors arriving from a "Start for $9" link create an account
+  // first; registration sends them back here to finish checkout.
+  useEffect(() => {
+    const checkoutProductId = searchParams.get('checkout');
+    if (isPending || session?.user || !checkoutProductId || !CHECKOUT_PRODUCT_IDS.has(checkoutProductId)) return;
+    window.location.href = `/register?redirect=${encodeURIComponent(`/plans?checkout=${checkoutProductId}`)}`;
+  }, [isPending, session?.user, searchParams]);
 
   // When user lands with ?checkout=productId (e.g. from home or after login), go straight to Stripe checkout
   useEffect(() => {
@@ -110,42 +118,7 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
-            {/* Free Tier */}
-            <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Free Trial</h3>
-              <p className="text-gray-600 mb-6">Try it out</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">$0</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  11 credits (1 full analysis)
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  All 4 AI providers included
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Competitor discovery included
-                </li>
-              </ul>
-              <Link
-                href={session?.user ? "/dashboard" : "/register"}
-                className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-              >
-                {session?.user ? 'Go to Dashboard' : 'Start Free'}
-              </Link>
-            </div>
-
+          <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
             {/* Single Analysis */}
             <div className="bg-white p-8 border-2 border-blue-600 relative rounded-none">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1.5 text-sm font-semibold rounded-none border-2 border-blue-600">
@@ -173,7 +146,7 @@ export default function PricingPage() {
                   <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  Free competitor scraping
+                  Competitor scraping included (0 credits)
                 </li>
                 <li className="flex items-center text-gray-700">
                   <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -270,8 +243,9 @@ export default function PricingPage() {
               <h3 className="text-2xl font-bold mb-2 text-gray-900">Starter</h3>
               <p className="text-gray-600 mb-6">Perfect for individuals</p>
               <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">$39</span>
-                <span className="text-gray-600 text-lg ml-2">/month</span>
+                <span className="text-4xl font-bold text-gray-900">$9</span>
+                <span className="text-gray-600 text-lg ml-2">for 14 days</span>
+                <p className="text-sm text-gray-600 mt-2">Then $39/month · cancel anytime</p>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-700">
@@ -290,7 +264,7 @@ export default function PricingPage() {
                   <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  Free competitor scraping
+                  Competitor scraping included (0 credits)
                 </li>
                 <li className="flex items-center text-gray-700">
                   <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -305,14 +279,14 @@ export default function PricingPage() {
                   disabled={isPending}
                   className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
                 >
-                  {isPending ? 'Loading...' : 'Subscribe'}
+                  {isPending ? 'Loading...' : 'Start 14-day trial for $9'}
                 </PurchaseButton>
               ) : (
                 <Link
                   href="/login?redirect=/plans?checkout=starter-monthly"
                   className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
                 >
-                  Subscribe
+                  Start 14-day trial for $9
                 </Link>
               )}
             </div>
@@ -345,7 +319,7 @@ export default function PricingPage() {
                   <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  Free competitor scraping
+                  Competitor scraping included (0 credits)
                 </li>
                 <li className="flex items-center text-gray-700">
                   <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -449,7 +423,7 @@ export default function PricingPage() {
                 <div className="text-sm text-gray-600">Website extraction</div>
               </div>
               <div className="text-center p-4">
-                <div className="text-2xl font-bold text-green-600 mb-1">FREE</div>
+                <div className="text-2xl font-bold text-green-600 mb-1">0 credits</div>
                 <div className="text-sm text-gray-600">Competitor scraping</div>
               </div>
               <div className="text-center p-4">
@@ -464,7 +438,7 @@ export default function PricingPage() {
             </div>
           </div>
           <p className="text-gray-600 mb-4">
-            Each analysis gives you comprehensive insights across all 4 major AI platforms: ChatGPT, Claude, Perplexity, and Gemini. Scrape unlimited competitors for free before running your analysis.
+            Each analysis gives you comprehensive insights across all 4 major AI platforms: ChatGPT, Claude, Perplexity, and Gemini. Competitor scraping costs 0 credits, so you can add competitors before running your analysis.
           </p>
           <p className="text-gray-600">
             Pay-as-you-go credits never expire. Buy once, use anytime. No hidden fees.

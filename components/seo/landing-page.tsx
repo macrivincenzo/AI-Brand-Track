@@ -149,10 +149,10 @@ export function LandingPage({ data }: { data: LandingPageData }) {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link
-                href="/login?from=/brand-monitor"
+                href="/plans?checkout=starter-monthly"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
               >
-                Start Free Analysis
+                Start for $9
               </Link>
               <Link
                 href="/plans"
@@ -294,10 +294,10 @@ export function LandingPage({ data }: { data: LandingPageData }) {
             <p className="text-lg text-gray-600 mb-10">{data.cta.sub}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/login?from=/brand-monitor"
+                href="/plans?checkout=starter-monthly"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
               >
-                Start Free Analysis
+                Start for $9
               </Link>
               <Link
                 href="/plans"
@@ -307,7 +307,7 @@ export function LandingPage({ data }: { data: LandingPageData }) {
               </Link>
             </div>
             <p className="mt-6 text-sm text-gray-500">
-              ✓ No credit card &nbsp;·&nbsp; ✓ Results in 60 seconds &nbsp;·&nbsp; ✓ 11 free credits
+              ✓ 14 days for $9 &nbsp;·&nbsp; ✓ Then $39/month, cancel anytime &nbsp;·&nbsp; ✓ Results in 60 seconds
             </p>
           </div>
         </section>

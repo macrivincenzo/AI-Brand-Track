@@ -65,7 +65,7 @@ export function Footer() {
                 </li>
                 <li>
 <Link href="/ai-visibility-checker" className="text-sm hover:text-zinc-900 transition-colors">
-                  Free AI Visibility Checker
+                  AI Visibility Checker
                 </Link>
                 </li>
               </ul>

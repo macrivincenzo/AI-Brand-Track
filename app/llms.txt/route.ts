@@ -13,15 +13,15 @@ export async function GET() {
 
 > AI Brand Track monitors how ChatGPT, Claude, Perplexity and Google Gemini mention, rank and describe your brand compared with competitors, and gives recommendations for AI search optimization (GEO/AEO).
 
-- Free trial: 11 credits (1 full analysis), no credit card required. Sign up at ${SITE}/register
+- Starter trial: 14 days for $9 (card required), includes Starter's 53 credits (about 4 full analyses), then $39/month unless cancelled. Start at ${SITE}/plans
 - Pay-as-you-go: Single Analysis $49 (53 credits), Credit Pack $149 (220 credits). Credits never expire.
 - Subscriptions: Starter $39/month (53 credits), Pro $69/month (154 credits). Enterprise: custom pricing.
-- One complete brand analysis uses 11 credits (1 for website extraction, 10 for scanning ChatGPT, Claude, Perplexity and Gemini). Competitor scraping is free.
+- One complete brand analysis uses 11 credits (1 for website extraction, 10 for scanning ChatGPT, Claude, Perplexity and Gemini). Competitor scraping costs 0 credits.
 
 ## Product
 - [Home](${SITE}/): Overview, features, reviews and FAQ
 - [Pricing](${SITE}/plans): Plans and credit packs
-- [Free AI Visibility Checker](${SITE}/ai-visibility-checker): Free analysis of how ChatGPT, Claude, Perplexity and Gemini see your brand
+- [AI Visibility Checker](${SITE}/ai-visibility-checker): Check how ChatGPT, Claude, Perplexity and Gemini see your brand
 - [AI Rank Tracker](${SITE}/ai-rank-tracker): Track brand rankings across AI assistants
 - [AI Search Visibility](${SITE}/ai-search-visibility): How to get found by ChatGPT, Perplexity and Gemini
 - [About](${SITE}/about): Company background

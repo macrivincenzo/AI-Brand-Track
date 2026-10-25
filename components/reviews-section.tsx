@@ -25,26 +25,8 @@ export const reviews: Review[] = [
   },
   {
     quote:
-      "I really liked using AI Brand Track. Getting a full brand analysis for free without adding a credit card was honestly impressive. It made it easy to test the platform without any pressure. I also appreciate their pricing structure. The pay-as-you-go option is perfect if you don't want to commit to a monthly subscription. Not many competitors offer that kind of flexibility.",
-    author: "ShazInfinity",
-    rating: 5,
-    source: "alternativeto",
-    date: "Feb 27, 2026",
-    highlight: false,
-  },
-  {
-    quote:
       "It doesn't just show where we rank—it tells us what to do next. We actually changed our content based on the recommendations. It has helped us a lot.",
     author: "JohnnyT",
-    rating: 5,
-    source: "alternativeto",
-    date: "Feb 25, 2026",
-    highlight: false,
-  },
-  {
-    quote:
-      "I liked it very much AI Brand Track because I was able to get a full brand analysis of my website for free. Plus I didn't need to add my credit card—that was great. The price plans are good because you can pay-as-you-go; you don't need to subscribe to a monthly fee. That's an option not many competitors give.",
-    author: "PaceTyler",
     rating: 5,
     source: "alternativeto",
     date: "Feb 25, 2026",

@@ -1,0 +1,215 @@
+{
+ "spent_usd": 0.9946,
+ "calls": [
+  {
+   "path": "keywords_data/bing/search_volume/live",
+   "cost": 0.09,
+   "results": 1000
+  },
+  {
+   "path": "keywords_data/bing/keywords_for_keywords/live",
+   "cost": 0.09,
+   "results": 2089
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01956,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01836,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01284,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01248,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01236,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01224,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01248,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01224,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01212,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01248,
+   "results": 1
+  },
+  {
+   "path": "keywords_data/google_ads/search_volume/live",
+   "cost": 0.09,
+   "results": 14
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01464,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "keywords_data/google_ads/search_volume/live",
+   "cost": 0.09,
+   "results": 10
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01248,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.0126,
+   "results": 1
+  },
+  {
+   "path": "keywords_data/google_ads/search_volume/live",
+   "cost": 0.09,
+   "results": 10
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01344,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "keywords_data/google_ads/search_volume/live",
+   "cost": 0.09,
+   "results": 9
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.01224,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  },
+  {
+   "path": "dataforseo_labs/google/keyword_suggestions/live",
+   "cost": 0.012,
+   "results": 1
+  }
+ ]
+}

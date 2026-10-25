@@ -400,7 +400,7 @@ const CHATGPT: LandingPageData = {
   faqs: [
     {
       q: "How do I rank on ChatGPT?",
-      a: "Be one of the few brands ChatGPT names by earning consistent, credible presence in the sources it trusts, keeping your brand entity unambiguous, and answering buyer questions clearly. There's no ad slot — visibility is earned through authority and clarity, then verified by measurement.",
+      a: "To rank in ChatGPT, be one of the few brands it names by earning consistent, credible presence in the sources it trusts, keeping your brand entity unambiguous, and answering buyer questions clearly. There's no ad slot — visibility is earned through authority and clarity, then verified by measurement.",
     },
     {
       q: "Can you do SEO for ChatGPT?",
@@ -656,9 +656,9 @@ const CHECKER: LandingPageData = {
       ],
     },
     {
-      heading: "AI visibility checker vs. AI visibility audit",
+      heading: "AI visibility checker vs. AI visibility audit (GEO and AEO audit)",
       body: [
-        "A checker gives you a fast snapshot: are you visible, and who beats you? An AI visibility audit (sometimes called a GEO audit) goes further and asks why: is your site crawlable by AI bots, is your brand described consistently across the web, do third-party sources mention you, and does your content answer the questions buyers ask?",
+        "A checker gives you a fast snapshot: are you visible, and who beats you? An AI visibility audit (often called a GEO audit or AEO audit) goes further and asks why: is your site crawlable by AI bots, is your brand described consistently across the web, do third-party sources mention you, and does your content answer the questions buyers ask?",
         "Start with a quick check to find the gaps, then use the audit checklist in our AI brand visibility guide to fix the causes.",
       ],
     },
@@ -695,6 +695,14 @@ const CHECKER: LandingPageData = {
     {
       q: "What is a GEO audit?",
       a: "A GEO (generative engine optimization) audit reviews why AI engines do or don't cite your brand: crawlability for AI bots, structured data, entity consistency, third-party mentions and answer-ready content. A visibility check tells you where you stand; an audit tells you what to fix.",
+    },
+    {
+      q: "What is an AEO audit?",
+      a: "An AEO (answer engine optimization) audit checks whether your pages are structured to become the direct answer: clear question-and-answer sections, FAQ and schema markup, concise definitions and up-to-date facts. It overlaps heavily with a GEO audit; GEO focuses on being cited by generative AI, AEO on being the extracted answer.",
+    },
+    {
+      q: "Is this an LLM visibility checker?",
+      a: "Yes. LLM visibility means how often large language models like the ones behind ChatGPT, Claude, Perplexity and Gemini mention your brand. The checker runs buyer-style prompts through all four and scores your visibility against competitors.",
     },
     {
       q: "How often should I check my AI visibility?",

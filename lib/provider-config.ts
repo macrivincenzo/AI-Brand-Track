@@ -13,10 +13,23 @@
  */
 
 import { openai } from '@ai-sdk/openai';
-import { anthropic } from '@ai-sdk/anthropic';
+import { createAnthropic } from '@ai-sdk/anthropic';
 import { google } from '@ai-sdk/google';
 import { perplexity } from '@ai-sdk/perplexity';
 import { LanguageModelV1 } from 'ai';
+
+// AI SDK v4 always sends `temperature` (it defaults to 0), but current Claude
+// models reject any temperature with a 400. Strip it before the request leaves.
+const anthropic = createAnthropic({
+  fetch: async (input, init) => {
+    if (typeof init?.body === 'string') {
+      const body = JSON.parse(init.body);
+      delete body.temperature;
+      init = { ...init, body: JSON.stringify(body) };
+    }
+    return fetch(input, init);
+  },
+});
 
 export interface ProviderModel {
   id: string;
@@ -135,32 +148,32 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     enabled: PROVIDER_ENABLED_CONFIG.anthropic,
     models: [
       {
-        id: 'claude-4-sonnet-20250514',
-        name: 'Claude 4 Sonnet',
-        maxTokens: 200000,
+        id: 'claude-sonnet-5-5',
+        name: 'Claude Sonnet 5.5',
+        maxTokens: 1000000,
         supportsFunctionCalling: true,
         supportsStructuredOutput: true,
         supportsWebSearch: false,
       },
       {
-        id: 'claude-3-5-sonnet-20241022',
-        name: 'Claude 3.5 Sonnet',
-        maxTokens: 200000,
+        id: 'claude-sonnet-5',
+        name: 'Claude Sonnet 5',
+        maxTokens: 1000000,
         supportsFunctionCalling: true,
         supportsStructuredOutput: true,
         supportsWebSearch: false,
       },
       {
-        id: 'claude-3-opus-20240229',
-        name: 'Claude 3 Opus',
-        maxTokens: 200000,
+        id: 'claude-haiku-5-5',
+        name: 'Claude Haiku 5.5',
+        maxTokens: 1000000,
         supportsFunctionCalling: true,
         supportsStructuredOutput: true,
         supportsWebSearch: false,
       },
     ],
-    defaultModel: 'claude-4-sonnet-20250514',
-    fallbackModels: ['claude-4-sonnet-20250514', 'claude-3-5-sonnet-20241022'],
+    defaultModel: 'claude-sonnet-5-5',
+    fallbackModels: ['claude-sonnet-5-5', 'claude-sonnet-5', 'claude-haiku-5-5'],
     capabilities: {
       webSearch: false,
       functionCalling: true,
@@ -183,24 +196,24 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     enabled: PROVIDER_ENABLED_CONFIG.google,
     models: [
       {
-        id: 'gemini-2.5-flash',
-        name: 'Gemini 2.5 Flash',
+        id: 'gemini-3.8-flash',
+        name: 'Gemini 3.8 Flash',
         maxTokens: 1000000,
         supportsFunctionCalling: true,
         supportsStructuredOutput: true,
         supportsWebSearch: true,
       },
       {
-        id: 'gemini-2.5-pro',
-        name: 'Gemini 2.5 Pro',
+        id: 'gemini-3.5-flash-lite',
+        name: 'Gemini 3.5 Flash-Lite',
         maxTokens: 1000000,
         supportsFunctionCalling: true,
         supportsStructuredOutput: true,
         supportsWebSearch: true,
       },
     ],
-    defaultModel: 'gemini-2.5-flash',
-    fallbackModels: ['gemini-2.5-flash', 'gemini-2.5-flash-lite'],
+    defaultModel: 'gemini-3.8-flash',
+    fallbackModels: ['gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite'],
     capabilities: {
       webSearch: true, // Native search grounding
       functionCalling: true,
@@ -315,6 +328,18 @@ export function getModelChain(providerId: string): string[] {
   return provider.fallbackModels && provider.fallbackModels.length > 0
     ? provider.fallbackModels
     : [provider.defaultModel];
+}
+
+/**
+ * Sampling/length settings for answer generation. Current Claude models reject
+ * a non-default `temperature` (400), and Claude/Gemini spend part of the output
+ * budget on thinking, so they need more room than 800 tokens to finish an answer.
+ */
+export function getAnswerSettings(providerId: string): { temperature?: number; maxTokens: number } {
+  const id = normalizeProviderName(providerId);
+  if (id === 'anthropic') return { maxTokens: 3000 };
+  if (id === 'google') return { temperature: 0.7, maxTokens: 3000 };
+  return { temperature: 0.7, maxTokens: 800 };
 }
 
 /**

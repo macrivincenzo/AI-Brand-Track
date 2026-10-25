@@ -1,7 +1,7 @@
 import { generateText, generateObject } from 'ai';
 import { z } from 'zod';
 import { Company, BrandPrompt, AIResponse, CompanyRanking, CompetitorRanking, ProviderSpecificRanking, ProviderComparisonData, ProgressCallback, CompetitorFoundData } from './types';
-import { getProviderModel, normalizeProviderName, isProviderConfigured, getConfiguredProviders, PROVIDER_CONFIGS, resolveProviderDisplayName } from './provider-config';
+import { getProviderModel, normalizeProviderName, isProviderConfigured, getConfiguredProviders, PROVIDER_CONFIGS, resolveProviderDisplayName, getAnswerSettings } from './provider-config';
 import { detectBrandMention, detectMultipleBrands, BrandDetectionOptions, smartBrandMatch, stripMarkdown } from './brand-detection-utils';
 import { getBrandDetectionOptions } from './brand-detection-config';
 import { detectServiceType } from './brand-monitor-utils';
@@ -808,8 +808,7 @@ When responding to prompts about tools, platforms, or services:
       model,
       system: systemPrompt,
       prompt: enhancedPrompt,
-      temperature: 0.7,
-      maxTokens: 800,
+      ...getAnswerSettings(normalizedProvider),
     });
     console.log(`${provider} response length: ${text.length}, first 100 chars: "${text.substring(0, 100)}"`);
     

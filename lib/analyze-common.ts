@@ -24,6 +24,17 @@ function isRetiredModelError(err: any): boolean {
   );
 }
 
+// Rate-limit errors (429 / "rate limit exceeded") get a delayed retry on the same
+// model. The SDK's own retries fire within a second, which is too fast for
+// Perplexity's per-minute limits when several prompts run in parallel.
+function isRateLimitError(err: any): boolean {
+  const status = err?.statusCode ?? err?.status ?? err?.cause?.statusCode ?? err?.lastError?.statusCode;
+  const text = `${err?.message ?? ''} ${err?.responseBody ?? ''}`.toLowerCase();
+  return status === 429 || text.includes('rate limit');
+}
+
+const RATE_LIMIT_DELAYS_MS = [3000, 8000];
+
 export interface AnalysisConfig {
   company: Company;
   customPrompts?: string[];
@@ -254,7 +265,7 @@ export async function performAnalysis({
           // the existing catch below unchanged.
           const modelChain = getModelChain(provider.name);
           let response: AIResponse | null = null;
-          for (let mi = 0; mi < modelChain.length; mi++) {
+          for (let mi = 0, rateLimitRetries = 0; mi < modelChain.length; mi++) {
             const modelId = modelChain[mi];
             try {
               response = await analyzeFunction(
@@ -267,6 +278,13 @@ export async function performAnalysis({
               );
               break; // success — stop walking the chain
             } catch (modelError) {
+              if (isRateLimitError(modelError) && rateLimitRetries < RATE_LIMIT_DELAYS_MS.length) {
+                const delay = RATE_LIMIT_DELAYS_MS[rateLimitRetries++];
+                console.warn(`[RATE LIMIT] ${provider.name} ${modelId} — retrying in ${delay / 1000}s`);
+                await new Promise((resolve) => setTimeout(resolve, delay));
+                mi--; // retry the same model
+                continue;
+              }
               if (isRetiredModelError(modelError)) {
                 const nextModel = modelChain[mi + 1];
                 if (nextModel) {

@@ -1,7 +1,7 @@
 import { generateText, generateObject } from 'ai';
 import { z } from 'zod';
 import { AIResponse, CompanyRanking } from './types';
-import { getProviderModel, normalizeProviderName, getProviderConfig, resolveProviderDisplayName } from './provider-config';
+import { getProviderModel, normalizeProviderName, getProviderConfig, resolveProviderDisplayName, getAnswerSettings } from './provider-config';
 import { detectBrandMention, detectMultipleBrands, stripMarkdown } from './brand-detection-utils';
 import { getBrandDetectionOptions } from './brand-detection-config';
 import { extractDomain, getDomainName, extractSourcesFromResponse } from './source-tracker-utils';
@@ -112,8 +112,7 @@ When responding to prompts about tools, platforms, or services:
       model,
       system: systemPrompt,
       prompt: enhancedPrompt,
-      temperature: 0.7,
-      maxTokens: 800,
+      ...getAnswerSettings(normalizedProvider),
       ...generateConfig,
     });
 

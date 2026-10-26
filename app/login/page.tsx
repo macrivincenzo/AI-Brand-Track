@@ -124,9 +124,9 @@ function LoginForm() {
                 AI Brand Track
               </h2>
             </div>
-            <h2 className="text-center text-3xl font-extrabold text-gray-900">
+            <h1 className="text-center text-3xl font-extrabold text-gray-900">
               Sign in to your account
-            </h2>
+            </h1>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{' '}
               <Link href="/register" className="font-medium text-blue-600 hover:text-blue-700">

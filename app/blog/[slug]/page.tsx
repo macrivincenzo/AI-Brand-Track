@@ -29,8 +29,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) {
     return { title: 'Post not found' };
   }
+  // The root template appends " | AI Brand Track" (17 chars). Drop it when the
+  // result would pass ~70 chars, the point where Bing/Google truncate titles.
+  const title = `${post.title} | AI Brand Track`.length > 70 ? { absolute: post.title } : post.title;
   return {
-    title: post.title,
+    title,
     description: post.excerpt,
     openGraph: {
       title: post.title,

@@ -24,6 +24,7 @@ import {
 import { generatePromptsForCompany } from '@/lib/ai-utils';
 import { getEnabledProviders } from '@/lib/provider-config';
 import { useSaveBrandAnalysis } from '@/hooks/useBrandAnalyses';
+import { MonitorButton } from './monitor-button';
 
 // Components
 import { UrlInputSection } from './url-input-section';
@@ -741,7 +742,11 @@ export function BrandMonitor({
             {/* Main Content Area */}
             <div className="flex-1 flex flex-col min-w-0">
               {/* Export Button - Add this at the top */}
-              <div className="flex justify-end mb-4">
+              <div className="flex flex-wrap justify-end items-center gap-3 mb-4">
+                <MonitorButton
+                  analysisId={selectedAnalysis?.id || state.analysisId || null}
+                  url={company?.url}
+                />
                 <DataExportButton
                   analysisId={selectedAnalysis?.id || state.analysisId || null}
                   brandName={company?.name}

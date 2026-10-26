@@ -8,6 +8,7 @@ import { Lock, CheckCircle, AlertCircle, Loader2, User, Mail, Phone, Edit2, Save
 import { Button } from '@/components/ui/button';
 import ProductChangeDialog from '@/components/autumn/product-change-dialog';
 import { attachHookOptions } from '@/lib/autumn-checkout';
+import { MonitorsSection } from '@/components/dashboard/monitors-section';
 import { useProfile, useUpdateProfile, useSettings, useUpdateSettings } from '@/hooks/useProfile';
 
 // Separate component that uses Autumn hooks
@@ -92,6 +93,8 @@ function DashboardContent({ session }: { session: any }) {
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Dashboard</h1>
+
+        <MonitorsSection />
 
         {/* Profile Section */}
         <div className="bg-white border border-gray-200 p-6 mb-8">

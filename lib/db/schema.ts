@@ -101,6 +101,27 @@ export const brandAnalyses = pgTable('brand_analyses', {
   competitors: jsonb('competitors'), // Stores competitor data
   prompts: jsonb('prompts'), // Stores the prompts used
   creditsUsed: integer('credits_used').default(10),
+  monitorId: uuid('monitor_id'), // Set when the run came from a weekly monitor
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => new Date()),
+});
+
+// Weekly monitoring - re-runs the same prompts/competitors on a schedule
+export const brandMonitors = pgTable('brand_monitors', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: text('user_id').notNull(),
+  url: text('url').notNull(),
+  companyName: text('company_name'),
+  company: jsonb('company').notNull(), // Company object from the first analysis, so we don't re-scrape
+  competitors: jsonb('competitors'), // { name: string, url?: string }[]
+  prompts: jsonb('prompts'), // string[] - fixed so weekly results are comparable
+  frequency: text('frequency').notNull().default('weekly'),
+  active: boolean('active').notNull().default(true),
+  pausedReason: text('paused_reason'), // e.g. 'insufficient_credits'
+  nextRunAt: timestamp('next_run_at').notNull(),
+  lastRunAt: timestamp('last_run_at'),
+  lastAnalysisId: uuid('last_analysis_id'),
+  failureCount: integer('failure_count').notNull().default(0),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => new Date()),
 });
@@ -280,6 +301,8 @@ export type UserSettings = typeof userSettings.$inferSelect;
 export type NewUserSettings = typeof userSettings.$inferInsert;
 export type BrandAnalysis = typeof brandAnalyses.$inferSelect;
 export type NewBrandAnalysis = typeof brandAnalyses.$inferInsert;
+export type BrandMonitor = typeof brandMonitors.$inferSelect;
+export type NewBrandMonitor = typeof brandMonitors.$inferInsert;
 export type SourceDomain = typeof sourceDomains.$inferSelect;
 export type NewSourceDomain = typeof sourceDomains.$inferInsert;
 export type SourcePage = typeof sourcePages.$inferSelect;

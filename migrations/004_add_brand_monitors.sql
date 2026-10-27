@@ -23,6 +23,9 @@ CREATE TABLE IF NOT EXISTS "brand_monitors" (
     "updated_at" timestamp DEFAULT now()
 );
 
+-- The app connects as the postgres role (bypasses RLS); RLS blocks the public Supabase API.
+ALTER TABLE "brand_monitors" ENABLE ROW LEVEL SECURITY;
+
 CREATE INDEX IF NOT EXISTS "brand_monitors_user_id_idx" ON "brand_monitors" ("user_id");
 CREATE INDEX IF NOT EXISTS "brand_monitors_due_idx" ON "brand_monitors" ("active", "next_run_at");
 

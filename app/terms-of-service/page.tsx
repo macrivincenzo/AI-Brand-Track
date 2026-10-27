@@ -93,7 +93,8 @@ export default function TermsOfServicePage() {
                 <li>Credits are required to perform brand analyses</li>
                 <li>Credits are purchased in advance and do not expire</li>
                 <li>All payments are processed securely through third-party payment processors</li>
-                <li>Refunds are handled on a case-by-case basis</li>
+                <li>Starter trial guarantee: if you are not satisfied during your 14-day Starter trial, email support@aibrandtrack.com before the trial ends and we will refund the $9 trial fee in full. One refund per customer; refunding the trial also cancels the subscription.</li>
+                <li>Subscription fees and credit purchases are non-refundable, except where required by law.</li>
                 <li>We reserve the right to change pricing with notice</li>
               </ul>
             </section>

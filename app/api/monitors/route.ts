@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { desc, eq, inArray } from 'drizzle-orm';
+import { and, desc, eq, inArray } from 'drizzle-orm';
 import { auth } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { brandAnalyses, brandAnalysisSnapshots, brandMonitors } from '@/lib/db/schema';
-import { handleApiError, AuthenticationError, ValidationError } from '@/lib/api-errors';
+import { handleApiError, AuthenticationError, AuthorizationError, ValidationError } from '@/lib/api-errors';
 import { createMonitorFromAnalysis } from '@/lib/monitoring';
+import { isTrialMonitorLimitReached, TRIAL_MONITOR_LIMIT_MESSAGE } from '@/lib/trial-limits';
 
 // GET /api/monitors - the user's monitors, each with its weekly score history
 export async function GET(request: NextRequest) {
@@ -62,6 +63,18 @@ export async function POST(request: NextRequest) {
 
     const { analysisId } = await request.json();
     if (!analysisId) throw new ValidationError('analysisId is required', { analysisId: 'Required' });
+
+    const analysis = await db.query.brandAnalyses.findFirst({
+      where: and(eq(brandAnalyses.id, analysisId), eq(brandAnalyses.userId, session.user.id)),
+      columns: { url: true },
+    });
+    const alreadyMonitored = analysis && await db.query.brandMonitors.findFirst({
+      where: and(eq(brandMonitors.userId, session.user.id), eq(brandMonitors.url, analysis.url)),
+      columns: { id: true },
+    });
+    if (!alreadyMonitored && await isTrialMonitorLimitReached(session.user.id)) {
+      throw new AuthorizationError(TRIAL_MONITOR_LIMIT_MESSAGE);
+    }
 
     const monitor = await createMonitorFromAnalysis(session.user.id, analysisId);
     return NextResponse.json(monitor);

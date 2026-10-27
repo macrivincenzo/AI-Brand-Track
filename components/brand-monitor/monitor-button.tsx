@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 /** Starts weekly monitoring from the analysis on screen, or shows that it's already on. */
 export function MonitorButton({ analysisId, url }: { analysisId: string | null; url?: string }) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'monitoring' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState("Couldn't start monitoring. Try again.");
 
   useEffect(() => {
     if (!url) return;
@@ -36,7 +37,10 @@ export function MonitorButton({ analysisId, url }: { analysisId: string | null; 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ analysisId }),
       });
-      setStatus(res.ok ? 'monitoring' : 'error');
+      if (res.ok) return setStatus('monitoring');
+      const body = await res.json().catch(() => null);
+      if (body?.error?.message) setErrorMessage(body.error.message);
+      setStatus('error');
     } catch {
       setStatus('error');
     }
@@ -44,7 +48,7 @@ export function MonitorButton({ analysisId, url }: { analysisId: string | null; 
 
   return (
     <div className="flex items-center gap-3">
-      {status === 'error' && <span className="text-sm text-red-600">Couldn't start monitoring. Try again.</span>}
+      {status === 'error' && <span className="text-sm text-red-600">{errorMessage}</span>}
       <Button onClick={start} disabled={status === 'loading'} className="px-4 py-2 text-sm">
         {status === 'loading' ? 'Starting…' : 'Check this every week'}
       </Button>

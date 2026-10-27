@@ -630,13 +630,13 @@ const CHECKER: LandingPageData = {
     "Check whether ChatGPT, Claude, Perplexity and Gemini mention your brand, how they describe it, and which competitors they recommend instead. Start a 14-day trial for $9, results in about 60 seconds.",
   intro: [
     "An AI visibility checker shows you something no analytics tool can: what AI assistants say when buyers ask about your category. Enter your website and AI Brand Track runs industry-relevant prompts across ChatGPT, Claude, Perplexity and Google Gemini, then scores how visible your brand is compared with your competitors.",
-    "Start with the 14-day Starter trial for $9, which includes 53 credits (about 4 full analyses). Each analysis gives you an AI visibility score from 0 to 100, competitor rankings, the prompts where you appear (and where you don't), sentiment, and concrete recommendations to improve.",
+    "Start with the 14-day Starter trial for $9, which includes 1 full analysis plus automatic weekly checks of 1 brand, so you can see how your score moves. Each analysis gives you an AI visibility score from 0 to 100, competitor rankings, the prompts where you appear (and where you don't), sentiment, and concrete recommendations to improve.",
   ],
   sections: [
     {
       heading: "What the AI visibility check includes",
       body: [
-        "One complete analysis uses 11 credits: 1 for website extraction and 10 for the AI analysis. The 14-day Starter trial costs $9 and includes 53 credits, enough for about 4 full analyses.",
+        "One complete analysis uses 11 credits: 1 for website extraction and 10 for the AI analysis. The 14-day Starter trial costs $9 and includes 1 full analysis, weekly checks of 1 brand with a weekly email, and Boost actions (done-for-you fixes) using the remaining trial credits.",
       ],
       bullets: [
         "AI visibility score (0-100): how often and how prominently AI assistants mention you",
@@ -678,7 +678,7 @@ const CHECKER: LandingPageData = {
   faqs: [
     {
       q: "How much does the AI visibility checker cost?",
-      a: "The Starter plan begins with a 14-day trial that costs $9 (card required) and includes 53 credits, about 4 complete analyses across ChatGPT, Claude, Perplexity and Gemini. After 14 days it continues at $39/month unless you cancel. You can also buy pay-as-you-go credits that never expire: Single Analysis ($49, 53 credits) or Credit Pack ($149, 220 credits).",
+      a: "The Starter plan begins with a 14-day trial that costs $9 (card required) and includes 1 full analysis across ChatGPT, Claude, Perplexity and Gemini, automatic weekly checks of 1 brand with a weekly email, and Boost actions using the remaining trial credits. Not happy during your 14 days? We refund your $9. After 14 days it continues at $39/month unless you cancel. You can also buy pay-as-you-go credits that never expire: Single Analysis ($49, 53 credits) or Credit Pack ($149, 220 credits).",
     },
     {
       q: "What is an AI visibility score?",

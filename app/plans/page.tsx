@@ -245,7 +245,8 @@ export default function PricingPage() {
               <div className="mb-6">
                 <span className="text-4xl font-bold text-gray-900">$9</span>
                 <span className="text-gray-600 text-lg ml-2">for 14 days</span>
-                <p className="text-sm text-gray-600 mt-2">Then $39/month · cancel anytime</p>
+                <p className="text-sm text-gray-600 mt-2">Trial: 1 full analysis + weekly checks of 1 brand</p>
+                <p className="text-sm text-gray-600 mt-1">Then $39/month · cancel anytime</p>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-700">
@@ -289,6 +290,7 @@ export default function PricingPage() {
                   Start 14-day trial for $9
                 </Link>
               )}
+              <p className="text-xs text-gray-500 mt-3 text-center">Not happy during your 14 days? We refund your $9.</p>
             </div>
 
             {/* Pro Plan */}

@@ -255,7 +255,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </h2>
             <p className="text-zinc-600 mb-6">
               AI Brand Track checks ChatGPT, Claude, Perplexity and Gemini and shows your visibility
-              score, competitor rankings and what to fix. Start a 14-day trial for $9 (53 credits, about 4 full analyses), then $39/month, cancel anytime.
+              score, competitor rankings and what to fix. Start a 14-day trial for $9 (1 full analysis plus weekly checks of 1 brand), then $39/month, cancel anytime. Not happy? Get your $9 back.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link

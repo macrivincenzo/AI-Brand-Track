@@ -74,7 +74,7 @@ export default function RegisterPage() {
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>14-day Starter trial for $9 (53 credits)</span>
+              <span>14-day Starter trial for $9: 1 full analysis + weekly checks</span>
             </div>
             <div className="flex items-center space-x-3">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

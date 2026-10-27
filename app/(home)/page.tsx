@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "How much does AI Brand Track cost?",
-    a: "AI Brand Track offers flexible pricing. The Starter plan begins with a 14-day trial for $9 (card required) that includes Starter's 53 credits (about 4 full analyses); after 14 days it continues at $39/month unless you cancel. Single Analysis ($49) provides 53 credits for ~4 analyses. Credit Pack ($149) includes 220 credits for 20 analyses. Monthly subscriptions: Starter ($39/month) with 53 credits/month and Pro ($69/month) with 154 credits/month. Each analysis uses 11 credits (1 for extraction + 10 for AI analysis). Competitor scraping costs 0 credits. Pay-as-you-go credits never expire."
+    a: "AI Brand Track offers flexible pricing. The Starter plan begins with a 14-day trial for $9 (card required) that includes 1 full analysis across ChatGPT, Claude, Perplexity and Gemini, automatic weekly checks of 1 brand with a weekly email, and Boost actions (done-for-you fixes) using the remaining trial credits; after 14 days it continues at $39/month unless you cancel. Not happy during your 14 days? We refund your $9 (one per customer). Single Analysis ($49) provides 53 credits for ~4 analyses. Credit Pack ($149) includes 220 credits for 20 analyses. Monthly subscriptions: Starter ($39/month) with 53 credits/month and Pro ($69/month) with 154 credits/month. Each analysis uses 11 credits (1 for extraction + 10 for AI analysis). Competitor scraping costs 0 credits. Pay-as-you-go credits never expire."
   },
   {
     q: "How often should I monitor my AI brand visibility?",
@@ -59,7 +59,7 @@ export default function Home() {
               {
                 "@type": "Offer",
                 "name": "Starter 14-Day Trial",
-                "description": "14 days for $9 including 53 credits, then $39/month unless cancelled",
+                "description": "14 days for $9 including 1 full analysis, weekly checks of 1 brand and Boost actions, then $39/month unless cancelled. Not happy during your 14 days? We refund your $9.",
                 "price": "9",
                 "priceCurrency": "USD",
                 "priceValidUntil": "2026-12-31",
@@ -326,9 +326,10 @@ export default function Home() {
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
               <span>✓ 14 days for $9</span>
-              <span>✓ 53 credits (about 4 full analyses)</span>
+              <span>✓ 1 full analysis + weekly checks</span>
               <span>✓ Then $39/month · cancel anytime</span>
             </div>
+            <p className="mt-3 text-sm text-gray-500">Not happy? Get your $9 back.</p>
           </div>
 
           {/* Stats */}
@@ -531,7 +532,8 @@ export default function Home() {
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-gray-900">$9</span>
                   <span className="text-gray-600 text-lg ml-2">for 14 days</span>
-                  <p className="text-sm text-gray-600 mt-2">Then $39/month · cancel anytime</p>
+                  <p className="text-sm text-gray-600 mt-2">Trial: 1 full analysis + weekly checks of 1 brand</p>
+                  <p className="text-sm text-gray-600 mt-1">Then $39/month · cancel anytime</p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center text-gray-700">
@@ -566,6 +568,7 @@ export default function Home() {
                 >
                   Start 14-day trial for $9
                 </PlanCheckoutLink>
+                <p className="text-xs text-gray-500 mt-3 text-center">Not happy? Get your $9 back.</p>
               </div>
 
               {/* Pro Plan */}

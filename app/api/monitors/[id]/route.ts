@@ -22,7 +22,7 @@ export async function PATCH(request: NextRequest, { params }: Params) {
         : { active: false, pausedReason: 'paused_by_user' })
       .where(and(eq(brandMonitors.id, id), eq(brandMonitors.userId, session.user.id)))
       .returning();
-    if (!monitor) throw new NotFoundError('Monitor not found');
+    if (!monitor) throw new NotFoundError('Monitor');
     return NextResponse.json(monitor);
   } catch (error) {
     return handleApiError(error);
@@ -39,7 +39,7 @@ export async function DELETE(request: NextRequest, { params }: Params) {
     const deleted = await db.delete(brandMonitors)
       .where(and(eq(brandMonitors.id, id), eq(brandMonitors.userId, session.user.id)))
       .returning({ id: brandMonitors.id });
-    if (deleted.length === 0) throw new NotFoundError('Monitor not found');
+    if (deleted.length === 0) throw new NotFoundError('Monitor');
     return NextResponse.json({ success: true });
   } catch (error) {
     return handleApiError(error);

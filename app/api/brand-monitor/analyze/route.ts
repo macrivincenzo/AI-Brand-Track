@@ -16,6 +16,7 @@ import {
   ERROR_MESSAGES,
   SSE_MAX_DURATION
 } from '@/config/constants';
+import { isTrialAnalysisLimitReached, TRIAL_ANALYSIS_LIMIT_MESSAGE } from '@/lib/trial-limits';
 
 const autumn = new Autumn({
   apiKey: process.env.AUTUMN_SECRET_KEY!,
@@ -33,6 +34,10 @@ export async function POST(request: NextRequest) {
 
     if (!sessionResponse?.user) {
       throw new AuthenticationError('Please log in to use brand monitor');
+    }
+
+    if (await isTrialAnalysisLimitReached(sessionResponse.user.id)) {
+      throw new InsufficientCreditsError(TRIAL_ANALYSIS_LIMIT_MESSAGE, CREDITS_PER_BRAND_ANALYSIS, 0);
     }
 
     // Check if user has enough credits (10 credits per analysis)
@@ -53,6 +58,8 @@ export async function POST(request: NextRequest) {
         );
       }
     } catch (err) {
+      // Don't mask the "not enough credits" answer as a service error.
+      if (err instanceof InsufficientCreditsError) throw err;
       console.error('[Brand Monitor] Failed to check access:', err);
       throw new ExternalServiceError('Unable to verify credits. Please try again', 'autumn');
     }

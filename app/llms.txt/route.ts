@@ -25,6 +25,7 @@ export async function GET() {
 - [AI Rank Tracker](${SITE}/ai-rank-tracker): Track brand rankings across AI assistants
 - [AI Search Visibility](${SITE}/ai-search-visibility): How to get found by ChatGPT, Perplexity and Gemini
 - [About](${SITE}/about): Company background
+- [Methodology](${SITE}/methodology): Models queried, prompts, scoring formulas and data limitations
 
 ## Guides
 - [Generative Engine Optimization (GEO)](${SITE}/generative-engine-optimization)

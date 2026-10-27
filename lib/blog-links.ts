@@ -39,6 +39,9 @@ const B = {
   sameAnswer: { href: '/blog/does-chatgpt-give-the-same-answer-to-everyone', title: 'Does ChatGPT Give Everyone the Same Answer?', desc: 'Why answers vary, and what it means for brands.' },
   shareOfVoice: { href: '/blog/ai-share-of-voice', title: 'AI Share of Voice', desc: 'How to calculate and improve it.' },
   brandMonitoring: { href: '/blog/ai-brand-monitoring', title: 'AI Brand Monitoring', desc: 'Monitoring your brand inside AI assistants.' },
+  toolPricing: { href: '/blog/ai-visibility-tool-pricing', title: 'AI Visibility Tool Pricing', desc: 'Every plan, limit and hidden cost compared.' },
+  profoundAlternatives: { href: '/blog/profound-alternatives', title: 'Profound Alternatives', desc: '10 tools with published prices.' },
+  peecAlternatives: { href: '/blog/peec-ai-alternatives', title: 'Peec AI Alternatives', desc: '10 tools compared on price and engines.' },
 } satisfies Record<string, InternalLink>;
 
 /** Supporting blog guides shown on each landing page. */
@@ -49,8 +52,8 @@ export const LANDING_GUIDES: Record<string, InternalLink[]> = {
   'llm-seo': [B.geoVsSeo, B.aiSeo, B.howAiAnswers],
   'how-to-rank-on-chatgpt': [B.getMentioned, B.chatgptSources, B.trackChatgpt],
   'perplexity-seo': [B.trackAi, B.aiSeo, B.recommendProducts],
-  'ai-rank-tracker': [B.bestVisibilityTools, B.shareOfVoice, B.trackAi],
-  'ai-visibility-checker': [B.visibilityGuide, B.bestVisibilityTools, B.shareOfVoice],
+  'ai-rank-tracker': [B.bestVisibilityTools, B.toolPricing, B.shareOfVoice],
+  'ai-visibility-checker': [B.visibilityGuide, B.bestVisibilityTools, B.toolPricing],
 };
 
 /** Related pages (landing pages first, then posts) shown under each blog post. */
@@ -73,6 +76,9 @@ const POST_RELATED: Record<string, InternalLink[]> = {
   'ai-model-drift-detection': [L.aiRankTracker, B.trackAi, L.llmSeo],
   'how-do-ai-search-engines-impact-seo': [B.geoVsSeo, L.llmSeo, B.aiSeo],
   'ai-brand-monitoring': [L.aiRankTracker, B.trackAi, B.visibilityGuide],
+  'ai-visibility-tool-pricing': [L.aiRankTracker, B.bestVisibilityTools, B.profoundAlternatives],
+  'profound-alternatives': [B.toolPricing, B.peecAlternatives, B.bestVisibilityTools],
+  'peec-ai-alternatives': [B.toolPricing, B.profoundAlternatives, B.bestVisibilityTools],
 };
 
 const DEFAULT_RELATED: InternalLink[] = [L.aiSearchVisibility, B.trackAi, B.aiSeo];

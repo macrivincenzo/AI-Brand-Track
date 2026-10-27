@@ -161,7 +161,7 @@ const GEO: LandingPageData = {
     },
     {
       q: "How do I measure GEO performance?",
-      a: "Track how frequently your brand is mentioned and recommended across AI assistants for your target prompts, in what position, with what sentiment, and relative to competitors. AI Brand Track automates this measurement, and saved analyses can be compared over time when you re-run them.",
+      a: "Track how frequently your brand is mentioned and recommended across AI assistants for your target prompts, in what position, with what sentiment, and relative to competitors. AI Brand Track automates this measurement with automatic weekly checks, a trend graph and a weekly email, and saved analyses can be compared over time.",
     },
     {
       q: "How quickly does GEO work?",
@@ -572,7 +572,7 @@ const RANK_TRACKER: LandingPageData = {
       heading: "Track it with AI Brand Track",
       body: [
         "AI Brand Track is an AI rank tracker for ChatGPT, Claude, Perplexity, and Gemini. It runs buyer prompts on each engine, scores visibility, share of voice, position, and sentiment, and compares you to competitors. Analyses are saved, so you can compare results over time and see whether AEO and GEO work is paying off.",
-        "Each analysis takes about 60 seconds. There is no automatic scheduling or alerting; you re-run the analysis as often as your optimization cadence requires.",
+        "Each analysis takes about 60 seconds. Weekly checks then run automatically, with a trend graph and a weekly email; tracking is weekly, not daily, and you can run a full analysis whenever your optimization cadence requires.",
       ],
     },
   ],
@@ -671,7 +671,7 @@ const CHECKER: LandingPageData = {
     {
       heading: "Limitations to know",
       body: [
-        "AI answers vary from run to run and by location and model version, so any single check is a snapshot rather than a permanent ranking. AI Brand Track covers ChatGPT, Claude, Perplexity and Gemini; it does not track Google AI Overviews. For a trend, re-run the analysis on a regular cadence with pay-as-you-go credits that never expire.",
+        "AI answers vary from run to run and by location and model version, so any single check is a snapshot rather than a permanent ranking. AI Brand Track covers ChatGPT, Claude, Perplexity and Gemini; it does not track Google AI Overviews. For a trend, use the automatic weekly checks and trend graph, or re-run the analysis on your own cadence with pay-as-you-go credits that never expire.",
       ],
     },
   ],

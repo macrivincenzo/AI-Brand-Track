@@ -64,7 +64,7 @@ export function LandingPage({ data }: { data: LandingPageData }) {
             publisher: {
               "@type": "Organization",
               name: "AI Brand Track",
-              logo: { "@type": "ImageObject", url: `${SITE}/ai-brand-track-logo.jpeg` },
+              logo: { "@type": "ImageObject", url: `${SITE}/logo-512.png` },
             },
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
             url,

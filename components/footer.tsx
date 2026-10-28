@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoLockup } from '@/components/brand/logo';
 
 export function Footer() {
   const currentYear = 2026;
@@ -14,7 +15,7 @@ export function Footer() {
             "@type": "Organization",
             "name": "AI Brand Track",
             "url": "https://www.aibrandtrack.com",
-            "logo": "https://www.aibrandtrack.com/ai-brand-track-logo.jpeg",
+            "logo": "https://www.aibrandtrack.com/logo-512.png",
             "description": "AI Brand Track helps businesses monitor their brand visibility across AI platforms like ChatGPT, Claude, Perplexity, and Gemini. Track AI brand rankings, competitor analysis, and get actionable insights for AI search optimization.",
             "address": {
               "@type": "PostalAddress",
@@ -35,12 +36,10 @@ export function Footer() {
             {/* Brand and Description - SEO Rich */}
             <div className="col-span-1 lg:col-span-2">
               <div className="mb-4">
-                <h2 className="text-xl font-bold text-zinc-900">
-                  AI Brand Track
-                </h2>
+                <LogoLockup fontSize={20} />
               </div>
               <p className="text-sm mb-6 leading-relaxed">
-                Track how AI models like <strong>ChatGPT, Claude, Perplexity, and Google Gemini</strong> rank your brand. Measure your <strong>AI brand visibility</strong> across the four assistants. Get on-demand <strong>AI brand monitoring</strong>, competitor analysis, and actionable insights for <strong>AI search optimization</strong> and <strong>GEO optimization</strong>.
+                Track how AI models like <strong>ChatGPT, Claude, Perplexity, and Google Gemini</strong> rank your brand. Measure your <strong>AI brand visibility</strong> across the four assistants. Get weekly <strong>AI brand monitoring</strong>, competitor analysis, and actionable insights for <strong>AI search optimization</strong> and <strong>GEO optimization</strong>.
               </p>
             </div>
 

@@ -155,7 +155,7 @@ export default function Home() {
             "url": "https://www.aibrandtrack.com",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://www.aibrandtrack.com/ai-brand-track-logo.jpeg",
+              "url": "https://www.aibrandtrack.com/logo-512.png",
               "width": 250,
               "height": 60
             },

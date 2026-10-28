@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import "./brand-tokens.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Providers } from "@/components/providers";
@@ -10,6 +11,14 @@ import { Toaster } from "sonner";
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Brand typeface (logo lockup now; the redesigned screens later)
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -133,9 +142,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: '48x48' }
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' }
     ],
-    apple: '/ai-brand-track-logo.jpeg',
+    apple: '/apple-touch-icon.png',
     shortcut: '/favicon.svg',
   },
 
@@ -173,7 +182,7 @@ export default function RootLayout({
 
       </head>
       <body
-        className={`${spaceGrotesk.variable} font-sans antialiased`}
+        className={`${spaceGrotesk.variable} ${hankenGrotesk.variable} font-sans antialiased`}
       >
         <Providers>
           <div className="flex flex-col min-h-screen">

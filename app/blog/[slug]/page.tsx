@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               url: 'https://www.aibrandtrack.com',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://www.aibrandtrack.com/ai-brand-track-logo.jpeg',
+                url: 'https://www.aibrandtrack.com/logo-512.png',
               },
             },
             mainEntityOfPage: {

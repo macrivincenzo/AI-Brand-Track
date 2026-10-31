@@ -5,23 +5,33 @@ import { useSession, signOut } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useCustomer } from '@/hooks/useAutumnCustomer';
-import { Menu, X, CreditCard } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useBuyCredits } from '@/hooks/useBuyCredits';
 import { LogoLockup } from '@/components/brand/logo';
+import { PlanCheckoutLink } from '@/components/plans/plan-checkout-link';
+import { abtButton } from '@/components/abt/button';
 
 // Separate component that only renders when Autumn is available
 function UserCredits() {
   const { customer } = useCustomer();
   const messageUsage = customer?.features?.messages;
   const remainingMessages = messageUsage ? (messageUsage.balance || 0) : 0;
-  
+
   return (
-    <div className="flex items-center text-sm font-medium text-gray-700">
-      <span>{remainingMessages}</span>
-      <span className="ml-1">credits</span>
-    </div>
+    <span className="text-[16px] text-abt-ink-2">
+      {remainingMessages} credits
+    </span>
   );
 }
+
+const links = [
+  { href: '/methodology', label: 'How we measure' },
+  { href: '/plans', label: 'Prices' },
+  { href: '/#agencies', label: 'For agencies' },
+];
+
+const navLink = 'text-[17px] text-abt-ink hover:text-abt-accent transition-colors';
+const mobileLink = 'flex min-h-[52px] items-center text-[19px] font-medium text-abt-ink';
 
 export function Navbar() {
   const { data: session } = useSession();
@@ -29,6 +39,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openBuyCredits } = useBuyCredits();
   const router = useRouter();
+  const close = () => setMobileMenuOpen(false);
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -47,193 +58,99 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <LogoLockup fontSize={20} onClick={() => setMobileMenuOpen(false)} />
-          </div>
+    <nav className="bg-abt-bg font-abt-sans">
+      <div className="mx-auto flex h-[80px] max-w-[1120px] items-center justify-between px-4 sm:px-6">
+        <LogoLockup fontSize={20} onClick={close} />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
-            {session && (
-              <Link
-                href="/brand-monitor"
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-              >
-                Brand Monitor
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className={navLink}>
+              {l.label}
+            </Link>
+          ))}
+          {session ? (
+            <>
+              <UserCredits />
+              <button onClick={() => openBuyCredits()} className={navLink}>
+                Buy credits
+              </button>
+              <button onClick={handleLogout} disabled={isLoggingOut} className={`${navLink} disabled:opacity-50`}>
+                {isLoggingOut ? 'Logging out…' : 'Log out'}
+              </button>
+              <Link href="/dashboard" className={abtButton({ size: 'md' })}>
+                Dashboard
               </Link>
-            )}
-            <Link
-              href="/ai-search-visibility"
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-            >
-              AI Visibility
+            </>
+          ) : (
+            <Link href="/login" className={abtButton({ variant: 'secondary', size: 'md' })}>
+              Log in
             </Link>
-            <Link
-              href="/blog"
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/plans"
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-            >
-              Pricing
-            </Link>
-            {session && (
-              <>
-                <UserCredits />
-                <button
-                  onClick={() => openBuyCredits()}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded transition-colors border border-transparent"
-                >
-                  <CreditCard className="w-3.5 h-3.5" />
-                  Buy More Credits
-                </button>
-              </>
-            )}
-            {session ? (
-              <>
-                <Link
-                  href="/dashboard"
-                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded"
-                >
-                  Dashboard
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  disabled={isLoggingOut}
-                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 hover:bg-gray-50 transition-colors disabled:opacity-50 rounded"
-                >
-                  {isLoggingOut ? 'Logging out...' : 'Logout'}
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 hover:bg-gray-50 transition-colors rounded"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/register"
-                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded"
-                >
-                  Register
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-expanded={mobileMenuOpen}
-              className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+          )}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-expanded={mobileMenuOpen}
+          aria-label="Toggle menu"
+          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-abt-button text-abt-ink hover:bg-abt-sunk md:hidden"
+        >
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
-          <div className="px-4 py-4 space-y-3">
-            {session && (
-              <>
-                <Link
-                  href="/brand-monitor"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded transition-colors"
-                >
-                  Brand Monitor
-                </Link>
-                <div className="px-4 py-2">
-                  <UserCredits />
-                </div>
-                <button
-                  onClick={() => {
-                    openBuyCredits();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded transition-colors"
-                >
-                  <CreditCard className="w-4 h-4" />
-                  Buy More Credits
-                </button>
-              </>
-            )}
-            <Link
-              href="/ai-search-visibility"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded transition-colors"
-            >
-              AI Visibility
-            </Link>
-            <Link
-              href="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/plans"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded transition-colors"
-            >
-              Pricing
-            </Link>
+        <div className="border-t border-abt-divider bg-abt-bg md:hidden">
+          <div className="flex flex-col px-4 pb-6 pt-2">
+            {links.map((l) => (
+              <Link key={l.href} href={l.href} onClick={close} className={mobileLink}>
+                {l.label}
+              </Link>
+            ))}
             {session ? (
               <>
-                <Link
-                  href="/dashboard"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-4 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded"
-                >
+                <div className="flex min-h-[52px] items-center justify-between">
+                  <UserCredits />
+                  <button
+                    onClick={() => {
+                      openBuyCredits();
+                      close();
+                    }}
+                    className={abtButton({ variant: 'link' })}
+                  >
+                    Buy credits
+                  </button>
+                </div>
+                <Link href="/dashboard" onClick={close} className={abtButton({ full: true, className: 'mt-4' })}>
                   Dashboard
                 </Link>
                 <button
                   onClick={handleLogout}
                   disabled={isLoggingOut}
-                  className="block w-full text-center px-4 py-3 text-base font-semibold text-gray-900 bg-white border border-gray-300 hover:bg-gray-50 transition-colors disabled:opacity-50 rounded"
+                  className={abtButton({ variant: 'secondary', full: true, className: 'mt-3' })}
                 >
-                  {isLoggingOut ? 'Logging out...' : 'Logout'}
+                  {isLoggingOut ? 'Logging out…' : 'Log out'}
                 </button>
               </>
             ) : (
               <>
-                <Link
-                  href="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-4 py-3 text-base font-semibold text-gray-900 bg-white border border-gray-300 hover:bg-gray-50 transition-colors rounded"
-                >
-                  Login
+                <Link href="/login" onClick={close} className={mobileLink}>
+                  Log in
                 </Link>
-                <Link
-                  href="/register"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-4 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded"
+                <PlanCheckoutLink
+                  productId="starter-monthly"
+                  returnUrl="/brand-monitor"
+                  className={abtButton({ full: true, className: 'mt-4' })}
                 >
-                  Register
-                </Link>
+                  Start for $9
+                </PlanCheckoutLink>
               </>
             )}
           </div>
         </div>
       )}
-
     </nav>
   );
 }

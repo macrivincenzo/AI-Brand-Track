@@ -33,9 +33,9 @@
   --abt-mid: #d79628;
   --abt-bad: #d24d42;
 
-  /* Type families (Hanken Grotesk is loaded via next/font in app/layout.tsx) */
+  /* Type families (both loaded via next/font in app/layout.tsx) */
   --abt-font-sans: var(--font-hanken-grotesk), 'Hanken Grotesk', system-ui, sans-serif;
-  --abt-font-serif: 'Source Serif 4', Georgia, serif;
+  --abt-font-serif: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
 
   /* Type scale */
   --abt-text-score: clamp(120px, 18cqi, 176px);   /* serif 500 · 0.9 · -0.04em */
@@ -83,7 +83,25 @@
   --abt-button-height: 56px;
 }
 
-/* next/font defines --font-hanken-grotesk on <body>, so resolve the font token there too. */
+/* next/font defines its variables on <body>, so resolve the font tokens there too. */
 body {
   --abt-font-sans: var(--font-hanken-grotesk), 'Hanken Grotesk', system-ui, sans-serif;
+  --abt-font-serif: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
+}
+
+/* Redesigned screens: calm canvas, brand type, and a size container for the cqi type scale. */
+.abt-page {
+  container-type: inline-size;
+  background: var(--abt-bg);
+  color: var(--abt-ink);
+  font-family: var(--abt-font-sans);
+}
+
+@keyframes abt-word-in {
+  from { opacity: 0; transform: translateY(0.25em); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abt-motion { animation: none !important; transition: none !important; }
 }

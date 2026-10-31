@@ -1,16 +1,22 @@
 import Link from "next/link";
 import { LANDING_GUIDES } from "@/lib/blog-links";
+import { Page } from "@/components/abt/layout";
+import { Eyebrow, Lead, Body } from "@/components/abt/text";
+import { abtButton } from "@/components/abt/button";
+import { HeroForm } from "@/components/home/hero-form";
 
 /**
  * Shared, fully server-rendered SEO landing page.
  *
- * Renders in the exact homepage visual language (white bg, blue-600 accent,
- * rounded-none, border-2, gray type scale) and emits Article + FAQPage +
- * BreadcrumbList JSON-LD. FAQs use native <details> so the page stays a
+ * Renders in the homepage's design system (components/abt, --abt-* tokens) and
+ * emits Article + FAQPage + BreadcrumbList JSON-LD. FAQs use native <details> so the page stays a
  * server component (best for crawlability + AI answer engines).
  */
 
 const SITE = "https://www.aibrandtrack.com";
+
+const sectionTitle =
+  "font-abt-serif text-[length:clamp(28px,3.4cqi,34px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink";
 
 export interface LPSection {
   id?: string;
@@ -114,204 +120,146 @@ export function LandingPage({ data }: { data: LandingPageData }) {
         }}
       />
 
-      <div className="min-h-screen bg-white">
-        {/* Hero */}
-        <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <nav className="mb-8" aria-label="Breadcrumb">
-              <ol className="flex items-center space-x-2 text-sm text-gray-500">
-                <li>
-                  <Link href="/" className="hover:text-gray-900 transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>/</li>
-                <li>
-                  <Link href="/ai-search-visibility" className="hover:text-gray-900 transition-colors">
-                    AI Search Visibility
-                  </Link>
-                </li>
-                <li>/</li>
-                <li className="text-gray-900">{data.breadcrumb}</li>
-              </ol>
-            </nav>
+      <Page>
+        <article>
+          {/* Hero */}
+          <header className="px-4 sm:px-6">
+            <div className="mx-auto max-w-[760px] pb-12 pt-12 sm:pt-20">
+              <nav aria-label="Breadcrumb">
+                <ol className="flex flex-wrap items-center gap-2 text-[16px] text-abt-ink-2">
+                  <li>
+                    <Link href="/" className="underline-offset-4 hover:text-abt-ink hover:underline">
+                      Home
+                    </Link>
+                  </li>
+                  <li aria-hidden>/</li>
+                  <li>
+                    <Link href="/ai-search-visibility" className="underline-offset-4 hover:text-abt-ink hover:underline">
+                      AI Search Visibility
+                    </Link>
+                  </li>
+                  <li aria-hidden>/</li>
+                  <li className="text-abt-ink">{data.breadcrumb}</li>
+                </ol>
+              </nav>
 
-            <div className="inline-block mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-none border border-blue-200">
-                {data.eyebrow}
-              </span>
+              <Eyebrow className="mt-10">{data.eyebrow}</Eyebrow>
+              <h1 className="mt-4 font-abt-serif text-[length:clamp(38px,6cqi,60px)] font-semibold leading-[1.08] tracking-[-0.025em] text-abt-ink">
+                {data.h1}
+              </h1>
+              <Lead className="mt-6">{data.subhead}</Lead>
+
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <Link href="/plans?checkout=starter-monthly" className={abtButton()}>
+                  Start for $9
+                </Link>
+                <Link href="/plans" className={abtButton({ variant: "link", className: "text-[18px]" })}>
+                  All prices are public
+                </Link>
+              </div>
+
+              <div className="mt-12 space-y-5">
+                {data.intro.map((p, i) => (
+                  <Body key={i} className="text-[19px] leading-[1.65]">
+                    {p}
+                  </Body>
+                ))}
+              </div>
             </div>
+          </header>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-              {data.h1}
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mb-10">{data.subhead}</p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link
-                href="/plans?checkout=starter-monthly"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
-              >
-                Start for $9
-              </Link>
-              <Link
-                href="/plans"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-gray-900 bg-white hover:bg-gray-50 border-2 border-gray-300 rounded-none transition-colors"
-              >
-                View Pricing
-              </Link>
-            </div>
-
-            <div className="prose prose-lg max-w-none">
-              {data.intro.map((p, i) => (
-                <p key={i} className="text-lg text-gray-600 leading-relaxed mb-4">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Sections */}
-        {data.sections.map((s, i) => (
-          <section
-            key={i}
-            className={`py-16 px-4 sm:px-6 lg:px-8 ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
-          >
-            <div className="max-w-4xl mx-auto">
-              <h2
-                id={s.id}
-                className="text-3xl font-bold text-gray-900 mb-6 tracking-tight scroll-mt-24"
-              >
-                {s.heading}
-              </h2>
-              {s.body?.map((p, j) => (
-                <p key={j} className="text-lg text-gray-600 leading-relaxed mb-4">
-                  {p}
-                </p>
-              ))}
-              {s.bullets && (
-                <ul className="mt-4 space-y-3">
-                  {s.bullets.map((b, j) => (
-                    <li key={j} className="flex items-start text-gray-700">
-                      <svg
-                        className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-lg leading-relaxed">{b}</span>
-                    </li>
+          {/* Sections */}
+          {data.sections.map((s, i) => (
+            <section key={i} className="px-4 sm:px-6">
+              <div className="mx-auto max-w-[760px] border-t border-abt-divider py-12">
+                <h2 id={s.id} className={`scroll-mt-24 ${sectionTitle}`}>
+                  {s.heading}
+                </h2>
+                <div className="mt-5 space-y-4">
+                  {s.body?.map((p, j) => (
+                    <Body key={j} className="text-[19px] leading-[1.65]">
+                      {p}
+                    </Body>
                   ))}
-                </ul>
-              )}
-            </div>
-          </section>
-        ))}
+                </div>
+                {s.bullets && (
+                  <ul className="mt-5 space-y-3">
+                    {s.bullets.map((b, j) => (
+                      <li key={j} className="flex gap-3 text-[19px] leading-[1.6] text-abt-ink">
+                        <span aria-hidden className="mt-[11px] h-2.5 w-2.5 shrink-0 rounded-full bg-abt-accent" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </section>
+          ))}
+        </article>
 
         {/* FAQ */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">
-              Frequently Asked Questions
+        <section className="px-4 sm:px-6" aria-labelledby="faq-heading">
+          <div className="mx-auto max-w-[760px] border-t border-abt-divider py-12">
+            <h2 id="faq-heading" className={sectionTitle}>
+              Questions
             </h2>
-            <div className="space-y-3">
+            <div className="mt-6 border-t border-abt-divider">
               {data.faqs.map((f, i) => (
-                <details
-                  key={i}
-                  className="bg-white border-2 border-gray-200 rounded-none group"
-                >
-                  <summary className="px-6 py-4 cursor-pointer list-none flex justify-between items-center text-base font-semibold text-gray-900 hover:bg-gray-50 transition-colors">
-                    {f.q}
-                    <span className="ml-4 text-gray-400 group-open:rotate-180 transition-transform">
-                      ▾
-                    </span>
+                <details key={i} className="group border-b border-abt-divider">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-[19px] font-semibold text-abt-ink [&::-webkit-details-marker]:hidden">
+                    <h3>{f.q}</h3>
+                    <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
                   </summary>
-                  <div className="px-6 py-4 border-t border-gray-200 text-gray-600 leading-relaxed">
-                    {f.a}
-                  </div>
+                  <p className="pb-6 text-[18px] leading-[1.6] text-abt-ink-2">{f.a}</p>
                 </details>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Related (internal links) */}
-        {data.related.length > 0 && (
-          <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-            <div className="max-w-5xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">
-                Keep exploring
-              </h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {data.related.map((r) => (
-                  <Link
-                    key={r.href}
-                    href={r.href}
-                    className="block p-6 bg-white border-2 border-gray-200 hover:border-blue-600 rounded-none transition-colors"
-                  >
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{r.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{r.desc}</p>
-                  </Link>
-                ))}
+        {/* Related pages and supporting guides from the blog (internal links) */}
+        {[
+          { title: "Keep exploring", items: data.related },
+          { title: "In-depth guides", items: LANDING_GUIDES[data.slug] ?? [] },
+        ]
+          .filter((group) => group.items.length > 0)
+          .map((group) => (
+            <section key={group.title} className="px-4 sm:px-6">
+              <div className="mx-auto max-w-[960px] py-12">
+                <h2 className={sectionTitle}>{group.title}</h2>
+                <ul className="mt-6 grid gap-4 md:grid-cols-3">
+                  {group.items.map((r) => (
+                    <li key={r.href}>
+                      <Link
+                        href={r.href}
+                        className="block h-full rounded-abt-card border border-abt-line bg-abt-surface p-6 transition-colors hover:border-abt-accent"
+                      >
+                        <h3 className="text-[19px] font-bold leading-[1.3] text-abt-ink">{r.title}</h3>
+                        <p className="mt-2 text-[16px] leading-[1.5] text-abt-ink-2">{r.desc}</p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          </section>
-        )}
+            </section>
+          ))}
 
-        {/* Supporting guides from the blog */}
-        {(LANDING_GUIDES[data.slug] ?? []).length > 0 && (
-          <section className="pb-16 px-4 sm:px-6 lg:px-8 bg-white">
-            <div className="max-w-5xl mx-auto">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
-                In-depth guides
-              </h2>
-              <ul className="grid md:grid-cols-3 gap-6">
-                {LANDING_GUIDES[data.slug].map((g) => (
-                  <li key={g.href}>
-                    <Link
-                      href={g.href}
-                      className="block h-full p-6 bg-gray-50 border-2 border-gray-200 hover:border-blue-600 rounded-none transition-colors"
-                    >
-                      <h3 className="text-base font-bold text-gray-900 mb-2">{g.title}</h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">{g.desc}</p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )}
-
-        {/* CTA */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+        {/* CTA: the same one box as the homepage */}
+        <section className="px-4 pb-24 pt-12 sm:px-6" aria-labelledby="cta-heading">
+          <div className="mx-auto flex max-w-[760px] flex-col items-center rounded-abt-panel border border-abt-line bg-abt-surface px-6 py-12 text-center sm:px-12">
+            <h2 id="cta-heading" className="font-abt-serif text-[length:clamp(28px,4cqi,40px)] font-semibold leading-[1.15] tracking-[-0.02em] text-abt-ink">
               {data.cta.heading}
             </h2>
-            <p className="text-lg text-gray-600 mb-10">{data.cta.sub}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/plans?checkout=starter-monthly"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
-              >
-                Start for $9
-              </Link>
-              <Link
-                href="/plans"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-gray-900 bg-white hover:bg-gray-50 border-2 border-gray-300 rounded-none transition-colors"
-              >
-                View Pricing
-              </Link>
-            </div>
-            <p className="mt-6 text-sm text-gray-500">
-              ✓ 14 days for $9 &nbsp;·&nbsp; ✓ Then $39/month, cancel anytime &nbsp;·&nbsp; ✓ Results in 60 seconds
+            <Body className="mt-4 max-w-[560px]">{data.cta.sub}</Body>
+            <HeroForm id="lp-cta-url" className="mt-8 w-full max-w-[600px]" />
+            <p className="mt-5 text-[16px] text-abt-ink-2">
+              <strong className="font-semibold text-abt-ink">Start for $9</strong> · 14 days, then $39/month · Not happy? Get your $9 back
             </p>
           </div>
         </section>
-      </div>
+      </Page>
     </>
   );
 }

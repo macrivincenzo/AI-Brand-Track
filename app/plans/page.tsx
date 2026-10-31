@@ -2,21 +2,15 @@
 
 import Link from 'next/link';
 import { useSession } from '@/lib/auth-client';
-import { Button } from '@/components/ui/button';
-import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useRef } from 'react';
 import { Loader2 } from 'lucide-react';
 import { attachBodyOptions } from '@/lib/autumn-checkout';
-
-// Dynamically import PurchaseButton to avoid SSR issues with useCustomer hook
-const PurchaseButton = dynamic(
-  () => import('@/components/plans/purchase-button'),
-  {
-    ssr: false,
-    loading: () => <Button disabled className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-blue-600 transition-colors opacity-50">Loading...</Button>
-  }
-);
+import { readPendingUrl } from '@/lib/pending-url';
+import { PlanCheckoutLink } from '@/components/plans/plan-checkout-link';
+import { abtButton } from '@/components/abt/button';
+import { Page, Card } from '@/components/abt/layout';
+import { Eyebrow, Lead, Body } from '@/components/abt/text';
 
 const CHECKOUT_PRODUCT_IDS = new Set(['single-analysis', 'credit-pack', 'starter-monthly', 'pro-monthly']);
 
@@ -53,7 +47,8 @@ function CheckoutRedirect() {
             product_id: checkoutProductId,
             ...attachBodyOptions(checkoutProductId),
             return_url: window.location.origin + '/plans',
-            success_url: window.location.origin + '/dashboard',
+            // Came from the homepage box? Land on the check with their website filled in.
+            success_url: window.location.origin + (readPendingUrl() ? '/brand-monitor' : '/dashboard'),
             cancel_url: window.location.origin + '/plans',
           }),
         });
@@ -80,373 +75,186 @@ function CheckoutRedirect() {
   if (!isRedirectingToCheckout) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-abt-bg">
       <div className="text-center">
-        <Loader2 className="h-10 w-10 animate-spin text-blue-600 mx-auto mb-4" />
-        <p className="text-gray-600">Taking you to checkout...</p>
+        <Loader2 className="mx-auto mb-4 h-10 w-10 animate-spin text-abt-accent" />
+        <p className="text-[18px] text-abt-ink-2">Taking you to checkout…</p>
       </div>
     </div>
   );
 }
 
-export default function PricingPage() {
-  const { data: session, isPending } = useSession();
+const plans = [
+  {
+    id: 'starter-monthly',
+    name: 'Starter',
+    price: '$39',
+    unit: 'a month, after your 14 days',
+    features: ['1 brand', 'Weekly checks with an email', 'Fixes written for you', '53 credits a month'],
+    cta: 'Start with Starter',
+  },
+  {
+    id: 'pro-monthly',
+    name: 'Pro',
+    price: '$69',
+    unit: 'a month',
+    features: ['Unlimited brands', 'Weekly checks with an email', 'Fixes written for you', '154 credits a month', 'Keyword data from DataForSEO'],
+    cta: 'Start with Pro',
+  },
+];
 
+const packs = [
+  { id: 'single-analysis', name: 'Single Analysis', price: '$49', detail: '53 credits, about 4 full checks' },
+  { id: 'credit-pack', name: 'Credit Pack', price: '$149', detail: '220 credits, 20 full checks' },
+];
+
+const creditCosts = [
+  { action: 'Full check', detail: 'All four assistants, a complete new report', credits: 11 },
+  { action: 'Weekly check', detail: 'The automatic check every week', credits: 10 },
+  { action: 'Write a fix', detail: 'An FAQ, comparison or page text, written for you', credits: 5 },
+  { action: 'Finding competitors', detail: 'Included in every check', credits: 0 },
+];
+
+function Check() {
   return (
-    <div className="min-h-screen bg-white py-12">
+    <svg aria-hidden viewBox="0 0 24 24" className="mt-1 h-5 w-5 shrink-0 text-abt-accent" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
+
+const sectionTitle = 'font-abt-serif text-[length:clamp(30px,4cqi,44px)] font-semibold leading-[1.12] tracking-[-0.02em] text-abt-ink';
+
+export default function PricingPage() {
+  return (
+    <Page>
       <Suspense fallback={null}>
         <CheckoutRedirect />
       </Suspense>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-gray-900">
-            Choose Your Pricing Plan
+
+      <div className="mx-auto max-w-[960px] px-4 pb-24 sm:px-6">
+        {/* Hero: one offer */}
+        <section className="pt-12 sm:pt-20">
+          <h1 className="font-abt-serif text-[length:var(--abt-text-display)] font-semibold leading-[1.04] tracking-[-0.03em] text-abt-ink">
+            Start for $9
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-            Flexible pricing options to fit your needs. Pay-as-you-go credits or monthly subscriptions.
-          </p>
-        </div>
+          <Lead className="mt-5 max-w-[640px]">
+            Use everything for 14 days. Then it continues at $39 a month, or you cancel. Not happy during your 14 days? We
+            refund your $9.
+          </Lead>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <PlanCheckoutLink productId="starter-monthly" returnUrl="/plans" className={abtButton()}>
+              Start for $9
+            </PlanCheckoutLink>
+            <p className="text-[17px] text-abt-ink-2">Every price is public. No sales call needed.</p>
+          </div>
+        </section>
 
-        {/* One-Time Credit Plans Section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-              Pay-As-You-Go Plans
+        {/* Monthly plans */}
+        <section aria-label="Monthly plans" className="mt-12 grid gap-4 md:grid-cols-2">
+          {plans.map((plan) => (
+            <Card key={plan.id} className="flex flex-col sm:p-9">
+              <h2 className="font-abt-sans text-[22px] font-bold tracking-normal text-abt-ink">{plan.name}</h2>
+              <p className="mt-3 flex flex-wrap items-baseline gap-2">
+                <span className="font-abt-serif text-[56px] font-medium leading-none tracking-[-0.03em] text-abt-ink">{plan.price}</span>
+                <span className="text-[17px] text-abt-ink-2">{plan.unit}</span>
+              </p>
+              <ul className="mt-6 flex-1 space-y-3">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex gap-3 text-[18px] text-abt-ink">
+                    <Check />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <PlanCheckoutLink productId={plan.id} returnUrl="/plans" className={abtButton({ variant: 'secondary', full: true, className: 'mt-8 border-abt-ink' })}>
+                {plan.cta}
+              </PlanCheckoutLink>
+            </Card>
+          ))}
+        </section>
+
+        {/* Pay as you go */}
+        <section aria-labelledby="packs-heading" className="mt-24">
+          <Eyebrow className="text-abt-ink-2">No subscription</Eyebrow>
+          <h2 id="packs-heading" className={`mt-4 ${sectionTitle}`}>
+            Or buy credits once
+          </h2>
+          <Body className="mt-4 max-w-[560px]">Credits you buy once never expire.</Body>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {packs.map((pack) => (
+              <Card key={pack.id} className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h3 className="text-[20px] font-bold text-abt-ink">{pack.name}</h3>
+                  <p className="mt-1 text-[17px] text-abt-ink-2">
+                    <span className="font-semibold text-abt-ink">{pack.price}</span> · {pack.detail}
+                  </p>
+                </div>
+                <PlanCheckoutLink productId={pack.id} returnUrl="/plans" className={abtButton({ variant: 'secondary', size: 'md', className: 'border-abt-ink' })}>
+                  Buy
+                </PlanCheckoutLink>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Agencies: honest, coming soon */}
+        <section aria-labelledby="agencies-heading" className="mt-24 border-t border-abt-divider pt-16">
+          <Eyebrow className="text-abt-ink-2">For agencies · Coming soon</Eyebrow>
+          <h2 id="agencies-heading" className={`mt-4 max-w-[640px] ${sectionTitle}`}>
+            Your logo, your clients, reports sent for you
+          </h2>
+          <Body className="mt-4 max-w-[640px]">
+            We&apos;re building it now with a few agencies. When it opens, its prices will be public here like all our
+            others.
+          </Body>
+          <a href="mailto:support@aibrandtrack.com?subject=Agency%20design%20partner" className={abtButton({ variant: 'link', className: 'mt-6 text-[18px]' })}>
+            Shape it with us
+          </a>
+        </section>
+
+        {/* What each action costs */}
+        <section aria-labelledby="credits-heading" className="mt-24 grid gap-10 md:grid-cols-2 md:gap-16">
+          <div>
+            <h2 id="credits-heading" className={sectionTitle}>
+              What each action costs in credits
             </h2>
-            <p className="text-lg text-gray-600">
-              One-time purchases. Credits never expire. No subscriptions.
-            </p>
+            <Body className="mt-4">Some work uses credits. You always see the cost before you start it.</Body>
           </div>
-
-          <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
-            {/* Single Analysis */}
-            <div className="bg-white p-8 border-2 border-blue-600 relative rounded-none">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1.5 text-sm font-semibold rounded-none border-2 border-blue-600">
-                Most Popular
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Single Analysis</h3>
-              <p className="text-gray-600 mb-6">One-time purchase</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">$49</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  53 credits (~4 full analyses)
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Credits never expire
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Competitor scraping included (0 credits)
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  All 4 AI providers
-                </li>
-              </ul>
-              {session?.user ? (
-                <PurchaseButton
-                  productId="single-analysis"
-                  disabled={isPending}
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-none border-2 border-blue-600 hover:border-blue-700"
-                >
-                  {isPending ? 'Loading...' : 'Buy Now'}
-                </PurchaseButton>
-              ) : (
-                <Link
-                  href="/login?redirect=/plans?checkout=single-analysis"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-none border-2 border-blue-600 hover:border-blue-700"
-                >
-                  Buy Now
-                </Link>
-              )}
+          <div className="overflow-hidden rounded-abt-card border border-abt-line bg-abt-surface">
+            <div className="flex justify-between border-b border-abt-divider px-6 py-4 text-[16px] font-semibold text-abt-ink-2">
+              <span>Action</span>
+              <span>Credits</span>
             </div>
-
-            {/* Credit Pack */}
-            <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Credit Pack</h3>
-              <p className="text-gray-600 mb-6">Best value</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">$149</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  220 credits (20 full analyses)
+            <ul>
+              {creditCosts.map((c) => (
+                <li key={c.action} className="flex items-center justify-between gap-6 border-b border-abt-divider px-6 py-5 last:border-b-0">
+                  <div>
+                    <p className="text-[19px] font-bold text-abt-ink">{c.action}</p>
+                    <p className="mt-1 text-[16px] text-abt-ink-2">{c.detail}</p>
+                  </div>
+                  <span className="text-[24px] font-bold text-abt-ink">{c.credits}</span>
                 </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Save 25% vs Single Analysis
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Credits never expire
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Priority support
-                </li>
-              </ul>
-              {session?.user ? (
-                <PurchaseButton
-                  productId="credit-pack"
-                  disabled={isPending}
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                >
-                  {isPending ? 'Loading...' : 'Buy Now'}
-                </PurchaseButton>
-              ) : (
-                <Link
-                  href="/login?redirect=/plans?checkout=credit-pack"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                >
-                  Buy Now
-                </Link>
-              )}
-            </div>
+              ))}
+            </ul>
           </div>
-        </div>
+        </section>
 
-        {/* Monthly Subscription Plans Section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-              Monthly Subscription Plans
-            </h2>
-            <p className="text-lg text-gray-600">
-              Recurring monthly plans with automatic credit allocation and advanced features.
-            </p>
+        {/* Refund + transparency */}
+        <section className="mt-24 grid gap-10 border-t border-abt-divider pt-16 md:grid-cols-2 md:gap-16">
+          <div>
+            <h2 className="font-abt-sans text-[22px] font-bold tracking-normal text-abt-ink">Not happy during your 14 days?</h2>
+            <Body className="mt-3">We refund your $9. Just tell us.</Body>
           </div>
-
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-            {/* Starter Plan */}
-            <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Starter</h3>
-              <p className="text-gray-600 mb-6">Perfect for individuals</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">$9</span>
-                <span className="text-gray-600 text-lg ml-2">for 14 days</span>
-                <p className="text-sm text-gray-600 mt-2">Trial: 1 full analysis + weekly checks of 1 brand</p>
-                <p className="text-sm text-gray-600 mt-1">Then $39/month · cancel anytime</p>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  53 credits/month (~4 analyses)
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  1 project & 1 brand
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Competitor scraping included (0 credits)
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Basic tracking features
-                </li>
-              </ul>
-              {session?.user ? (
-                <PurchaseButton
-                  productId="starter-monthly"
-                  disabled={isPending}
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                >
-                  {isPending ? 'Loading...' : 'Start 14-day trial for $9'}
-                </PurchaseButton>
-              ) : (
-                <Link
-                  href="/login?redirect=/plans?checkout=starter-monthly"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                >
-                  Start 14-day trial for $9
-                </Link>
-              )}
-              <p className="text-xs text-gray-500 mt-3 text-center">Not happy during your 14 days? We refund your $9.</p>
-            </div>
-
-            {/* Pro Plan */}
-            <div className="bg-white p-8 border-2 border-blue-600 relative rounded-none">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1.5 text-sm font-semibold rounded-none border-2 border-blue-600">
-                Recommended
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Pro</h3>
-              <p className="text-gray-600 mb-6">For growing businesses</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">$69</span>
-                <span className="text-gray-600 text-lg ml-2">/month</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  154 credits/month (~14 analyses)
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Unlimited projects & brands
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Competitor scraping included (0 credits)
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Advanced tracking features
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Keyword data via DataForSEO
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Priority support
-                </li>
-              </ul>
-              {session?.user ? (
-                <PurchaseButton
-                  productId="pro-monthly"
-                  disabled={isPending}
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-none border-2 border-blue-600 hover:border-blue-700"
-                >
-                  {isPending ? 'Loading...' : 'Subscribe'}
-                </PurchaseButton>
-              ) : (
-                <Link
-                  href="/login?redirect=/plans?checkout=pro-monthly"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-none border-2 border-blue-600 hover:border-blue-700"
-                >
-                  Subscribe
-                </Link>
-              )}
-            </div>
-
-            {/* Enterprise Plan */}
-            <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Enterprise</h3>
-              <p className="text-gray-600 mb-6">For large organizations</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">Custom</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Unlimited credits
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Unlimited projects & brands
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  All tracking features
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Custom prompt sets
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Saved analysis history
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Dedicated support
-                </li>
-              </ul>
-              <Link
-                href="mailto:support@aibrandtrack.com?subject=Enterprise%20Plan%20Inquiry"
-                className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-              >
-                Contact Sales
-              </Link>
-            </div>
+          <div>
+            <h2 className="font-abt-sans text-[22px] font-bold tracking-normal text-abt-ink">Every price is public. No sales call needed.</h2>
+            <Body className="mt-3">What you see here is what everyone pays. How we measure is public too.</Body>
+            <Link href="/methodology" className={abtButton({ variant: 'link', className: 'mt-5 text-[18px]' })}>
+              Read the methodology
+            </Link>
           </div>
-        </div>
-
-        {/* Info Section */}
-        <div className="max-w-3xl mx-auto mt-16 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">How Credits Work</h2>
-          <div className="bg-gray-50 rounded-lg p-6 mb-6">
-            <div className="grid md:grid-cols-3 gap-4 text-left">
-              <div className="text-center p-4">
-                <div className="text-2xl font-bold text-blue-600 mb-1">1 credit</div>
-                <div className="text-sm text-gray-600">Website extraction</div>
-              </div>
-              <div className="text-center p-4">
-                <div className="text-2xl font-bold text-green-600 mb-1">0 credits</div>
-                <div className="text-sm text-gray-600">Competitor scraping</div>
-              </div>
-              <div className="text-center p-4">
-                <div className="text-2xl font-bold text-blue-600 mb-1">10 credits</div>
-                <div className="text-sm text-gray-600">Full AI analysis</div>
-              </div>
-            </div>
-            <div className="border-t border-gray-200 mt-4 pt-4">
-              <div className="text-lg font-semibold text-gray-900">
-                Total: 11 credits per complete brand analysis
-              </div>
-            </div>
-          </div>
-          <p className="text-gray-600 mb-4">
-            Each analysis gives you comprehensive insights across all 4 major AI platforms: ChatGPT, Claude, Perplexity, and Gemini. Competitor scraping costs 0 credits, so you can add competitors before running your analysis.
-          </p>
-          <p className="text-gray-600">
-            Pay-as-you-go credits never expire. Buy once, use anytime. No hidden fees.
-          </p>
-        </div>
+        </section>
       </div>
-    </div>
+    </Page>
   );
 }

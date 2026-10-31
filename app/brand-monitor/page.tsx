@@ -11,6 +11,7 @@ import { format } from 'date-fns';
 import { useSession } from '@/lib/auth-client';
 import { ConfirmationDialog } from '@/components/ui/confirmation-dialog';
 import { toast } from 'sonner';
+import { readPendingUrl } from '@/lib/pending-url';
 
 // Separate component that uses Autumn hooks
 function BrandMonitorContent({ session }: { session: any }) {
@@ -33,6 +34,12 @@ function BrandMonitorContent({ session }: { session: any }) {
     } catch {
       return null;
     }
+  });
+
+  // Website typed on the homepage: ?url= when logged in, or kept through login/checkout
+  const [initialUrl] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+    return new URLSearchParams(window.location.search).get('url') || readPendingUrl();
   });
 
   // Queries and mutations
@@ -220,6 +227,7 @@ function BrandMonitorContent({ session }: { session: any }) {
               onCreditsUpdate={handleCreditsUpdate}
               selectedAnalysis={selectedAnalysisId ? currentAnalysis : null}
               initialDraft={initialDraft}
+              initialUrl={initialUrl}
               onSaveAnalysis={(analysis) => {
                 clearBrandMonitorDraft();
                 if (analysis?.id) {

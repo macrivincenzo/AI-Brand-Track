@@ -49,10 +49,10 @@ export function CookieConsent() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 animate-in slide-in-from-bottom-4 duration-300">
       <div className="mx-auto max-w-5xl px-3 pb-3">
-        <div className="relative bg-white border border-gray-200 rounded-lg shadow-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
-          <p className="text-xs sm:text-sm text-gray-600 pr-6 sm:pr-0 flex-1">
+        <div className="relative flex flex-col gap-3 rounded-abt-tile border border-abt-line bg-abt-surface px-5 py-4 font-abt-sans shadow-[var(--abt-shadow-pop)] sm:flex-row sm:items-center">
+          <p className="flex-1 pr-6 text-[16px] text-abt-ink-2 sm:pr-0">
             We use cookies to improve your experience and analyze traffic. See our{' '}
-            <Link href="/privacy-policy" className="text-blue-600 hover:underline font-medium">
+            <Link href="/privacy-policy" className="font-medium text-abt-ink underline underline-offset-4">
               Privacy Policy
             </Link>
             .
@@ -61,13 +61,13 @@ export function CookieConsent() {
             <Button onClick={handleReject} variant="outline" size="sm" className="flex-1 sm:flex-none">
               Reject non-essential
             </Button>
-            <Button onClick={handleAccept} size="sm" className="flex-1 sm:flex-none bg-blue-600 hover:bg-blue-700 text-white">
+            <Button onClick={handleAccept} size="sm" className="flex-1 sm:flex-none bg-abt-accent hover:bg-abt-accent/90 text-abt-on-accent">
               Accept all
             </Button>
           </div>
           <button
             onClick={handleClose}
-            className="absolute top-2 right-2 sm:static text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute top-2 right-2 sm:static text-abt-ink-2 hover:text-abt-ink transition-colors"
             aria-label="Close cookie banner"
           >
             <X className="h-4 w-4" />

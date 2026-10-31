@@ -116,23 +116,23 @@ export default async function BlogPostPage({ params }: PageProps) {
         }}
       />
 
-      <div className="min-h-screen bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="abt-page min-h-screen">
+        <div className="mx-auto max-w-[760px] px-4 pb-24 pt-12 sm:px-6 sm:pt-16">
           <nav className="mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-sm text-zinc-600">
+            <ol className="flex flex-wrap items-center gap-2 text-[16px] text-abt-ink-2">
               <li>
-                <Link href="/" className="hover:text-zinc-900 transition-colors">
+                <Link href="/" className="underline-offset-4 hover:text-abt-ink hover:underline">
                   Home
                 </Link>
               </li>
               <li>/</li>
               <li>
-                <Link href="/blog" className="hover:text-zinc-900 transition-colors">
+                <Link href="/blog" className="underline-offset-4 hover:text-abt-ink hover:underline">
                   Blog
                 </Link>
               </li>
               <li>/</li>
-              <li className="text-zinc-900 truncate max-w-[180px]" title={post.title}>
+              <li className="max-w-[180px] truncate text-abt-ink" title={post.title}>
                 {post.title}
               </li>
             </ol>
@@ -140,21 +140,21 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[16px] font-medium text-abt-ink-2 mb-8 transition-colors hover:text-abt-ink"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Blog
           </Link>
 
           <article>
-            <header className="mb-10 pb-8 border-b border-zinc-200">
-              <h1 className="text-4xl lg:text-5xl font-bold text-zinc-900 mb-4 leading-tight">
+            <header className="mb-10 pb-8 border-b border-abt-divider">
+              <h1 className="font-abt-serif text-[length:clamp(38px,6cqi,56px)] font-semibold leading-[1.08] tracking-[-0.025em] text-abt-ink mb-5">
                 {post.title}
               </h1>
-              <p className="text-xl text-zinc-600 mb-6 leading-relaxed">
+              <p className="text-[length:var(--abt-text-lead)] leading-[1.4] text-abt-ink-2 mb-6">
                 {post.excerpt}
               </p>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500">
+              <div className="flex flex-wrap items-center gap-4 text-[16px] text-abt-ink-2">
                 {post.author && (
                   <span className="font-medium text-zinc-700">{post.author}</span>
                 )}
@@ -165,7 +165,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </header>
 
-            <div className="prose prose-lg prose-zinc max-w-none">
+            <div className="max-w-none">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -174,7 +174,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     return (
                       <h2
                         id={generateHeadingId(text)}
-                        className="text-3xl font-bold text-zinc-900 mt-12 mb-4 first:mt-0 scroll-mt-24"
+                        className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4 first:mt-0 scroll-mt-24"
                         {...props}
                       >
                         {children}
@@ -186,7 +186,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     return (
                       <h2
                         id={generateHeadingId(text)}
-                        className="text-2xl font-bold text-zinc-900 mt-10 mb-4 scroll-mt-24"
+                        className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-10 mb-4 scroll-mt-24"
                         {...props}
                       >
                         {children}
@@ -198,7 +198,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     return (
                       <h3
                         id={generateHeadingId(text)}
-                        className="text-xl font-semibold text-zinc-900 mt-8 mb-3 scroll-mt-24"
+                        className="text-[21px] font-bold leading-[1.3] text-abt-ink mt-8 mb-3 scroll-mt-24"
                         {...props}
                       >
                         {children}
@@ -206,17 +206,17 @@ export default async function BlogPostPage({ params }: PageProps) {
                     );
                   },
                   p: ({ node, children, ...props }) => (
-                    <p className="text-zinc-700 leading-relaxed mb-4" {...props}>
+                    <p className="text-[19px] leading-[1.7] text-abt-ink-2 mb-5" {...props}>
                       {children}
                     </p>
                   ),
                   ul: ({ node, children, ...props }) => (
-                    <ul className="list-disc pl-6 mb-4 space-y-2 text-zinc-700" {...props}>
+                    <ul className="list-disc pl-6 mb-5 space-y-2 text-[19px] leading-[1.6] text-abt-ink-2 marker:text-abt-accent" {...props}>
                       {children}
                     </ul>
                   ),
                   ol: ({ node, children, ...props }) => (
-                    <ol className="list-decimal pl-6 mb-4 space-y-2 text-zinc-700" {...props}>
+                    <ol className="list-decimal pl-6 mb-5 space-y-2 text-[19px] leading-[1.6] text-abt-ink-2 marker:text-abt-accent" {...props}>
                       {children}
                     </ol>
                   ),
@@ -233,7 +233,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   a: ({ href, children, ...props }) => (
                     <a
                       href={href}
-                      className="text-zinc-900 font-medium underline hover:no-underline"
+                      className="font-medium text-abt-ink underline underline-offset-4 hover:text-abt-accent"
                       target={href?.startsWith('http') ? '_blank' : undefined}
                       rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                       {...props}
@@ -249,24 +249,24 @@ export default async function BlogPostPage({ params }: PageProps) {
           </article>
 
           {/* CTA */}
-          <aside className="mt-16 p-8 bg-zinc-50 border border-zinc-200 rounded-xl">
-            <h2 className="text-2xl font-bold text-zinc-900 mb-3">
+          <aside className="mt-16 rounded-abt-card border border-abt-line bg-abt-surface p-8">
+            <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mb-3">
               See how AI assistants talk about your brand
             </h2>
-            <p className="text-zinc-600 mb-6">
+            <p className="text-[18px] text-abt-ink-2 mb-6">
               AI Brand Track checks ChatGPT, Claude, Perplexity and Gemini and shows your visibility
               score, competitor rankings and what to fix. Start a 14-day trial for $9 (1 full analysis plus weekly checks of 1 brand), then $39/month, cancel anytime. Not happy? Get your $9 back.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/plans?checkout=starter-monthly"
-                className="inline-flex items-center justify-center rounded-[10px] text-base font-medium bg-zinc-900 text-white h-12 px-6 hover:bg-zinc-800 transition-colors"
+                className="inline-flex h-14 items-center justify-center rounded-abt-button bg-abt-accent px-7 text-[18px] font-semibold text-abt-on-accent transition-colors hover:bg-[color-mix(in_oklch,var(--abt-accent)_86%,black)]"
               >
                 Start for $9
               </Link>
               <Link
                 href="/plans"
-                className="inline-flex items-center justify-center rounded-[10px] text-base font-medium border border-zinc-300 text-zinc-900 h-12 px-6 hover:bg-zinc-100 transition-colors"
+                className="inline-flex h-14 items-center justify-center rounded-abt-button border border-abt-line-strong bg-abt-surface px-7 text-[18px] font-semibold text-abt-ink transition-colors hover:bg-abt-sunk"
               >
                 See pricing
               </Link>
@@ -275,7 +275,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           {/* Related guides */}
           <nav className="mt-12" aria-labelledby="related-heading">
-            <h2 id="related-heading" className="text-xl font-bold text-zinc-900 mb-4">
+            <h2 id="related-heading" className="text-[21px] font-bold text-abt-ink mb-4">
               Related guides
             </h2>
             <ul className="grid sm:grid-cols-3 gap-4">
@@ -283,20 +283,20 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <li key={r.href}>
                   <Link
                     href={r.href}
-                    className="block h-full p-4 border border-zinc-200 rounded-xl hover:border-zinc-400 transition-colors"
+                    className="block h-full rounded-abt-tile border border-abt-line bg-abt-surface p-5 transition-colors hover:border-abt-accent"
                   >
-                    <span className="block font-semibold text-zinc-900 mb-1">{r.title}</span>
-                    <span className="block text-sm text-zinc-600">{r.desc}</span>
+                    <span className="block font-semibold text-abt-ink mb-1">{r.title}</span>
+                    <span className="block text-[16px] text-abt-ink-2">{r.desc}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <div className="mt-16 pt-8 border-t border-zinc-200">
+          <div className="mt-16 pt-8 border-t border-abt-divider">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors"
+              className="inline-flex items-center gap-2 text-[16px] font-medium text-abt-ink-2 transition-colors hover:text-abt-ink"
             >
               <ArrowLeft className="w-4 h-4" />
               All blog posts

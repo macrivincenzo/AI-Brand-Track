@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Space_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Source_Serif_4, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./brand-tokens.css";
 import { Navbar } from "@/components/navbar";
@@ -19,6 +19,14 @@ const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Brand serif for display, titles and section headings
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -175,14 +183,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* NEW: Additional meta tags for better AEO/GEO */}
-        <meta name="theme-color" content="#2563eb" />
+        <meta name="theme-color" content="#faf9f6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="format-detection" content="telephone=no" />
 
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${hankenGrotesk.variable} font-sans antialiased`}
+        className={`${spaceGrotesk.variable} ${hankenGrotesk.variable} ${sourceSerif.variable} font-sans antialiased`}
       >
         <Providers>
           <div className="flex flex-col min-h-screen">

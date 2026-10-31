@@ -56,23 +56,23 @@ const metrics = [
 
 export default function MethodologyPage() {
   return (
-    <main className="bg-white">
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-zinc-800 text-lg leading-relaxed">
-        <p className="text-sm uppercase tracking-wide text-zinc-500 mb-3">Methodology · Last updated {LAST_UPDATED}</p>
-        <h1 className="text-4xl font-bold text-zinc-900 mb-6">How we measure AI visibility</h1>
+    <main className="abt-page">
+      <article className="mx-auto max-w-[760px] px-4 pb-24 pt-12 text-[18px] leading-[1.65] text-abt-ink-2 sm:px-6 sm:pt-20">
+        <p className="text-[16px] font-semibold uppercase tracking-[var(--abt-eyebrow-tracking)] text-abt-accent mb-4">Methodology · Last updated {LAST_UPDATED}</p>
+        <h1 className="font-abt-serif text-[length:clamp(38px,6cqi,56px)] font-semibold leading-[1.08] tracking-[-0.025em] text-abt-ink mb-6">How we measure AI visibility</h1>
         <p className="mb-10">
           Most AI visibility tools show a score without explaining it. We publish exactly how ours works: which models we
           ask, which questions we ask them, how each answer is read, the formula behind every number, and what the data
           can&apos;t tell you.
         </p>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-12 mb-4">1. Which AI assistants we ask</h2>
+        <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4">1. Which AI assistants we ask</h2>
         <p className="mb-4">
           Every analysis asks all four assistants through their official APIs. All four are included in every plan; none
           is a paid add-on.
         </p>
         <div className="overflow-x-auto mb-4">
-          <table className="w-full text-left text-base border-collapse">
+          <table className="w-full border-collapse text-left text-[17px]">
             <thead>
               <tr className="border-b border-zinc-300">
                 <th className="py-2 pr-4">Assistant</th>
@@ -95,7 +95,7 @@ export default function MethodologyPage() {
           We don&apos;t track Google AI Overviews, Google AI Mode, Microsoft Copilot, Grok, DeepSeek or Meta AI.
         </p>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-12 mb-4">2. Which questions we ask</h2>
+        <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4">2. Which questions we ask</h2>
         <p className="mb-4">
           We read your website, then generate 22–25 questions a real buyer in your category would ask, such as
           &ldquo;What are the best tools for X?&rdquo; or &ldquo;How does your brand compare to a competitor?&rdquo;. You
@@ -106,7 +106,7 @@ export default function MethodologyPage() {
           score reflects a change in the AI answers, not a change in what we asked.
         </p>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-12 mb-4">3. How each answer is read</h2>
+        <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4">3. How each answer is read</h2>
         <p className="mb-4">
           Each assistant answers each question once. We then read every answer in two ways: text matching that recognizes
           your brand and competitors (including common spelling variants), and a small AI model (OpenAI gpt-4o-mini) that
@@ -114,18 +114,18 @@ export default function MethodologyPage() {
           neutral or negative. You can open every original answer in the report and check it yourself.
         </p>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-12 mb-4">4. The formulas behind every score</h2>
+        <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4">4. The formulas behind every score</h2>
         <div className="space-y-6 mb-4">
           {metrics.map((m) => (
-            <div key={m.name} className="border-l-4 border-zinc-900 pl-4">
-              <p className="font-semibold text-zinc-900">{m.name}</p>
+            <div key={m.name} className="border-l-4 border-abt-accent pl-5 text-abt-ink">
+              <p className="font-semibold text-abt-ink">{m.name}</p>
               <p className="font-mono text-base text-zinc-700">{m.formula}</p>
-              <p className="text-zinc-600">{m.plain}</p>
+              <p className="text-abt-ink-2">{m.plain}</p>
             </div>
           ))}
         </div>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-12 mb-4">5. Weekly checks</h2>
+        <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4">5. Weekly checks</h2>
         <p className="mb-4">
           When you turn on weekly checks, the same analysis runs automatically once a week and you get an email with your
           visibility score and how it moved. AI answers vary from run to run, so a move of less than 3 points is reported
@@ -133,7 +133,7 @@ export default function MethodologyPage() {
           next day.
         </p>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-12 mb-4">6. What the data can&apos;t tell you</h2>
+        <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4">6. What the data can&apos;t tell you</h2>
         <ul className="list-disc pl-6 space-y-3 mb-4">
           <li>
             <strong>API answers are close to, but not identical with, the chat apps.</strong> The apps can add web search,
@@ -153,16 +153,16 @@ export default function MethodologyPage() {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-12 mb-4">7. What it costs</h2>
+        <h2 className="font-abt-serif text-[length:clamp(26px,3.4cqi,32px)] font-semibold leading-[1.2] tracking-[-0.015em] text-abt-ink mt-12 mb-4">7. What it costs</h2>
         <p className="mb-4">
           One full analysis uses 11 credits: 1 to read your website and 10 to ask all four assistants. Reading competitor
           websites uses 0 credits. A weekly check uses 10 credits and is only charged when it succeeds. Every price and
-          plan limit is public on our <Link href="/plans" className="text-blue-600 underline">pricing page</Link>, and we
+          plan limit is public on our <Link href="/plans" className="text-abt-ink underline underline-offset-4 hover:text-abt-accent">pricing page</Link>, and we
           compare ourselves with other tools in{' '}
-          <Link href="/blog/ai-visibility-tool-pricing" className="text-blue-600 underline">AI visibility tool pricing</Link>.
+          <Link href="/blog/ai-visibility-tool-pricing" className="text-abt-ink underline underline-offset-4 hover:text-abt-accent">AI visibility tool pricing</Link>.
         </p>
 
-        <p className="mt-12 text-base text-zinc-500">
+        <p className="mt-12 text-[16px] text-abt-ink-2">
           Questions about our method? Email{' '}
           <a href="mailto:support@aibrandtrack.com" className="underline">support@aibrandtrack.com</a>.
         </p>

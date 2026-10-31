@@ -61,9 +61,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="abt-page min-h-screen flex">
       {/* Left side - Blue solid */}
-      <div className="hidden lg:flex lg:w-1/2 bg-blue-600 p-12 items-center justify-center">
+      <div className="hidden">
         <div className="max-w-md text-white">
           <h1 className="text-4xl font-bold mb-4">Start tracking your brand</h1>
           <p className="text-lg opacity-90">
@@ -93,20 +93,20 @@ export default function RegisterPage() {
       </div>
 
       {/* Right side - Form */}
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-md w-full space-y-8">
+      <div className="flex flex-1 items-start justify-center px-4 pb-24 pt-12 sm:px-6 sm:pt-20">
+        <div className="w-full max-w-[440px] space-y-8">
           <div>
-            <div className="lg:hidden mb-8 flex justify-center">
-              <h2 className="text-2xl font-bold text-zinc-900">
+            <div className="hidden">
+              <h2 className="font-abt-serif text-[30px] font-semibold leading-[1.2] text-abt-ink">
                 AI Brand Track
               </h2>
             </div>
-            <h2 className="text-center text-3xl font-extrabold text-gray-900">
+            <h2 className="text-center font-abt-serif text-[40px] font-semibold leading-[1.1] tracking-[-0.02em] text-abt-ink">
               Create your account
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
+            <p className="mt-3 text-center text-[17px] text-abt-ink-2">
               Or{' '}
-              <Link href="/login" className="font-medium text-blue-600 hover:text-blue-700">
+              <Link href="/login" className="font-semibold text-abt-ink underline underline-offset-4 hover:text-abt-accent">
                 sign in to existing account
               </Link>
             </p>
@@ -114,7 +114,7 @@ export default function RegisterPage() {
           <form className="mt-8 space-y-6" onSubmit={handleRegister}>
             <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-[16px] font-semibold text-abt-ink mb-2">
                   Full name
                 </label>
                 <input
@@ -125,12 +125,12 @@ export default function RegisterPage() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="appearance-none relative block w-full px-4 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base rounded"
+                  className="block h-14 w-full rounded-abt-input border border-abt-line-strong bg-abt-surface px-4 text-[18px] text-abt-ink placeholder:text-abt-placeholder focus:border-abt-accent focus:shadow-[var(--abt-focus-ring)] focus:outline-none"
                   placeholder="Enter your full name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-[16px] font-semibold text-abt-ink mb-2">
                   Email address
                 </label>
                 <input
@@ -141,12 +141,12 @@ export default function RegisterPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none relative block w-full px-4 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base rounded"
+                  className="block h-14 w-full rounded-abt-input border border-abt-line-strong bg-abt-surface px-4 text-[18px] text-abt-ink placeholder:text-abt-placeholder focus:border-abt-accent focus:shadow-[var(--abt-focus-ring)] focus:outline-none"
                   placeholder="Enter your email"
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="password" className="block text-[16px] font-semibold text-abt-ink mb-2">
                   Password
                 </label>
                 <input
@@ -157,7 +157,7 @@ export default function RegisterPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none relative block w-full px-4 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base rounded"
+                  className="block h-14 w-full rounded-abt-input border border-abt-line-strong bg-abt-surface px-4 text-[18px] text-abt-ink placeholder:text-abt-placeholder focus:border-abt-accent focus:shadow-[var(--abt-focus-ring)] focus:outline-none"
                   placeholder="Choose a strong password"
                 />
                 <p className="mt-1 text-xs text-gray-500">Must be at least 8 characters long</p>
@@ -200,15 +200,15 @@ export default function RegisterPage() {
                   name="terms"
                   type="checkbox"
                   required
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-600 border-gray-300 rounded"
+                  className="h-5 w-5 rounded accent-[var(--abt-accent)]"
                 />
-                <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
+                <label htmlFor="terms" className="ml-2 block text-[16px] text-abt-ink">
                   I agree to the{' '}
-                  <Link href="/terms-of-service" className="text-blue-600 hover:text-blue-700">
+                  <Link href="/terms-of-service" className="text-abt-ink underline underline-offset-4 hover:text-abt-accent">
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-700">
+                  <Link href="/privacy-policy" className="text-abt-ink underline underline-offset-4 hover:text-abt-accent">
                     Privacy Policy
                   </Link>
                 </label>
@@ -216,7 +216,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex h-14 w-full items-center justify-center rounded-abt-button bg-abt-accent px-7 text-[18px] font-semibold text-abt-on-accent transition-colors hover:bg-[color-mix(in_oklch,var(--abt-accent)_86%,black)] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {loading ? 'Creating account...' : 'Create account'}
               </button>

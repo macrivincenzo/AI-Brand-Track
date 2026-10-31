@@ -1,9 +1,42 @@
 import Link from "next/link";
 import { LogoLockup } from '@/components/brand/logo';
 
+const columns = [
+  {
+    title: 'Product',
+    links: [
+      { href: '/plans', label: 'Prices' },
+      { href: '/brand-monitor', label: 'Brand Monitor' },
+      { href: '/ai-rank-tracker', label: 'AI Rank Tracker' },
+      { href: '/ai-visibility-checker', label: 'AI Visibility Checker' },
+      { href: '/methodology', label: 'Our methodology' },
+    ],
+  },
+  {
+    title: 'Learn',
+    links: [
+      { href: '/ai-search-visibility', label: 'AI Search Visibility' },
+      { href: '/generative-engine-optimization', label: 'Generative Engine Optimization' },
+      { href: '/answer-engine-optimization', label: 'Answer Engine Optimization' },
+      { href: '/llm-seo', label: 'LLM SEO' },
+      { href: '/how-to-rank-on-chatgpt', label: 'How to Rank on ChatGPT' },
+      { href: '/perplexity-seo', label: 'Perplexity SEO' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '/about', label: 'About' },
+      { href: '/blog', label: 'Blog' },
+      { href: '/privacy-policy', label: 'Privacy Policy' },
+      { href: '/terms-of-service', label: 'Terms of Service' },
+    ],
+  },
+];
+
 export function Footer() {
   const currentYear = 2026;
-  
+
   return (
     <>
       {/* Structured Data for Footer - Organization */}
@@ -29,162 +62,41 @@ export function Footer() {
           })
         }}
       />
-      
-      <footer className="bg-white text-zinc-600 border-t border-zinc-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
-            {/* Brand and Description - SEO Rich */}
-            <div className="col-span-1 lg:col-span-2">
-              <div className="mb-4">
-                <LogoLockup fontSize={20} />
-              </div>
-              <p className="text-sm mb-6 leading-relaxed">
-                Track how AI models like <strong>ChatGPT, Claude, Perplexity, and Google Gemini</strong> rank your brand. Measure your <strong>AI brand visibility</strong> across the four assistants. Get weekly <strong>AI brand monitoring</strong>, competitor analysis, and actionable insights for <strong>AI search optimization</strong> and <strong>GEO optimization</strong>.
+
+      <footer className="border-t border-abt-divider bg-abt-bg font-abt-sans text-abt-ink-2">
+        <div className="mx-auto max-w-[1120px] px-4 py-16 sm:px-6">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5">
+            <div className="lg:col-span-2">
+              <LogoLockup fontSize={20} />
+              <p className="mt-5 max-w-[380px] text-[16px] leading-[1.5]">
+                Checks whether ChatGPT, Claude, Perplexity and Gemini recommend your business, every week, and writes the fixes when they don&apos;t.
               </p>
             </div>
 
-            {/* Product - SEO Optimized Links */}
-            <div>
-              <h3 className="text-zinc-900 font-semibold mb-4">Product</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/plans" className="text-sm hover:text-zinc-900 transition-colors">
-                    Pricing Plans
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/brand-monitor" className="text-sm hover:text-zinc-900 transition-colors">
-                    Brand Monitor
-                  </Link>
-                </li>
-                <li>
-<Link href="/ai-rank-tracker" className="text-sm hover:text-zinc-900 transition-colors">
-                  AI Rank Tracker
-                </Link>
-                </li>
-                <li>
-<Link href="/ai-visibility-checker" className="text-sm hover:text-zinc-900 transition-colors">
-                  AI Visibility Checker
-                </Link>
-                </li>
-                <li>
-                  <Link href="/methodology" className="text-sm hover:text-zinc-900 transition-colors">
-                    Our Methodology
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Learn - internal links to the AI search visibility hub + guides */}
-            <div>
-              <h3 className="text-zinc-900 font-semibold mb-4">Learn</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/ai-search-visibility" className="text-sm hover:text-zinc-900 transition-colors">
-                    AI Search Visibility
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/generative-engine-optimization" className="text-sm hover:text-zinc-900 transition-colors">
-                    Generative Engine Optimization
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/answer-engine-optimization" className="text-sm hover:text-zinc-900 transition-colors">
-                    Answer Engine Optimization
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/llm-seo" className="text-sm hover:text-zinc-900 transition-colors">
-                    LLM SEO
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/how-to-rank-on-chatgpt" className="text-sm hover:text-zinc-900 transition-colors">
-                    How to Rank on ChatGPT
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/perplexity-seo" className="text-sm hover:text-zinc-900 transition-colors">
-                    Perplexity SEO
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Features - SEO Keywords */}
-            <div>
-              <h3 className="text-zinc-900 font-semibold mb-4">Features</h3>
-              <ul className="space-y-3">
-                <li>
-                  <span className="text-sm">ChatGPT Brand Tracking</span>
-                </li>
-                <li>
-                  <span className="text-sm">Claude Brand Monitoring</span>
-                </li>
-                <li>
-                  <span className="text-sm">Perplexity Brand Analysis</span>
-                </li>
-                <li>
-                  <span className="text-sm">Google Gemini Brand Monitoring</span>
-                </li>
-                <li>
-                  <span className="text-sm">AI Competitor Tracking</span>
-                </li>
-                <li>
-                  <span className="text-sm">GEO Optimization</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Company - SEO Links */}
-            <div>
-              <h3 className="text-zinc-900 font-semibold mb-4">Company</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/about" className="text-sm hover:text-zinc-900 transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="text-sm hover:text-zinc-900 transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy-policy" className="text-sm hover:text-zinc-900 transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms-of-service" className="text-sm hover:text-zinc-900 transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h3 className="mb-4 text-[16px] font-semibold text-abt-ink">{col.title}</h3>
+                <ul className="space-y-3">
+                  {col.links.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="text-[16px] transition-colors hover:text-abt-ink">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
-          {/* SEO Rich Bottom Section */}
-          <div className="mt-12 pt-8 border-t border-zinc-200">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="text-sm text-center md:text-left">
-<p className="mb-2">
-                © {currentYear} AI Brand Track. All rights reserved.
-              </p>
-                <p className="text-xs text-zinc-500">
-                  AI Brand Visibility Monitoring • ChatGPT Tracking • Claude Monitoring • Perplexity Analysis • Google Gemini Monitoring • AI Search Optimization
-                </p>
-              </div>
-              <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
-                <Link href="/privacy-policy" className="hover:text-zinc-900 transition-colors">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms-of-service" className="hover:text-zinc-900 transition-colors">
-                  Terms of Service
-                </Link>
-              </div>
-            </div>
+          <div className="mt-12 flex flex-col gap-2 border-t border-abt-divider pt-8 text-[16px] sm:flex-row sm:justify-between">
+            <p>© {currentYear} AI Brand Track</p>
+            <p>
+              Every price is public.{' '}
+              <Link href="/plans" className="underline underline-offset-4 hover:text-abt-ink">
+                See them all
+              </Link>
+            </p>
           </div>
         </div>
       </footer>

@@ -1,23 +1,36 @@
-'use client';
-
 import Link from "next/link";
-import { useState } from "react";
-import { useSession } from "@/lib/auth-client";
-import { PlanCheckoutLink } from "@/components/plans/plan-checkout-link";
-import { ReviewsSection, reviews, averageRating } from "@/components/reviews-section";
+import { HeroForm } from "@/components/home/hero-form";
+import { RotatingWord } from "@/components/home/rotating-word";
+import { LogoLockup } from "@/components/brand/logo";
+import { abtButton } from "@/components/abt/button";
+import { Page, Card, StatusDot } from "@/components/abt/layout";
+import { Eyebrow, Title, ItemTitle, Body } from "@/components/abt/text";
+import { reviews, averageRating, ALTERNATIVETO_URL } from "@/lib/reviews";
 
 const faqs = [
   {
+    q: "How does the check work?",
+    a: "You type your website. AI Brand Track finds your brand, industry and competitors (1 credit), then asks ChatGPT, Claude, Perplexity, and Google Gemini the questions your customers ask and counts how often each one names you compared with your competitors (10 credits). You get a report with a visibility score from 0 to 100, how you rank against competitors, every answer word for word, the websites the assistants quoted, and Boost actions: fixes such as FAQ, comparison and page content, written for you. Turn on weekly checks and it runs the same check every week by itself and emails you your score and what changed. A complete analysis uses 11 credits; a weekly check uses 10."
+  },
+  {
+    q: "Do I need any technical knowledge?",
+    a: "No. You type your website and read the report in plain words. Every fix comes written, ready to copy into your website or to hand to whoever looks after it."
+  },
+  {
+    q: "What do I get for $9?",
+    a: "The Starter plan begins with a 14-day trial for $9 (card required). It includes 1 full analysis across ChatGPT, Claude, Perplexity and Gemini, automatic weekly checks of 1 brand with a weekly email, and Boost actions (done-for-you fixes) using the remaining trial credits. After 14 days it continues at $39/month unless you cancel."
+  },
+  {
+    q: "What if I am not happy?",
+    a: "Not happy during your 14 days? We refund your $9 (one refund per customer). You can cancel any time, and you won't be charged the $39 if you cancel within the 14 days."
+  },
+  {
+    q: "Can my agency send reports with its own logo?",
+    a: "Not yet. We are building it now with a few agencies: every client checked each week and sent a report with your logo, and prospect reports you order in one sentence. Its prices will be public like all our others. Email support@aibrandtrack.com if you want to be one of the agencies shaping it."
+  },
+  {
     q: "What is AI brand visibility monitoring?",
-    a: "AI brand visibility monitoring is the process of tracking how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini mention, rank, and recommend your brand in their answers. Unlike traditional SEO, which focuses on Google search rankings, AI brand monitoring tracks your presence in generative AI responses. AI Brand Track analyzes your visibility across the major AI platforms, compares you against competitors, and gives actionable recommendations to improve your presence through AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization)."
-  },
-  {
-    q: "How does AI Brand Track work?",
-    a: "AI Brand Track works in three steps. First, you enter your website URL and we automatically extract your brand information, industry, and keywords (1 credit). Second, we query ChatGPT, Claude, Perplexity, and Google Gemini with industry-relevant prompts to see how they rank your brand against competitors (10 credits). Third, you get a report with your brand visibility score (0-100), competitor rankings, which prompts mention your brand, sentiment, and specific recommendations. A complete analysis takes about 60 seconds and uses 11 credits. Competitor scraping is included at 0 credits."
-  },
-  {
-    q: "Which AI platforms does AI Brand Track monitor?",
-    a: "AI Brand Track monitors OpenAI ChatGPT, Anthropic Claude, Perplexity, and Google Gemini. All platforms are queried during each analysis, so you get visibility scores for each one side by side. This matters because different AI models use different data sources and rank brands differently."
+    a: "AI brand visibility monitoring is the process of tracking how AI platforms like ChatGPT, Claude, Perplexity, and Google Gemini mention, rank, and recommend your brand in their answers. More and more buyers ask AI assistants for recommendations before they buy, and the answer usually names only a handful of brands. Unlike traditional SEO, which focuses on Google search rankings, AI brand monitoring tracks your presence in generative AI responses, and improving it is called AEO (Answer Engine Optimization) or GEO (Generative Engine Optimization)."
   },
   {
     q: "What is the difference between SEO and AEO?",
@@ -25,25 +38,38 @@ const faqs = [
   },
   {
     q: "How much does AI Brand Track cost?",
-    a: "AI Brand Track offers flexible pricing. The Starter plan begins with a 14-day trial for $9 (card required) that includes 1 full analysis across ChatGPT, Claude, Perplexity and Gemini, automatic weekly checks of 1 brand with a weekly email, and Boost actions (done-for-you fixes) using the remaining trial credits; after 14 days it continues at $39/month unless you cancel. Not happy during your 14 days? We refund your $9 (one per customer). Single Analysis ($49) provides 53 credits for ~4 analyses. Credit Pack ($149) includes 220 credits for 20 analyses. Monthly subscriptions: Starter ($39/month) with 53 credits/month and Pro ($69/month) with 154 credits/month. Each analysis uses 11 credits (1 for extraction + 10 for AI analysis). Competitor scraping costs 0 credits. Pay-as-you-go credits never expire."
-  },
-  {
-    q: "How often should I monitor my AI brand visibility?",
-    a: "We recommend re-running your analysis weekly if you are actively optimizing your AI presence, monthly if you are tracking long-term trends, and after major changes like product launches, rebrands, or competitor moves. Analyses are run on demand (there is no automatic scheduling) and saved, so you can compare results over time. AI answers change as new content is indexed and competitors publish, so regular checks show the impact of your optimization work and surface new opportunities."
+    a: "Every price is public. Starter begins with a 14-day trial for $9, then costs $39/month with 53 credits/month. Pro costs $69/month with 154 credits/month. Pay-as-you-go: Single Analysis ($49) provides 53 credits for about 4 analyses, and the Credit Pack ($149) includes 220 credits for 20 analyses; these credits never expire. Each analysis uses 11 credits (1 for extraction + 10 for AI analysis), a weekly check uses 10, and competitor scraping costs 0 credits."
   }
 ];
 
+// The three things the assistant does (also the HowTo schema steps)
+const steps = [
+  {
+    title: "All four assistants",
+    text: "Each check asks ChatGPT, Claude, Perplexity and Gemini the questions your customers really ask."
+  },
+  {
+    title: "Fixes, already written",
+    text: "Each problem comes with the fix written for you: an FAQ, a comparison or page text, ready to use."
+  },
+  {
+    title: "Works while you're away",
+    text: "Weekly checks run on their own. Every week a short report lands in your inbox."
+  }
+];
+
+// Example report: made-up business and numbers, labelled as sample data on the page
+const sampleAssistants = [
+  { name: "ChatGPT", tone: "good", verdict: "Recommends you", named: 17 },
+  { name: "Perplexity", tone: "mid", verdict: "Sometimes", named: 9 },
+  { name: "Claude", tone: "bad", verdict: "Doesn't mention you", named: 0 },
+  { name: "Gemini", tone: "bad", verdict: "Doesn't mention you", named: 0 }
+] as const;
+
 export default function Home() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const { data: session } = useSession();
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
   return (
     <>
-      {/* Enhanced Structured Data - SoftwareApplication with RICHER context */}
+      {/* SoftwareApplication */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -61,6 +87,15 @@ export default function Home() {
                 "name": "Starter 14-Day Trial",
                 "description": "14 days for $9 including 1 full analysis, weekly checks of 1 brand and Boost actions, then $39/month unless cancelled. Not happy during your 14 days? We refund your $9.",
                 "price": "9",
+                "priceCurrency": "USD",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://www.aibrandtrack.com/plans"
+              },
+              {
+                "@type": "Offer",
+                "name": "Pro",
+                "price": "69",
                 "priceCurrency": "USD",
                 "priceValidUntil": "2026-12-31",
                 "availability": "https://schema.org/InStock",
@@ -95,25 +130,23 @@ export default function Home() {
             "review": reviews.map((r) => ({
               "@type": "Review",
               "author": { "@type": "Person", "name": r.author },
-              "datePublished": new Date(r.date).toISOString().slice(0, 10),
+              "datePublished": r.date,
               "reviewRating": { "@type": "Rating", "ratingValue": r.rating, "bestRating": 5 },
               "reviewBody": r.quote
             })),
-            "description": "AI Brand Track is an AI brand visibility tool. It queries ChatGPT, Claude, Perplexity, and Google Gemini with industry prompts and shows how they rank your brand against competitors, with a 0-100 visibility score, sentiment, share of voice, and actionable recommendations in about 60 seconds.",
+            "description": "AI Brand Track is an AI visibility platform. It asks ChatGPT, Claude, Perplexity, and Google Gemini the questions your customers ask, shows how they rank your brand against competitors with a 0-100 visibility score, writes the fixes, and re-checks every week with an email report.",
             "featureList": [
-              "On-demand AI brand visibility analysis across ChatGPT, Claude, Perplexity, and Google Gemini",
+              "AI brand visibility analysis across ChatGPT, Claude, Perplexity, and Google Gemini",
+              "Weekly automatic checks with an email report",
               "Competitor analysis and ranking comparison",
-              "Strategic insights and actionable recommendations",
-              "AI search optimization (AEO) guidance",
-              "Generative engine optimization (GEO) tools",
-              "Brand health scoring and trend tracking",
-              "Multi-platform AI monitoring dashboard",
-              "Prompt response analysis and quality scoring"
+              "Every AI answer word for word, with the sources it cited",
+              "Done-for-you fixes (Boost actions): FAQ, comparison and page content",
+              "AI search optimization (AEO) and generative engine optimization (GEO) guidance"
             ],
             "screenshot": "https://www.aibrandtrack.com/opengraph-image",
             "softwareVersion": "2.0",
             "datePublished": "2025-01-01",
-            "dateModified": "2026-10-24",
+            "dateModified": "2026-10-29",
             "author": {
               "@type": "Organization",
               "name": "AI Brand Track"
@@ -143,7 +176,7 @@ export default function Home() {
         }}
       />
 
-      {/* Enhanced Organization Schema with MORE authority signals */}
+      {/* Organization */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -156,10 +189,10 @@ export default function Home() {
             "logo": {
               "@type": "ImageObject",
               "url": "https://www.aibrandtrack.com/logo-512.png",
-              "width": 250,
-              "height": 60
+              "width": 512,
+              "height": 512
             },
-            "description": "AI Brand Track is an AI brand visibility monitoring tool that helps businesses measure their presence across ChatGPT, Claude, Perplexity, and Google Gemini. Founded in 2025, it provides visibility scores, competitor comparisons, and strategic recommendations for AI search optimization (AEO) and generative engine optimization (GEO).",
+            "description": "AI Brand Track is an AI brand visibility platform that helps businesses measure and improve their presence across ChatGPT, Claude, Perplexity, and Google Gemini. Founded in 2025, it provides visibility scores, competitor comparisons, weekly monitoring and done-for-you fixes for AI search optimization (AEO) and generative engine optimization (GEO).",
             "foundingDate": "2025",
             "areaServed": {
               "@type": "Place",
@@ -195,7 +228,7 @@ export default function Home() {
         }}
       />
 
-      {/* FAQPage Schema (same questions as the visible FAQ) */}
+      {/* FAQPage (same questions as the visible FAQ) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -214,56 +247,34 @@ export default function Home() {
         }}
       />
 
-      {/* NEW: HowTo Schema for "How to track AI brand visibility" */}
+      {/* HowTo (same steps as the visible "What your assistant does") */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "HowTo",
-            "name": "How to Track Your Brand Visibility Across AI Platforms",
-            "description": "Learn how to monitor your brand presence on ChatGPT, Claude, Perplexity, and Google Gemini with AI Brand Track",
+            "name": "How AI Brand Track checks and improves your AI visibility",
+            "description": "Check whether ChatGPT, Claude, Perplexity, and Google Gemini recommend your business, and fix it, with AI Brand Track",
             "image": "https://www.aibrandtrack.com/opengraph-image",
-            "totalTime": "PT1M",
-            "estimatedCost": {
-              "@type": "MonetaryAmount",
-              "currency": "USD",
-              "value": "0"
-            },
             "tool": [
               {
                 "@type": "HowToTool",
                 "name": "AI Brand Track Platform"
               }
             ],
-            "step": [
-              {
-                "@type": "HowToStep",
-                "position": 1,
-                "name": "Enter Your Website URL",
-                "text": "Visit AI Brand Track and enter your website URL in the analysis form. The system will automatically extract your brand information, industry keywords, and relevant data.",
-                "url": "https://www.aibrandtrack.com/brand-monitor"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 2,
-                "name": "AI Platforms Analyze Your Brand",
-                "text": "AI Brand Track simultaneously queries ChatGPT, Claude, Perplexity, and Google Gemini with industry-relevant prompts to see how each platform ranks and mentions your brand.",
-                "url": "https://www.aibrandtrack.com/brand-monitor"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 3,
-                "name": "Review Your Results",
-                "text": "Access your comprehensive AI brand visibility report showing your score (0-100), competitor rankings, strategic insights, and specific recommendations to improve your AI presence.",
-                "url": "https://www.aibrandtrack.com/brand-monitor"
-              }
-            ]
+            "step": steps.map((s, i) => ({
+              "@type": "HowToStep",
+              "position": i + 1,
+              "name": s.title,
+              "text": s.text,
+              "url": "https://www.aibrandtrack.com/#how-it-works"
+            }))
           })
         }}
       />
 
-      {/* WebSite Schema */}
+      {/* WebSite */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -277,485 +288,209 @@ export default function Home() {
         }}
       />
 
-    <div className="min-h-screen bg-white">
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="inline-block mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-none border border-blue-200">
-                Track ChatGPT, Claude, Perplexity & Gemini
-              </span>
-            </div>
-
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
-              AI Brand Visibility
+      <Page>
+        {/* Hero: one headline, one box, one button */}
+        <section className="px-4 sm:px-6">
+          <div className="mx-auto flex max-w-[960px] flex-col items-center pb-20 pt-16 text-center sm:pt-28">
+            <p className="text-[16px] font-medium text-abt-ink-2">
+              AI Visibility Platform for ChatGPT, Claude, Perplexity &amp; Gemini
+            </p>
+            <h1 className="mt-5 font-abt-serif text-[length:var(--abt-text-display)] font-semibold leading-[1.04] tracking-[-0.03em] text-abt-ink">
+              Find out if <RotatingWord />
               <br />
-              <span className="text-blue-600">Monitoring</span>
+              recommends your business
             </h1>
-
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-              Track how AI platforms rank your brand. Get actionable insights in 60 seconds.
+            <p className="mt-7 max-w-[640px] text-[length:var(--abt-text-lead)] leading-[1.4] text-abt-ink-2">
+              <strong className="font-semibold text-abt-ink">An AI employee for your brand.</strong> It checks ChatGPT,
+              Claude, Perplexity and Gemini, writes the fixes and keeps watch every week.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              {session ? (
-                <Link
-                  href="/brand-monitor"
-                  className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
-                >
-                  Start Analysis
-                </Link>
-              ) : (
-                <PlanCheckoutLink
-                  productId="starter-monthly"
-                  className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-none border-2 border-blue-600 hover:border-blue-700 transition-colors"
-                  returnUrl="/"
-                >
-                  Start 14-day trial for $9
-                </PlanCheckoutLink>
-              )}
-              <Link
-                href="/plans"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-gray-900 bg-white hover:bg-gray-50 border-2 border-gray-300 rounded-none transition-colors"
-              >
-                View Pricing
+            <HeroForm className="mt-10 w-full max-w-[600px]" />
+            <p className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-1 text-[16px] text-abt-ink-2">
+              <span>
+                <strong className="font-semibold text-abt-ink">Start for $9</strong> · 14 days, then $39/month
+              </span>
+              <span>Not happy? Get your $9 back</span>
+              <Link href="/plans" className="font-semibold text-abt-ink underline underline-offset-4 hover:text-abt-accent">
+                All prices are public
               </Link>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
-              <span>✓ 14 days for $9</span>
-              <span>✓ 1 full analysis + weekly checks</span>
-              <span>✓ Then $39/month · cancel anytime</span>
-            </div>
-            <p className="mt-3 text-sm text-gray-500">Not happy? Get your $9 back.</p>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-1">4</div>
-              <div className="text-sm text-gray-600">AI Platforms</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-1">60s</div>
-              <div className="text-sm text-gray-600">Analysis Time</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-1">6</div>
-              <div className="text-sm text-gray-600">Competitors</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-1">0-100</div>
-              <div className="text-sm text-gray-600">Visibility Score</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              How It Works
-            </h2>
-            <p className="text-lg text-gray-600">
-              Three simple steps to track your AI brand visibility
             </p>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-none flex items-center justify-center text-xl font-bold mx-auto mb-4 border-2 border-blue-600">1</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Enter Your URL</h3>
-              <p className="text-gray-600">
-                We automatically extract your brand and industry keywords
-              </p>
-            </div>
+        {/* Example report (sample data) */}
+        <section className="px-4 sm:px-6" aria-labelledby="sample-heading">
+          <figure className="mx-auto max-w-[960px]">
+            <div className="overflow-hidden rounded-abt-panel border border-abt-line bg-abt-sunk shadow-[var(--abt-shadow-pop)]">
+              <div className="flex items-center justify-between border-b border-abt-line bg-abt-surface px-5 py-4 sm:px-9">
+                <LogoLockup fontSize={18} />
+              </div>
+              <div className="px-5 pb-6 pt-8 sm:px-9 sm:pb-9">
+                <p className="text-[16px] text-abt-ink-2">Bellmont Furniture · bellmont.example · Example check</p>
+                <h2 id="sample-heading" className="mt-2 font-abt-serif text-[length:var(--abt-text-title)] font-semibold leading-[1.1] tracking-[-0.02em] text-abt-ink">
+                  Do AI assistants recommend you?
+                </h2>
 
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-none flex items-center justify-center text-xl font-bold mx-auto mb-4 border-2 border-blue-600">2</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">AI Analysis</h3>
-              <p className="text-gray-600">
-                We query ChatGPT, Claude, Perplexity, and Gemini simultaneously
-              </p>
-            </div>
+                <Card className="mt-6 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-12 sm:p-10">
+                  <div>
+                    <p className="text-[16px] font-semibold uppercase tracking-[var(--abt-eyebrow-tracking)] text-abt-ink-2">
+                      AI brand strength
+                    </p>
+                    <p className="mt-2 flex items-baseline gap-2">
+                      <span className="font-abt-serif text-[length:var(--abt-text-score)] font-medium leading-[0.9] tracking-[-0.04em] text-abt-ink">
+                        58
+                      </span>
+                      <span className="text-[18px] text-abt-ink-2">out of 100</span>
+                    </p>
+                  </div>
+                  <div>
+                    <p className="flex items-center gap-2 text-[18px] text-abt-ink-2">
+                      <StatusDot tone="mid" />
+                      <span className="text-[21px] font-bold text-abt-ink">OK</span> Up 6 points in 6 weeks
+                    </p>
+                    <p className="mt-4 text-[21px] leading-[1.45] text-abt-ink">
+                      ChatGPT and Perplexity mention you; Claude and Gemini don&apos;t.
+                    </p>
+                    <div className="mt-5 flex h-2.5 gap-1 overflow-hidden" aria-hidden>
+                      <span className="w-1/3 rounded-l-full bg-abt-accent" />
+                      <span className="relative w-1/3 bg-abt-track">
+                        <span className="absolute inset-y-0 left-0 w-[58%] bg-abt-accent" />
+                      </span>
+                      <span className="w-1/3 rounded-r-full bg-abt-track" />
+                    </div>
+                    <div className="mt-2 grid grid-cols-3 text-[16px] text-abt-ink-2">
+                      <span>Weak</span>
+                      <span className="font-semibold text-abt-ink">OK</span>
+                      <span>Strong</span>
+                    </div>
+                    <Link href="/methodology" className={abtButton({ variant: "link", className: "mt-5 text-[16px]" })}>
+                      How we measure
+                    </Link>
+                  </div>
+                </Card>
 
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-none flex items-center justify-center text-xl font-bold mx-auto mb-4 border-2 border-blue-600">3</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Get Insights</h3>
-              <p className="text-gray-600">
-                Receive visibility scores, rankings, and strategic recommendations
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why It Matters */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Why AI Brand Visibility Matters in 2026
-          </h2>
-          <p className="text-lg text-gray-600 mb-6">
-            More and more buyers ask AI assistants like ChatGPT, Claude, Perplexity, and Google Gemini for recommendations before they buy. When someone asks "What are the best [your category] tools?", the answer usually names only a handful of brands. If you're not one of them, that buyer may never hear of you.
-          </p>
-          <p className="text-lg text-gray-600">
-            AI Brand Track helps you monitor your visibility across ChatGPT (OpenAI), Claude (Anthropic), Perplexity AI, and Google Gemini. Track your rankings, compare against competitors, and get strategic recommendations to improve your AI search presence through AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization).
-          </p>
-        </div>
-      </section>
-
-      {/* Customer reviews from AlternativeTo */}
-      <ReviewsSection />
-
-      {/* Pricing */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-gray-900">
-              Choose Your Pricing Plan
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-              Flexible pricing options to fit your needs. Pay-as-you-go credits or monthly subscriptions.
-            </p>
-          </div>
-
-          {/* One-Time Credit Plans Section */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Pay-As-You-Go Plans
-              </h3>
-              <p className="text-lg text-gray-600">
-                One-time purchases. Credits never expire. No subscriptions.
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
-              {/* Single Analysis */}
-              <div className="bg-white p-8 border-2 border-blue-600 relative rounded-none">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1.5 text-sm font-semibold rounded-none border-2 border-blue-600">
-                  Most Popular
-                </div>
-                <h4 className="text-2xl font-bold mb-2 text-gray-900">Single Analysis</h4>
-                <p className="text-gray-600 mb-6">One-time purchase</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">$49</span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    53 credits (~4 full analyses)
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Credits never expire
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Competitor scraping included (0 credits)
-                  </li>
+                <ul className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+                  {sampleAssistants.map((a) => (
+                    <li key={a.name} className="rounded-abt-tile border border-abt-line bg-abt-surface p-5">
+                      <p className="text-[19px] font-bold text-abt-ink">{a.name}</p>
+                      <p className="mt-2 flex items-center gap-2 text-[17px] text-abt-ink">
+                        <StatusDot tone={a.tone} />
+                        {a.verdict}
+                      </p>
+                      <p className="mt-2 text-[16px] text-abt-ink-2">Named in {a.named} of 24 answers</p>
+                    </li>
+                  ))}
                 </ul>
-                <PlanCheckoutLink
-                  productId="single-analysis"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-none border-2 border-blue-600 hover:border-blue-700"
-                  returnUrl="/"
-                >
-                  Buy Now
-                </PlanCheckoutLink>
-              </div>
-
-              {/* Credit Pack */}
-              <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-                <h4 className="text-2xl font-bold mb-2 text-gray-900">Credit Pack</h4>
-                <p className="text-gray-600 mb-6">Best value</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">$149</span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    220 credits (20 full analyses)
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Save 25% vs Single Analysis
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Priority support
-                  </li>
-                </ul>
-                <PlanCheckoutLink
-                  productId="credit-pack"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                  returnUrl="/"
-                >
-                  Buy Now
-                </PlanCheckoutLink>
               </div>
             </div>
+            <figcaption className="mt-4 text-center text-[16px] text-abt-ink-2">Example report (sample data)</figcaption>
+          </figure>
+        </section>
+
+        {/* Price + how we measure */}
+        <section className="px-4 pt-24 sm:px-6">
+          <div className="mx-auto grid max-w-[960px] gap-4 md:grid-cols-2">
+            <Card className="sm:p-10">
+              <Eyebrow className="text-abt-ink-2">Price</Eyebrow>
+              <Title className="mt-4 text-[length:clamp(30px,4cqi,44px)] leading-[1.12]">Start for $9</Title>
+              <Body className="mt-4 text-[19px] text-abt-ink">14 days, then $39/month.</Body>
+              <Body className="mt-2">Not happy? Get your $9 back.</Body>
+              <Link href="/plans" className={abtButton({ variant: "link", className: "mt-6 text-[18px]" })}>
+                All prices are public
+              </Link>
+            </Card>
+            <Card className="sm:p-10">
+              <Eyebrow className="text-abt-ink-2">How we measure</Eyebrow>
+              <Title className="mt-4 text-[length:clamp(30px,4cqi,44px)] leading-[1.12]">Nothing hidden. Every step is written down.</Title>
+              <Body className="mt-4">
+                The questions we ask, how often we ask them, and how the 0 to 100 score is worked out are all public. You
+                can check our work.
+              </Body>
+              <Link href="/methodology" className={abtButton({ variant: "link", className: "mt-6 text-[18px]" })}>
+                Read the methodology
+              </Link>
+            </Card>
           </div>
+        </section>
 
-          {/* Monthly Subscription Plans Section */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Monthly Subscription Plans
-              </h3>
-              <p className="text-lg text-gray-600">
-                Recurring monthly plans with automatic credit allocation and advanced features.
-              </p>
-            </div>
-
-            <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-              {/* Starter Plan */}
-              <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-                <h4 className="text-2xl font-bold mb-2 text-gray-900">Starter</h4>
-                <p className="text-gray-600 mb-6">Perfect for individuals</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">$9</span>
-                  <span className="text-gray-600 text-lg ml-2">for 14 days</span>
-                  <p className="text-sm text-gray-600 mt-2">Trial: 1 full analysis + weekly checks of 1 brand</p>
-                  <p className="text-sm text-gray-600 mt-1">Then $39/month · cancel anytime</p>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    53 credits/month (~4 analyses)
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    1 project & 1 brand
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Competitor scraping included (0 credits)
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Basic tracking features
-                  </li>
-                </ul>
-                <PlanCheckoutLink
-                  productId="starter-monthly"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                  returnUrl="/"
-                >
-                  Start 14-day trial for $9
-                </PlanCheckoutLink>
-                <p className="text-xs text-gray-500 mt-3 text-center">Not happy? Get your $9 back.</p>
-              </div>
-
-              {/* Pro Plan */}
-              <div className="bg-white p-8 border-2 border-blue-600 relative rounded-none">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1.5 text-sm font-semibold rounded-none border-2 border-blue-600">
-                  Recommended
-                </div>
-                <h4 className="text-2xl font-bold mb-2 text-gray-900">Pro</h4>
-                <p className="text-gray-600 mb-6">For growing businesses</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">$69</span>
-                  <span className="text-gray-600 text-lg ml-2">/month</span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    154 credits/month (~14 analyses)
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Unlimited projects & brands
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Competitor scraping included (0 credits)
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Advanced tracking features
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Keyword data via DataForSEO
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Priority support
-                  </li>
-                </ul>
-                <PlanCheckoutLink
-                  productId="pro-monthly"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-none border-2 border-blue-600 hover:border-blue-700"
-                  returnUrl="/"
-                >
-                  Subscribe
-                </PlanCheckoutLink>
-              </div>
-
-              {/* Enterprise Plan */}
-              <div className="bg-white p-8 border-2 border-gray-200 transition-colors hover:border-gray-300 rounded-none">
-                <h4 className="text-2xl font-bold mb-2 text-gray-900">Enterprise</h4>
-                <p className="text-gray-600 mb-6">For large organizations</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">Custom</span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Unlimited credits
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Unlimited projects & brands
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    All tracking features
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Custom prompt sets
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Saved analysis history
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Dedicated support
-                  </li>
-                </ul>
-                <Link
-                  href="mailto:support@aibrandtrack.com?subject=Enterprise%20Plan%20Inquiry"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:bg-gray-50 transition-colors rounded-none"
-                >
-                  Contact Sales
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Info Section */}
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">How Credits Work</h3>
-            <div className="bg-white rounded-none p-6 mb-6 border-2 border-gray-200">
-              <div className="grid md:grid-cols-3 gap-4 text-left">
-                <div className="text-center p-4">
-                  <div className="text-2xl font-bold text-blue-600 mb-1">1 credit</div>
-                  <div className="text-sm text-gray-600">Website extraction</div>
-                </div>
-                <div className="text-center p-4">
-                  <div className="text-2xl font-bold text-green-600 mb-1">0 credits</div>
-                  <div className="text-sm text-gray-600">Competitor scraping</div>
-                </div>
-                <div className="text-center p-4">
-                  <div className="text-2xl font-bold text-blue-600 mb-1">10 credits</div>
-                  <div className="text-sm text-gray-600">Full AI analysis</div>
-                </div>
-              </div>
-              <div className="border-t border-gray-200 mt-4 pt-4">
-                <div className="text-lg font-semibold text-gray-900">
-                  Total: 11 credits per complete brand analysis
-                </div>
-              </div>
-            </div>
-            <p className="text-gray-600">
-              Pay-as-you-go credits never expire. Buy once, use anytime. No hidden fees.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              FAQ
-            </h2>
-          </div>
-
-          <div className="space-y-3">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white border-2 border-gray-200 rounded-none overflow-hidden">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  aria-expanded={openFaq === index}
-                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                >
-                  <h3 className="text-base font-semibold text-gray-900 pr-4">
-                    {faq.q}
-                  </h3>
-                  <svg
-                    className={`w-5 h-5 text-gray-500 transition-transform flex-shrink-0 ${openFaq === index ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {/* Always in the HTML so crawlers can read every answer; hidden until opened */}
-                <div className={`px-6 py-4 border-t border-gray-200 ${openFaq === index ? '' : 'hidden'}`}>
-                  <p className="text-sm text-gray-600">
-                    {faq.a}
-                  </p>
-                </div>
-              </div>
+        {/* What the assistant does (HowTo) */}
+        <section id="how-it-works" className="px-4 pt-24 sm:px-6" aria-label="What your AI employee does">
+          <ul className="mx-auto grid max-w-[960px] gap-10 md:grid-cols-3 md:gap-12">
+            {steps.map((s) => (
+              <li key={s.title}>
+                <ItemTitle>{s.title}</ItemTitle>
+                <Body className="mt-3">{s.text}</Body>
+              </li>
             ))}
+          </ul>
+        </section>
+
+        {/* Reviews we can verify */}
+        <section className="px-4 pt-24 sm:px-6" aria-labelledby="reviews-heading">
+          <div className="mx-auto max-w-[960px]">
+            <Title id="reviews-heading" className="text-[length:clamp(30px,4cqi,44px)] leading-[1.12]">What customers say</Title>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {reviews.map((r) => (
+                <Card as="figure" key={r.author}>
+                  <blockquote className="font-abt-serif text-[23px] font-medium leading-[1.35] text-abt-ink">
+                    &ldquo;{r.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-5 text-[16px] text-abt-ink-2">
+                    <span className="font-semibold text-abt-ink">{r.author}</span> · {r.rating} out of 5 ·{" "}
+                    <a href={ALTERNATIVETO_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-abt-ink">
+                      on AlternativeTo
+                    </a>
+                  </figcaption>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* Agencies: honest, coming soon */}
+        <section id="agencies" className="scroll-mt-8 px-4 pt-24 sm:px-6" aria-labelledby="agencies-heading">
+          <div className="mx-auto grid max-w-[960px] gap-6 border-t border-abt-divider pt-16 md:grid-cols-2 md:gap-16">
+            <div>
+              <Eyebrow className="text-abt-ink-2">Coming soon</Eyebrow>
+              <Title id="agencies-heading" className="mt-4 text-[length:clamp(30px,4cqi,44px)] leading-[1.12]">
+                For agencies: your logo, your clients, reports sent for you
+              </Title>
+            </div>
+            <div className="md:pt-10">
+              <Body>
+                We&apos;re building it now with a few agencies: every client checked each week and sent a report with your
+                logo, and prospect reports you order in one sentence, like &ldquo;Check inkpath.example and send it to
+                anna@inkpath.example with our logo&rdquo;.
+              </Body>
+              <a
+                href="mailto:support@aibrandtrack.com?subject=Agency%20design%20partner"
+                className={abtButton({ variant: "link", className: "mt-6 text-[18px]" })}
+              >
+                Shape it with us
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ: answers stay in the HTML for crawlers; <details> opens them */}
+        <section className="px-4 pb-24 pt-24 sm:px-6" aria-labelledby="faq-heading">
+          <div className="mx-auto max-w-[720px]">
+            <Title id="faq-heading" className="text-[length:clamp(30px,4cqi,44px)] leading-[1.12]">Questions</Title>
+            <div className="mt-8 border-t border-abt-divider">
+              {faqs.map((faq, i) => (
+                <details key={faq.q} open={i === 0} className="group border-b border-abt-divider">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-[19px] font-semibold text-abt-ink [&::-webkit-details-marker]:hidden">
+                    <h3>{faq.q}</h3>
+                    <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5 shrink-0 text-abt-ink transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </summary>
+                  <p className="pb-6 text-[18px] leading-[1.6] text-abt-ink-2">{faq.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Page>
     </>
   );
 }

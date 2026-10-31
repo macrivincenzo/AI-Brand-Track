@@ -48,6 +48,7 @@ import { DataExportButton } from './data-export-button';
 
 // Hooks
 import { useSSEHandler } from './hooks/use-sse-handler';
+import { clearPendingUrl } from '@/lib/pending-url';
 
 export const BRAND_MONITOR_DRAFT_KEY = 'brand-monitor-draft';
 
@@ -64,6 +65,8 @@ interface BrandMonitorProps {
   onSaveAnalysis?: (analysis: any) => void;
   /** Restore from sessionStorage draft so refresh keeps user on company/competitors step */
   initialDraft?: BrandMonitorDraft | null;
+  /** Website typed on the homepage; prefilled into the URL field once */
+  initialUrl?: string | null;
 }
 
 export function BrandMonitor({ 
@@ -71,7 +74,8 @@ export function BrandMonitor({
   onCreditsUpdate,
   selectedAnalysis,
   onSaveAnalysis,
-  initialDraft = null
+  initialDraft = null,
+  initialUrl = null
 }: BrandMonitorProps) {
   const [state, dispatch] = useReducer(brandMonitorReducer, initialBrandMonitorState);
   const [demoUrl] = useState('example.com');
@@ -225,7 +229,16 @@ export function BrandMonitor({
       dispatch({ type: 'SET_URL_VALID', payload: null });
     }
   }, [error]);
-  
+
+  // Prefill the website typed on the homepage (once), unless we're restoring a draft or showing a saved analysis
+  useEffect(() => {
+    if (initialUrl && !selectedAnalysis && !initialDraft?.company) {
+      handleUrlChange(initialUrl);
+    }
+    clearPendingUrl();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleScrape = useCallback(async () => {
     if (!url) {
       dispatch({ type: 'SET_ERROR', payload: 'Please enter a URL' });

@@ -291,21 +291,26 @@ export default function Home() {
       <Page>
         {/* Hero: one headline, one box, one button */}
         <section className="px-4 sm:px-6">
-          <div className="mx-auto flex max-w-[960px] flex-col items-center pb-20 pt-16 text-center sm:pt-28">
-            <p className="text-[16px] font-medium text-abt-ink-2">
-              AI Visibility Platform for ChatGPT, Claude, Perplexity &amp; Gemini
+          <div className="mx-auto flex max-w-[960px] flex-col items-center pb-20 pt-20 text-center sm:pt-28">
+            <p className="inline-flex items-center gap-2 rounded-full border border-abt-line bg-abt-surface px-4 py-2 text-[15px] font-medium text-abt-ink-2 sm:text-[16px]">
+              <span aria-hidden className="h-2 w-2 rounded-full bg-abt-accent" />
+              <span>
+                <span className="hidden sm:inline">AI Visibility Platform for </span>
+                <span className="sm:hidden">For </span>
+                ChatGPT, Claude, Perplexity &amp; Gemini
+              </span>
             </p>
-            <h1 className="mt-5 font-abt-serif text-[length:var(--abt-text-display)] font-semibold leading-[1.04] tracking-[-0.03em] text-abt-ink">
+            <h1 className="mt-7 font-abt-serif text-[length:clamp(36px,7cqi,76px)] font-semibold leading-[1.02] tracking-[-0.03em] text-abt-ink">
               Find out if <RotatingWord />
               <br />
               recommends your business
             </h1>
-            <p className="mt-7 max-w-[640px] text-[length:var(--abt-text-lead)] leading-[1.4] text-abt-ink-2">
+            <p className="mt-6 max-w-[640px] [text-wrap:balance] text-[18px] leading-[1.55] text-abt-ink-2 sm:text-[length:var(--abt-text-lead)] sm:leading-[1.4]">
               <strong className="font-semibold text-abt-ink">An AI employee for your brand.</strong> It checks ChatGPT,
               Claude, Perplexity and Gemini, writes the fixes and keeps watch every week.
             </p>
-            <HeroForm className="mt-10 w-full max-w-[600px]" />
-            <p className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-1 text-[16px] text-abt-ink-2">
+            <HeroForm className="mt-8 w-full max-w-[600px] sm:mt-10" />
+            <p className="mt-5 flex flex-col items-center gap-1 text-[16px] text-abt-ink-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-5">
               <span>
                 <strong className="font-semibold text-abt-ink">Start for $9</strong> · 14 days, then $39/month
               </span>
@@ -347,7 +352,7 @@ export default function Home() {
                       <StatusDot tone="mid" />
                       <span className="text-[21px] font-bold text-abt-ink">OK</span> Up 6 points in 6 weeks
                     </p>
-                    <p className="mt-4 text-[21px] leading-[1.45] text-abt-ink">
+                    <p className="mt-4 text-[19px] leading-[1.45] text-abt-ink sm:text-[21px]">
                       ChatGPT and Perplexity mention you; Claude and Gemini don&apos;t.
                     </p>
                     <div className="mt-5 flex h-2.5 gap-1 overflow-hidden" aria-hidden>
@@ -368,15 +373,23 @@ export default function Home() {
                   </div>
                 </Card>
 
-                <ul className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+                <ul className="mt-4 grid gap-2 lg:grid-cols-4 lg:gap-3">
                   {sampleAssistants.map((a) => (
-                    <li key={a.name} className="rounded-abt-tile border border-abt-line bg-abt-surface p-5">
-                      <p className="text-[19px] font-bold text-abt-ink">{a.name}</p>
-                      <p className="mt-2 flex items-center gap-2 text-[17px] text-abt-ink">
-                        <StatusDot tone={a.tone} />
-                        {a.verdict}
+                    <li
+                      key={a.name}
+                      className="flex items-center justify-between gap-4 rounded-abt-tile border border-abt-line bg-abt-surface px-5 py-4 lg:block lg:p-5"
+                    >
+                      <div>
+                        <p className="text-[18px] font-bold text-abt-ink lg:text-[19px]">{a.name}</p>
+                        <p className="mt-1 flex items-center gap-2 text-[16px] text-abt-ink lg:mt-2 lg:text-[17px]">
+                          <StatusDot tone={a.tone} />
+                          {a.verdict}
+                        </p>
+                      </div>
+                      <p className="shrink-0 text-[16px] text-abt-ink-2 lg:mt-2">
+                        <span className="lg:hidden">{a.named} of 24</span>
+                        <span className="hidden lg:inline">Named in {a.named} of 24 answers</span>
                       </p>
-                      <p className="mt-2 text-[16px] text-abt-ink-2">Named in {a.named} of 24 answers</p>
                     </li>
                   ))}
                 </ul>
@@ -431,7 +444,7 @@ export default function Home() {
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {reviews.map((r) => (
                 <Card as="figure" key={r.author}>
-                  <blockquote className="font-abt-serif text-[23px] font-medium leading-[1.35] text-abt-ink">
+                  <blockquote className="font-abt-serif text-[20px] font-medium leading-[1.4] text-abt-ink sm:text-[23px] sm:leading-[1.35]">
                     &ldquo;{r.quote}&rdquo;
                   </blockquote>
                   <figcaption className="mt-5 text-[16px] text-abt-ink-2">
@@ -457,9 +470,8 @@ export default function Home() {
             </div>
             <div className="md:pt-10">
               <Body>
-                We&apos;re building it now with a few agencies: every client checked each week and sent a report with your
-                logo, and prospect reports you order in one sentence, like &ldquo;Check inkpath.example and send it to
-                anna@inkpath.example with our logo&rdquo;.
+                We&apos;re building it with a few agencies: weekly client reports with your logo, and prospect reports
+                you order in one sentence.
               </Body>
               <a
                 href="mailto:support@aibrandtrack.com?subject=Agency%20design%20partner"
